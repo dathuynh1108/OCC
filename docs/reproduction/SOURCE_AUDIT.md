@@ -215,3 +215,60 @@ Full real-data MNIST smoke runs one AE epoch and one epoch of each objective and
 replays all10000 test scores exactly. These are execution tests, not benchmark rows.
 Initial MNIST timing: about0.22 seconds per SVDD epoch on5923 images,30 batches.
 This is a planning observation only; full native/controlled timing is still measured.
+
+DROCC full-data smoke:5000 normal images,40 optimizer batches,50 input ascent
+steps per batch; one epoch took11.53 seconds while a Deep SVDD process also ran.
+All10000 scores replayed with maxerror0 for both selection exports. Native30x100
+DROCC epochs alone therefore represent about9.6 observed GPU-process hours before
+I/O/overlap effects; this estimate is not a standalone inference latency result.
+CIFAR Deep smoke also passed both objectives on all10000 test images, replay0.
+No smoke AUROC was used to choose a class, configuration, epoch count or rerun.
+
+User's clarified presentation scope: the single common benchmark is MVTec AD,
+showing NBD and explicitly named shared-feature baselines on identical splits.
+Native dataset results appear with each method's reproduce slides. They are not
+merged into a cross-dataset model ranking.
+
+### Identifiable Tax--Duin historical target and remaining recovery gap
+
+The author-uploaded2004 article identifies Table2 (printed pp59-60), Gaussian
+SVDD on the three Iris classes, as a concrete historical target. It describes
+10-fold evaluation and choosing kernel width to produce approximately10% support
+vectors. The exact folds/seeds, width-search procedure/tolerance and complete
+numeric optimizer settings are not recovered in the current maintained toolbox.
+Those missing choices affect a tiny dataset substantially; we do not invent them
+and label an arbitrary Iris run a reproduced Table2 result. Historical numeric
+reproduction remains blocked; the independently checked QP and Ruff image-table
+Gaussian solver are separate targets.
+Source: https://www.researchgate.net/publication/226109293_Support_Vector_Data_Description
+(author-uploaded full text), Section3.2/Table2; bibliographic confirmation:
+https://research.tudelft.nl/en/publications/support-vector-data-description/.
+
+### User-authorized budget amendment (14 September 2026)
+
+The user subsequently asked to reduce epochs, rejected the ~10-hour schedule,
+and selected **about two hours remaining**. This direct request supersedes the
+full-epoch/no-truncation wording above and in the attached request. The original
+`run_plan.json` and its existing output remain preserved. New executions use
+`OCC_RUN_PLAN=run_plan_budgeted.json` and separate target/output identities.
+
+Native Deep SVDD: AE5 + SVDD12; original learning-rate milestones and ten-epoch
+soft-boundary warmup retained, so radius updates occur in the final two epochs.
+Native DROCC:5 epochs, still50 ascent steps/projection every10, source learning-rate
+fractions applied to5 epochs. Controlled heads: AE5, Deep15, DROCC15 (ten warmup
+plus five adversarial epochs). All selected datasets/classes/categories/seeds
+remain in the manifest. Any rows unfinished when the wall-clock budget expires
+are explicitly incomplete. No low scores trigger reruns or hyperparameter changes.
+These are reduced-epoch method replications, not full-schedule paper reproductions.
+
+PatchCore has no optimizer epochs and retains its complete10% coreset procedure.
+A separate real-image fixture now compares direct upstream `fit(DataLoader)` with
+cached fitting: selected indices, selected descriptors and post-selection NumPy,
+Torch and CUDA RNG states match exactly. The native cached implementation therefore
+preserves the source sampling path despite avoiding repeated CNN extraction.
+
+Shallow fixtures execute the extracted original MNIST/CIFAR split and test-holdout
+blocks with only explicit Python2 range/integer-division modernization. Six split
+and RNG cases pass, source PCA matches exactly, and an independent OSQP Gaussian
+SVDD dual matches normalized libsvm coefficients within1e-6. This confirms the
+modern solver/protocol adaptation; it does not execute MATLAB or reproduce Tax2004.
