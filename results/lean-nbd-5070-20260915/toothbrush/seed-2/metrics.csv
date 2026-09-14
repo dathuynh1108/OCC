@@ -1,0 +1,10 @@
+category,seed,method,auroc,average_precision,threshold,test_fpr,test_tpr,false_positives,true_positives,test_normal,test_anomaly,threshold_calibration_count,threshold_calibration_fpr
+toothbrush,2,PatchScore_same_centers,0.9694444444444444,0.9910569105691057,inf,0.0,0.0,0,0,12,30,12,0.0
+toothbrush,2,PatchScore_byte_budget,1.0,0.9999999999999999,inf,0.0,0.0,0,0,12,30,12,0.0
+toothbrush,2,RBF_SVDD,0.8694444444444445,0.9504361089994158,inf,0.0,0.0,0,0,12,30,12,0.0
+toothbrush,2,DeepSVDD_head,0.8083333333333333,0.9261402067214531,inf,0.0,0.0,0,0,12,30,12,0.0
+toothbrush,2,DROCC_head,0.49166666666666664,0.7066630591630593,inf,0.0,0.0,0,0,12,30,12,0.0
+toothbrush,2,Bubble_A,0.8527777777777779,0.9412303330907786,inf,0.0,0.0,0,0,12,30,12,0.0
+toothbrush,2,Bubble_B,0.8444444444444444,0.9397672258959352,inf,0.0,0.0,0,0,12,30,12,0.0
+toothbrush,2,Bubble_A+D,0.8027777777777778,0.9232836970655792,inf,0.0,0.0,0,0,12,30,12,0.0
+toothbrush,2,Bubble_B+D,0.775,0.9120754645968854,inf,0.0,0.0,0,0,12,30,12,0.0

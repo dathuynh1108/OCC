@@ -3,7 +3,9 @@ import gc
 import hashlib
 import json
 import platform
+import shutil
 import subprocess
+import sys
 import time
 from pathlib import Path
 
@@ -33,12 +35,15 @@ from .math import (
 )
 from .models import BubbleModel, KernelSVDD
 
-METHODS = [
+BASE_METHODS = [
     "PatchScore_same_centers",
     "PatchScore_byte_budget",
     "RBF_SVDD",
     "DeepSVDD_head",
     "DROCC_head",
+]
+
+METHODS = BASE_METHODS + [
     "Bubble_B",
     "Bubble_BA",
     "Bubble_BAD",
@@ -52,6 +57,28 @@ def write_json(path, value):
     temporary = Path(str(path) + ".tmp")
     temporary.write_text(text)
     temporary.replace(path)
+
+
+def write_package_freeze(path):
+    """Record the active environment even when it is managed by uv without pip."""
+    try:
+        frozen = subprocess.check_output(
+            [sys.executable, "-m", "pip", "freeze"], text=True, stderr=subprocess.DEVNULL
+        )
+    except subprocess.CalledProcessError:
+        uv = shutil.which("uv")
+        if uv is None:
+            raise RuntimeError("package freeze requires pip or uv")
+        frozen = subprocess.check_output(
+            [uv, "pip", "freeze", "--python", sys.executable], text=True
+        )
+    Path(path).write_text(frozen, encoding="utf-8")
+
+
+def score_method_names(cfg):
+    if cfg.get("score_protocol") == "lean_ad_bd":
+        return BASE_METHODS + ["Bubble_A", "Bubble_B", "Bubble_A+D", "Bubble_B+D"]
+    return METHODS
 
 
 def identity_hash(value):
@@ -91,6 +118,11 @@ def calibrated_variants(raw, cal, cfg):
         axis=-1,
     )
     b, a, d, f = np.moveaxis(parts, -1, 0)
+    if cfg.get("score_protocol") == "lean_ad_bd":
+        # Frame geometry is already encoded in the graph used by D.  It is
+        # intentionally not exposed as a second score or fusion term.
+        variants = np.stack([a, b, a + d, b + d], axis=-1)
+        return np.concatenate([raw[..., :5], variants], axis=-1)
     variants = np.stack(
         [
             b,
@@ -127,6 +159,7 @@ def metric_row(category, seed, method, labels, scores, threshold, threshold_scor
 
 def run_one(features, paths, cfg, category, seed, directory, protocol_identity, device):
     directory.mkdir(parents=True, exist_ok=True)
+    methods = score_method_names(cfg)
     identity = identity_hash(
         {"protocol": protocol_identity, "category": category, "seed": seed}
     )
@@ -227,7 +260,7 @@ def run_one(features, paths, cfg, category, seed, directory, protocol_identity, 
     thresholds = np.array(
         [
             normal_threshold(threshold_images[:, i], cfg["alpha"])
-            for i in range(len(METHODS))
+            for i in range(len(methods))
         ]
     )
     write_json(
@@ -240,7 +273,7 @@ def run_one(features, paths, cfg, category, seed, directory, protocol_identity, 
                 else "inf",
                 "heldout_normal_images": len(threshold_images),
             }
-            for i, method in enumerate(METHODS)
+            for i, method in enumerate(methods)
         },
     )
     # Test prediction happens only after the terminal models and all thresholds are fixed.
@@ -252,7 +285,7 @@ def run_one(features, paths, cfg, category, seed, directory, protocol_identity, 
     image_scores = image_score(test_maps.transpose(0, 2, 1), cfg["image_top_fraction"])
     labels = np.array([int(Path(p).parent.name != "good") for p in paths[count:]])
     rows, predictions = [], []
-    for i, method in enumerate(METHODS):
+    for i, method in enumerate(methods):
         rows.append(
             metric_row(
                 category,
@@ -345,7 +378,7 @@ def run_one(features, paths, cfg, category, seed, directory, protocol_identity, 
         "csv_auroc_recomputed": True,
         "all_epoch_patch_counts_verified": True,
         "test_images": len(labels),
-        "methods": METHODS,
+        "methods": methods,
         "seconds": time.time() - started,
         "deep": deep_diagnostics,
         "drocc": drocc_diagnostics,
@@ -394,11 +427,7 @@ def main():
         "seed_protocol": cfg["seeds"],
     }
     write_json(out / "environment.json", environment)
-    (out / "pip-freeze.txt").write_text(
-        subprocess.check_output(
-            [__import__("sys").executable, "-m", "pip", "freeze"], text=True
-        )
-    )
+    write_package_freeze(out / "pip-freeze.txt")
     print("Inspecting full original dataset and hashing every image/mask", flush=True)
     dataset = inspect_dataset(Path(args.data), cfg["categories"])
     write_json(out / "dataset_manifest.json", dataset)

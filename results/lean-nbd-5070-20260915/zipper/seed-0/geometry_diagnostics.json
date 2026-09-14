@@ -1,0 +1,27 @@
+{
+  "nbd": {
+    "bubbles": 128,
+    "descriptor_dimension": 1536,
+    "fit_patches": 112896,
+    "minimum_edge_weight": 0.0006859694220567391,
+    "near_unit_eigenvalues": 0,
+    "rank": 16,
+    "tau_center": 8.8223876953125,
+    "tau_frame": 23.232288360595703
+  },
+  "nbd_geometry_bytes": 13902856,
+  "patchscore_geometry_bytes": 13897728,
+  "patchscore_memory_vectors": 2262,
+  "shared_backbone_and_component_calibration_excluded": true,
+  "svdd": {
+    "alpha_sum": 0.9999999999999882,
+    "dual_residual": 4.9850435563209857e-14,
+    "free_support_vectors": 38,
+    "iterations": 950,
+    "primal_residual": 1.1626551561941012e-14,
+    "seconds": 4.87050461769104,
+    "status": "solved",
+    "support_training_count": 2048
+  },
+  "svdd_support_vectors_for_fit": 2048
+}

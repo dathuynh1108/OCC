@@ -16,6 +16,48 @@ from nbdbench.math import (
     image_score,
     normal_threshold,
 )
+from nbdbench.run import calibrated_variants, score_method_names, write_package_freeze
+from nbdbench.lean_report import comparison_pairs
+
+
+def test_write_package_freeze_supports_uv_managed_environment(tmp_path):
+    destination = tmp_path / "packages.txt"
+
+    write_package_freeze(destination)
+
+    packages = destination.read_text(encoding="utf-8")
+    assert any(line.startswith("torch") for line in packages.splitlines())
+
+
+def test_lean_score_protocol_emits_only_a_plus_d_and_b_plus_d():
+    raw = np.zeros((1, 2, 9), dtype=np.float64)
+    calibration = np.zeros((2, 2, 9), dtype=np.float64)
+    raw[..., 5] = [1.0, 2.0]  # B
+    raw[..., 6] = [3.0, 4.0]  # A
+    raw[..., 7] = [5.0, 6.0]  # D
+    calibration[..., 5] = [0.0, 1.0]
+    calibration[..., 6] = [0.0, 3.0]
+    calibration[..., 7] = [0.0, 5.0]
+    cfg = {"score_protocol": "lean_ad_bd"}
+
+    variants = calibrated_variants(raw, calibration, cfg)
+
+    a = empirical_tail(raw[..., 6], calibration[..., 6].reshape(-1))
+    b = empirical_tail(raw[..., 5], calibration[..., 5].reshape(-1))
+    d = empirical_tail(raw[..., 7], calibration[..., 7].reshape(-1))
+    assert score_method_names(cfg)[-4:] == ["Bubble_A", "Bubble_B", "Bubble_A+D", "Bubble_B+D"]
+    assert variants.shape == (1, 2, 9)
+    np.testing.assert_allclose(variants[..., 5], a)
+    np.testing.assert_allclose(variants[..., 6], b)
+    np.testing.assert_allclose(variants[..., 7], a + d)
+    np.testing.assert_allclose(variants[..., 8], b + d)
+
+
+def test_lean_report_compares_each_final_score_to_its_own_component():
+    assert comparison_pairs({"score_protocol": "lean_ad_bd"}) == [
+        ("Bubble_A+D", "Bubble_A"),
+        ("Bubble_B+D", "Bubble_B"),
+    ]
 from nbdbench.models import BubbleModel, KernelSVDD
 from nbdbench.run import METHODS, calibrated_variants
 

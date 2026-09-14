@@ -1,0 +1,26 @@
+{
+  "comparison_pairs": [
+    [
+      "Bubble_A+D",
+      "Bubble_A"
+    ],
+    [
+      "Bubble_B+D",
+      "Bubble_B"
+    ]
+  ],
+  "methods": [
+    "PatchScore_same_centers",
+    "PatchScore_byte_budget",
+    "RBF_SVDD",
+    "DeepSVDD_head",
+    "DROCC_head",
+    "Bubble_A",
+    "Bubble_B",
+    "Bubble_A+D",
+    "Bubble_B+D"
+  ],
+  "metric_rows": 405,
+  "runs": 45,
+  "status": "passed"
+}
