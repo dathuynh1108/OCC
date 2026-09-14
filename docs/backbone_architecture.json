@@ -1,0 +1,17 @@
+{
+  "model": "wide_resnet50_2",
+  "weights": "IMAGENET1K_V1",
+  "parameter_count": 68883240,
+  "base_width": 128,
+  "layer_blocks": [
+    3,
+    4,
+    6,
+    3
+  ],
+  "first_bottleneck_width": 128,
+  "parameter_dtypes": [
+    "torch.float32"
+  ],
+  "checkpoint_file_bytes": 138223492
+}

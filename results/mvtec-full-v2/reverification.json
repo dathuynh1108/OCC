@@ -1,0 +1,818 @@
+{
+  "checkpoint_replay": [
+    {
+      "category": "bottle",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "calibration"
+    },
+    {
+      "category": "bottle",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "threshold"
+    },
+    {
+      "category": "bottle",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "test"
+    },
+    {
+      "category": "bottle",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "calibration"
+    },
+    {
+      "category": "bottle",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "threshold"
+    },
+    {
+      "category": "bottle",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "test"
+    },
+    {
+      "category": "bottle",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "calibration"
+    },
+    {
+      "category": "bottle",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "threshold"
+    },
+    {
+      "category": "bottle",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "test"
+    },
+    {
+      "category": "cable",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "calibration"
+    },
+    {
+      "category": "cable",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "threshold"
+    },
+    {
+      "category": "cable",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "test"
+    },
+    {
+      "category": "cable",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "calibration"
+    },
+    {
+      "category": "cable",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "threshold"
+    },
+    {
+      "category": "cable",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "test"
+    },
+    {
+      "category": "cable",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "calibration"
+    },
+    {
+      "category": "cable",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "threshold"
+    },
+    {
+      "category": "cable",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "test"
+    },
+    {
+      "category": "capsule",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "calibration"
+    },
+    {
+      "category": "capsule",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "threshold"
+    },
+    {
+      "category": "capsule",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "test"
+    },
+    {
+      "category": "capsule",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "calibration"
+    },
+    {
+      "category": "capsule",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "threshold"
+    },
+    {
+      "category": "capsule",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "test"
+    },
+    {
+      "category": "capsule",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "calibration"
+    },
+    {
+      "category": "capsule",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "threshold"
+    },
+    {
+      "category": "capsule",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "test"
+    },
+    {
+      "category": "carpet",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "calibration"
+    },
+    {
+      "category": "carpet",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "threshold"
+    },
+    {
+      "category": "carpet",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "test"
+    },
+    {
+      "category": "carpet",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "calibration"
+    },
+    {
+      "category": "carpet",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "threshold"
+    },
+    {
+      "category": "carpet",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "test"
+    },
+    {
+      "category": "carpet",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "calibration"
+    },
+    {
+      "category": "carpet",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "threshold"
+    },
+    {
+      "category": "carpet",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "test"
+    },
+    {
+      "category": "grid",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "calibration"
+    },
+    {
+      "category": "grid",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "threshold"
+    },
+    {
+      "category": "grid",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "test"
+    },
+    {
+      "category": "grid",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "calibration"
+    },
+    {
+      "category": "grid",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "threshold"
+    },
+    {
+      "category": "grid",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "test"
+    },
+    {
+      "category": "grid",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "calibration"
+    },
+    {
+      "category": "grid",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "threshold"
+    },
+    {
+      "category": "grid",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "test"
+    },
+    {
+      "category": "hazelnut",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "calibration"
+    },
+    {
+      "category": "hazelnut",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "threshold"
+    },
+    {
+      "category": "hazelnut",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "test"
+    },
+    {
+      "category": "hazelnut",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "calibration"
+    },
+    {
+      "category": "hazelnut",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "threshold"
+    },
+    {
+      "category": "hazelnut",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "test"
+    },
+    {
+      "category": "hazelnut",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "calibration"
+    },
+    {
+      "category": "hazelnut",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "threshold"
+    },
+    {
+      "category": "hazelnut",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "test"
+    },
+    {
+      "category": "leather",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "calibration"
+    },
+    {
+      "category": "leather",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "threshold"
+    },
+    {
+      "category": "leather",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "test"
+    },
+    {
+      "category": "leather",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "calibration"
+    },
+    {
+      "category": "leather",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "threshold"
+    },
+    {
+      "category": "leather",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "test"
+    },
+    {
+      "category": "leather",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "calibration"
+    },
+    {
+      "category": "leather",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "threshold"
+    },
+    {
+      "category": "leather",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "test"
+    },
+    {
+      "category": "metal_nut",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "calibration"
+    },
+    {
+      "category": "metal_nut",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "threshold"
+    },
+    {
+      "category": "metal_nut",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "test"
+    },
+    {
+      "category": "metal_nut",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "calibration"
+    },
+    {
+      "category": "metal_nut",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "threshold"
+    },
+    {
+      "category": "metal_nut",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "test"
+    },
+    {
+      "category": "metal_nut",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "calibration"
+    },
+    {
+      "category": "metal_nut",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "threshold"
+    },
+    {
+      "category": "metal_nut",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "test"
+    },
+    {
+      "category": "pill",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "calibration"
+    },
+    {
+      "category": "pill",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "threshold"
+    },
+    {
+      "category": "pill",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "test"
+    },
+    {
+      "category": "pill",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "calibration"
+    },
+    {
+      "category": "pill",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "threshold"
+    },
+    {
+      "category": "pill",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "test"
+    },
+    {
+      "category": "pill",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "calibration"
+    },
+    {
+      "category": "pill",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "threshold"
+    },
+    {
+      "category": "pill",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "test"
+    },
+    {
+      "category": "screw",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "calibration"
+    },
+    {
+      "category": "screw",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "threshold"
+    },
+    {
+      "category": "screw",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "test"
+    },
+    {
+      "category": "screw",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "calibration"
+    },
+    {
+      "category": "screw",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "threshold"
+    },
+    {
+      "category": "screw",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "test"
+    },
+    {
+      "category": "screw",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "calibration"
+    },
+    {
+      "category": "screw",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "threshold"
+    },
+    {
+      "category": "screw",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "test"
+    },
+    {
+      "category": "tile",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "calibration"
+    },
+    {
+      "category": "tile",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "threshold"
+    },
+    {
+      "category": "tile",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "test"
+    },
+    {
+      "category": "tile",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "calibration"
+    },
+    {
+      "category": "tile",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "threshold"
+    },
+    {
+      "category": "tile",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "test"
+    },
+    {
+      "category": "tile",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "calibration"
+    },
+    {
+      "category": "tile",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "threshold"
+    },
+    {
+      "category": "tile",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "test"
+    },
+    {
+      "category": "toothbrush",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "calibration"
+    },
+    {
+      "category": "toothbrush",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "threshold"
+    },
+    {
+      "category": "toothbrush",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "test"
+    },
+    {
+      "category": "toothbrush",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "calibration"
+    },
+    {
+      "category": "toothbrush",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "threshold"
+    },
+    {
+      "category": "toothbrush",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "test"
+    },
+    {
+      "category": "toothbrush",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "calibration"
+    },
+    {
+      "category": "toothbrush",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "threshold"
+    },
+    {
+      "category": "toothbrush",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "test"
+    },
+    {
+      "category": "transistor",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "calibration"
+    },
+    {
+      "category": "transistor",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "threshold"
+    },
+    {
+      "category": "transistor",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "test"
+    },
+    {
+      "category": "transistor",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "calibration"
+    },
+    {
+      "category": "transistor",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "threshold"
+    },
+    {
+      "category": "transistor",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "test"
+    },
+    {
+      "category": "transistor",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "calibration"
+    },
+    {
+      "category": "transistor",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "threshold"
+    },
+    {
+      "category": "transistor",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "test"
+    },
+    {
+      "category": "wood",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "calibration"
+    },
+    {
+      "category": "wood",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "threshold"
+    },
+    {
+      "category": "wood",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "test"
+    },
+    {
+      "category": "wood",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "calibration"
+    },
+    {
+      "category": "wood",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "threshold"
+    },
+    {
+      "category": "wood",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "test"
+    },
+    {
+      "category": "wood",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "calibration"
+    },
+    {
+      "category": "wood",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "threshold"
+    },
+    {
+      "category": "wood",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "test"
+    },
+    {
+      "category": "zipper",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "calibration"
+    },
+    {
+      "category": "zipper",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "threshold"
+    },
+    {
+      "category": "zipper",
+      "max_absolute_error": 0.0,
+      "seed": 0,
+      "split": "test"
+    },
+    {
+      "category": "zipper",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "calibration"
+    },
+    {
+      "category": "zipper",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "threshold"
+    },
+    {
+      "category": "zipper",
+      "max_absolute_error": 0.0,
+      "seed": 1,
+      "split": "test"
+    },
+    {
+      "category": "zipper",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "calibration"
+    },
+    {
+      "category": "zipper",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "threshold"
+    },
+    {
+      "category": "zipper",
+      "max_absolute_error": 0.0,
+      "seed": 2,
+      "split": "test"
+    }
+  ],
+  "metric_rows": 450,
+  "regenerated_full_CNN_cache": true,
+  "runs": 45,
+  "status": "passed"
+}

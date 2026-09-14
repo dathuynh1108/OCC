@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "prediction_rows": 51750,
+  "metric_rows": 450,
+  "summary_rows": 10,
+  "implementation": "Python standard library; tied-rank AUROC and threshold-group AP",
+  "checked": [
+    "all original test paths and labels",
+    "no duplicate predictions",
+    "AUROC",
+    "AP",
+    "thresholds",
+    "confusion counts",
+    "FPR",
+    "TPR",
+    "equal-category seed macro means",
+    "sample SD across seeds"
+  ]
+}

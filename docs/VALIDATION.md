@@ -31,3 +31,38 @@ skips, two OSQP PendingDeprecationWarnings, in 4.93 s. Ruff and shell checks pas
 A separate normal-training-only numerical preflight also passed for toothbrush
 and transistor, including local PCA rank 16 and positive DROCC radii. These checks
 are not counted as benchmark fits or scores.
+
+## Independent exported-table audit
+
+`scripts/audit_published_results.py` implements tied-rank AUROC and grouped-threshold
+AP using the Python standard library. Its metric calculation matched scikit-learn
+to 1e-12 on 13 synthetic fixtures: tied, constant, unique, perfect and reversed
+scores, with 2 to 1000 observations. These are checks of the audit implementation,
+separate from the 17 benchmark equation/regression tests. The full exported-data
+audit is recorded only after all final predictions are available.
+
+## Completed full-v2 evidence
+
+All 45 category/seed runs completed. The final report verified 450 metric rows,
+all saved artifact hashes and every prescribed epoch. The separate GPU replay
+regenerated all 15 complete CNN feature caches and rescored 135 calibration,
+threshold and test groups; maximum absolute score error was **0.0**.
+
+`python3 scripts/audit_published_results.py results/mvtec-full-v2` passed all
+51,750 prediction rows, 450 metric rows and ten summary rows, including original
+test path/label coverage, AUROC/AP, threshold decisions, confusion counts and
+category-macro mean/sample SD. The 11,250 history rows account for 1,278,312,000
+normal patch presentations and 162,750 optimizer steps across AE/SVDD/DROCC.
+
+The original dataset archive, executed Python source, configuration, backbone and
+all completed per-run artifacts were copied locally and hash-verified before
+stopping the GPU. Vast.ai reported `cur_state=stopped`, `actual_status=exited`
+and `intended_status=stopped` at 2026-09-14T06:23:35.982472+00:00.
+
+All five published PNGs were inspected visually. The supplemental category
+heatmap uses the full 0–100 AUROC color scale; its source CSV hash and display
+settings are recorded beside it. It changes no score values. Ruff and
+`git diff --check` passed on the final source/document changes.
+
+See [the published evidence](../results/mvtec-full-v2/) for the machine-readable
+verification files, independent audit, shutdown state and artifact manifests.

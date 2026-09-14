@@ -1,0 +1,15 @@
+{
+  "cuda_runtime": "12.8",
+  "gpu": "NVIDIA GeForce RTX 3090 Ti",
+  "gpu_memory": 25285623808,
+  "precision": "float32 CNN/heads; float64 local PCA/graph eigensolver/kernel QP",
+  "python": "3.12.14",
+  "seed_protocol": [
+    0,
+    1,
+    2
+  ],
+  "tf32": false,
+  "torch": "2.11.0+cu128",
+  "torchvision": "0.26.0+cu128"
+}
