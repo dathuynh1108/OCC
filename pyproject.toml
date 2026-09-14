@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nbdbench"
+version = "0.1.0"
+description = "Auditable shared-CNN-feature NBD anomaly detection benchmark"
+requires-python = ">=3.12"
+dependencies = ["numpy", "scipy", "torch", "torchvision", "scikit-learn", "osqp", "pandas", "matplotlib", "pillow"]
+
+[tool.setuptools.packages.find]
+include = ["nbdbench*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

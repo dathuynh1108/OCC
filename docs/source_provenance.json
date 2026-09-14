@@ -1,0 +1,41 @@
+{
+  "retrieved_at_utc": "2026-09-14T04:24:23.197722+00:00",
+  "references": [
+    {
+      "method": "Deep SVDD",
+      "paper": "https://proceedings.mlr.press/v80/ruff18a.html",
+      "code": "https://github.com/lukasruff/Deep-SVDD-PyTorch",
+      "revision": "1901612d595e23675fb75c4ebb563dd0ffebc21e"
+    },
+    {
+      "method": "DROCC",
+      "paper": "https://proceedings.mlr.press/v119/goyal20c.html",
+      "code": "https://github.com/microsoft/EdgeML",
+      "revision": "81025fce8ba28707eabe72e11bf3987a8d745608"
+    },
+    {
+      "method": "SVDD",
+      "paper": "https://doi.org/10.1023/B:MACH.0000008084.60811.49"
+    },
+    {
+      "method": "Diffusion maps",
+      "paper": "https://doi.org/10.1016/j.acha.2006.04.006"
+    },
+    {
+      "method": "PatchCore reference, not claimed reproduced",
+      "code": "https://github.com/amazon-science/patchcore-inspection"
+    },
+    {
+      "dataset": "MVTec AD",
+      "source": "https://www.mvtec.com/research-teaching/datasets/mvtec-ad",
+      "download_reference": "https://raw.githubusercontent.com/open-edge-platform/anomalib/main/src/anomalib/data/datamodules/image/mvtecad.py",
+      "archive_sha256": "cf4313b13603bec67abb49ca959488f7eedce2a9f7795ec54446c649ac98cd3d"
+    }
+  ],
+  "input_documents": {
+    "INPUT_review.pdf": "99a23a371b9c5f5d46064afc17a3b373d0ba7d86ff537c020433656cb251d04f",
+    "INPUT_CODEX_HANDOFF.md": "5c7dba4de5034f0c0c8b66f2413f0639d845cf5b96ff0fdb000113d0d40b0ea0",
+    "deep-svdd.pdf": "077d0123efdb9b76c82a5b8522c2d2cc449302e6d764c80c8bcf7e5e3717c7d4",
+    "drocc.pdf": "3e9f240ba2d2cf396b26cfa3ee698106c5440e2d215e6e32e7a5353d622c7543"
+  }
+}
