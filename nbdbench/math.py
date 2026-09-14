@@ -71,8 +71,16 @@ def diffusion_embedding(w, times):
 
 
 def frame_distances(u):
-    cross = torch.einsum("idr,jds->ijrs", u, u)
-    return (2 * u.shape[-1] - 2 * cross.square().sum((-1, -2))).clamp_min(0)
+    # Compute ||UU^T - VV^T||_F^2 for the actual stored frames. Substituting
+    # integer ranks for projector norms amplifies float32 orthogonality error,
+    # including a nonzero self-distance that empirical tail ranks can magnify.
+    precise = u.double()
+    cross = torch.einsum("idr,jds->ijrs", precise, precise)
+    squared = cross.square().sum((-1, -2))
+    norm = squared.diag()
+    distances = (norm[:, None] + norm[None, :] - 2 * squared).clamp_min(0)
+    distances.fill_diagonal_(0)
+    return distances.to(u.dtype)
 
 
 def annulus_project(h, radius, gamma):

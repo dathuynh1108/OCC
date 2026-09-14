@@ -69,9 +69,9 @@ Use the same CUDA Python executable for every command:
 
 ```
 python -m pytest -q
-python -m nbdbench.run --config configs/full.json --data data/mvtec_ad --output outputs/full-v1
-python -m nbdbench.report --output outputs/full-v1
-python -m nbdbench.verify --output outputs/full-v1 --data data/mvtec_ad --replay
+python -m nbdbench.run --config configs/full.json --data data/mvtec_ad --output outputs/full-v2
+python -m nbdbench.report --output outputs/full-v2
+python -m nbdbench.verify --output outputs/full-v2 --data data/mvtec_ad --replay
 ```
 
 See the generated report, manifest, per-run logs/checkpoints/predictions and

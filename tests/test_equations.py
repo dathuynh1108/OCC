@@ -90,6 +90,16 @@ def test_frame_distance_basis_sign_and_rotation_invariant():
     )
 
 
+def test_float32_frame_distance_matches_explicit_projector():
+    torch.manual_seed(128)
+    frames = torch.stack([torch.linalg.qr(torch.randn(48, 16))[0] for _ in range(4)])
+    actual = frame_distances(frames)
+    projectors = frames.double() @ frames.double().transpose(1, 2)
+    expected = (projectors[:, None] - projectors[None]).square().sum((-1, -2))
+    assert torch.equal(actual.diag(), torch.zeros(4))
+    assert torch.allclose(actual.double(), expected, atol=2e-6, rtol=0)
+
+
 def test_farthest_first_unique_even_with_duplicates():
     ids = farthest_first(torch.zeros(12, 4), 12, 0)
     assert len(ids.unique()) == 12
