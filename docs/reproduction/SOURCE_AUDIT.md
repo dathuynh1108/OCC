@@ -272,3 +272,16 @@ blocks with only explicit Python2 range/integer-division modernization. Six spli
 and RNG cases pass, source PCA matches exactly, and an independent OSQP Gaussian
 SVDD dual matches normalized libsvm coefficients within1e-6. This confirms the
 modern solver/protocol adaptation; it does not execute MATLAB or reproduce Tax2004.
+
+All20 author precomputed GCN min/max pairs have now been checked against every
+original normal training image in MNIST/CIFAR, using float64 GCN for the provenance
+calculation. All match within1e-4; the actual training transforms still import the
+unchanged source constants. File hashes/counts are recorded in native_data_audit.json.
+
+Independent CSV rank metrics exposed a separate float64 serialization issue in
+shallow results: pandas' default parser can change values around1e-16 and merge
+nearly tied kernel scores, shifting AUROC around1e-7. The exporter now requests
+round-trip parsing and asserts exact equality with original score arrays. Older
+completed result metadata is corrected only after a saved-estimator replay; old
+metrics remain embedded in each result JSON. Predictions, trained model, gamma
+selection and metric tolerances are unchanged. This is an output-parsing repair.

@@ -304,7 +304,7 @@ author startup BN probe retained, then frozen/eval. No v2 feature cache reused.
 All common rows use mean of top 1% patch scores; thresholds use alpha=.05,
 k=ceil((n+1)*.95), infinity when k>n, strict score>threshold. No threshold tuning on test.
 
-Deep head: AE5+SVDD15. DROCC feature head:15 epochs (10 warmup+5 adversarial),50
+Deep head: AE 5+SVDD 15. DROCC feature head:15 epochs (10 warmup + 5 adversarial),50
 ascent steps. Native-method names must not be applied to these feature heads.
 NBD math, graph, calibration,128 bubbles/rank16 and byte-budget controls are unchanged
 from91223d6; only author descriptor construction and the user-approved epoch budgets
@@ -320,16 +320,16 @@ change. This is a post-result protocol correction, not evidence of a causal impr
   AUPRO not evaluated. Released source omits paper Eq.7 reweighting, so that exact
   paper target is not claimed. Three declared repeat seeds0/1/2.
 - Deep SVDD: unchanged author PyTorch LeNet modules, MNIST/CIFAR10, all normal classes,
-  seeds1..10, AE5+SVDD12, source10-epoch soft-boundary warmup. Final-epoch selection.
+  seeds1..10, AE 5+SVDD 12, source 10-epoch soft-boundary warmup. Final-epoch selection.
   Original LR milestones remain outside this short run. Theano historical runtime
   was not reproduced; modern author-port parity is verified only on this runtime.
-- DROCC: unchanged author CIFAR CNN and adversarial function, five epochs,50 ascent
-  steps, projection every10, class-specific Table11 parameters and gamma1. Both
+- DROCC: unchanged author CIFAR CNN and adversarial function, five epochs, 50 ascent
+  steps, projection every10, class-specific Table 11 parameters and gamma 1. Both
   final and best-test-selected outputs retained. **Best-test-selected is optimistic
   and uses test labels**, as the released runner does; it is not a clean final-test estimate.
 - Gaussian OC-SVM/equivalent RBF SVDD: modern libsvm/source-protocol adaptation,
   full selected-class training except source MNIST batch-multiple rule, train-only
-  PCA95%, gamma2**[-10..-1], both nu=.01/.1. Gamma uses1000 labeled test samples;
+  PCA 95%, gamma2**[-10..-1], both nu=.01/.1. Gamma uses1000 labeled test samples;
   evaluated9000 exclude that holdout. Nu rows remain separate. This is not an
   executed MATLAB dd_tools or Tax--Duin2004 numeric reproduction.
 - Tax--Duin Table2 remains unreproduced: exact Iris folds, sigma search and numerical
@@ -350,7 +350,7 @@ losses, gradients, parameters, BN and resume; PatchCore descriptors, NN/maps and
 cached/direct coreset/RNG parity; shallow extracted source splits/PCA and independent
 QP equivalence. Every admitted trained result replays its persisted checkpoint.
 
-A shallow replay gate caught a float32 PCA batch-shape difference (9000 versus10000
+A shallow replay gate caught a float32 PCA batch-shape difference (9,000 versus 10,000
 rows, maximum score error about2.04e-6). Replay was corrected to transform the same
 full10000 rows before selecting the9000 evaluated IDs, restoring exact agreement;
 no metric tolerance, trained estimator, gamma selection or dataset was changed.
@@ -360,6 +360,11 @@ Training ran on one rented RTX3090 with FP32, AMP/TF32 disabled. Native GPU jobs
 CPU libsvm jobs overlapped, so training wall times are not comparable standalone
 latencies. Geometric/coreset bytes exclude the shared backbone, calibration and
 allocator overhead. Any separate inference timing is labeled by measured scope.
+
+The independent audit also checks exact CSV float64 parsing. Pandas default parsing
+can merge nearly tied kernel scores at about1e-16. Exports now use round-trip
+parsing, retain previous metrics for traceability, and are checked against saved
+estimator scores. No gamma selection or trained model was changed.
 
 Code, CSVs, histories, manifests, figures and updated Beamer source/PDF are in Git.
 Large checkpoints, score maps, official datasets and V1 weights are retained in
@@ -384,11 +389,11 @@ Keep NBD as the declared model even when an ablation/baseline scores higher.
 - Use the new1024-D author descriptor, preserve the author's startup BN behavior.
 - Show one common15-category ×3-seed MVTec table with11 explicitly named variants.
 - Put MNIST/CIFAR native results only on their own method reproduction slides.
-- Label AE5/SVDD12, nativeDROCC5 and sharedhead15 epochs visibly; do not say full
+- Label AE 5/SVDD 12, nativeDROCC5 and sharedhead15 epochs visibly; do not say full
   historical-paper reproduction. Keep original full commands in the rerun guide.
 - Keep best-test-selected DROCC distinct from fixed-final results.
 - Explain DROCC negatives briefly: Gaussian start, gradient ascent, radius projection,
-  anomaly training label. Native CIFAR gamma1 gives a sphere; feature adaptation differs.
+  anomaly training label. Native CIFAR gamma 1 gives a sphere; feature adaptation differs.
 - Show exact coverage; Tax2004 original numeric target stays unreproduced.
 - Keep older v2 numbers as historical evidence in their original directory.
 
@@ -406,9 +411,61 @@ Independent check: independent_metric_audit.json. Exact selected configuration:
 run_plan_budgeted.json. Full detail: REPRODUCTION_REPORT.md and SOURCE_AUDIT.md.
 """
     (OUT / "SLIDE_UPDATE_HANDOFF.md").write_text(handoff)
+    readme = f"""# OCC: NBD and source-audited anomaly detection benchmarks
+
+Latest delivery:14 September2026. One shared MVTec comparison, plus separate
+native-dataset evaluations for each method.
+
+**NBD B+A+D+F: {stat(nbd.auroc_mean, nbd.auroc_sd)}% image AUROC; {stat(nbd.ap_mean, nbd.ap_sd)}% AP.**
+All15 MVTec categories ×3 seeds ×11 variants, using author WR50-2/V1 1,024-D
+features and the same held-out image splits. Mean±sample SD across seed macro means.
+
+- [Updated slide PDF](slides/paper-faithful-review/review.pdf) · [Overleaf source](slides/paper-faithful-review/review.tex)
+- **[Handoff for OpenAI / slide updates](results/reproduction-2026-09-14/SLIDE_UPDATE_HANDOFF.md)**
+- [Full report](results/reproduction-2026-09-14/REPRODUCTION_REPORT.md) · [Common table](results/reproduction-2026-09-14/common_summary.csv)
+- [Native tables](results/reproduction-2026-09-14/native_summary.csv) · [Exact coverage](results/reproduction-2026-09-14/coverage.csv)
+- [Independent metric audit](results/reproduction-2026-09-14/independent_metric_audit.json) · [Rerun guide](docs/reproduction/RERUN.md)
+- [Source audit](docs/reproduction/SOURCE_AUDIT.md) · [Pinned sources](source_lock.json)
+
+![Common MVTec image AUROC](slides/paper-faithful-review/assets/rerun_all_methods.png)
+
+The user selected about two hours remaining and reduced epochs: native Deep SVDD
+AE5+SVDD12, native DROCC5, common deep heads15. PatchCore/NBD/kernel fitting keeps
+its declared non-epoch protocol. These are measured reduced-epoch method
+replications, **not full-schedule historical-paper reproductions**. Native image
+CNNs and shared-feature heads are labeled separately. Best-test-selected DROCC
+is retained as an explicitly optimistic source behavior. Tax2004's exact numeric
+experiment remains unreproduced because historical settings were not recovered.
+
+{coverage_text}
+
+Git contains code, raw predictions, histories, configs, evidence and slide source/PDF.
+Large fitted checkpoints, maps, original datasets and V1 weights are retained in
+the local backup; see backup_manifest.json and backup_verified.json in the latest
+result directory. Runtime/lifecycle status is recorded in execution_closure.json.
+
+To reproduce: follow [RERUN.md](docs/reproduction/RERUN.md).
+`run_plan_budgeted.json` is the measured short schedule; `run_plan.json` retains
+original long schedules with separate output identities. Source licenses remain
+with each pinned upstream checkout. Dataset images are not redistributed in Git.
+
+Historical v2 results remain unchanged: [v2 report](results/mvtec-full-v2/REPORT.md),
+[v2 README](README_V2.md). Their1536-D feature pipeline and longer head schedules
+must not be mixed into this corrected1024-D experiment.
+"""
+    (ROOT / "README.md").write_text(readme)
     # Preserve the supplied visual style and scientific NBD theory frames.
     original = (DECK / "review.input.tex").read_text()
     pre = original[: original.index(r"\begin{document}")]
+    pre = pre.replace(
+        "% Same measured v2 snapshot. Added original-method sources, exact PatchCore feature path, Git links and rerun handoff. No new benchmark run.",
+        "% Measured author-source rerun; reduced epochs explicitly selected by the user.",
+    )
+    pre = pre.replace(r"\def\phase{NBD}", r"\def\phase{OCC REPRODUCTION}")
+    pre = pre.replace(
+        "Full MVTec AD; shared frozen CNN benchmark; repo 91223d6",
+        "Source-audited native methods and common MVTec; reduced epoch budgets",
+    )
     pre = pre.replace(
         "Full MVTec AD results and model review",
         "Source-audited methods and shared MVTec results",
@@ -500,10 +557,17 @@ run_plan_budgeted.json. Full detail: REPRODUCTION_REPORT.md and SOURCE_AUDIT.md.
         frame(
             "PatchCore: native MVTec result",
             native_table("PatchCore")
+            + (
+                r"\remarktext{Pixel AUROC: "
+                + pct(native[native.track == "PatchCore"].iloc[0].pixel_auroc_mean)
+                + r"\%. AUPRO not evaluated.}"
+                if len(native[native.track == "PatchCore"])
+                else ""
+            )
             + bullets(
                 [
-                    r"Full normal train;10\% coreset;1NN squared L2; image maximum.",
-                    r"WR50-2 ImageNet V1; all15 categories, three seeds.",
+                    r"Full normal train; 10\% coreset; 1NN squared L2; image maximum.",
+                    r"WR50-2 ImageNet V1; all 15 categories, three seeds.",
                     r"Released author code omits paper Eq.(7) reweighting.",
                 ]
             )
@@ -516,8 +580,8 @@ run_plan_budgeted.json. Full detail: REPRODUCTION_REPORT.md and SOURCE_AUDIT.md.
             native_table("DeepSVDD")
             + bullets(
                 [
-                    r"Author PyTorch LeNet modules; AE5 + SVDD12 epochs.",
-                    r"Soft-boundary warmup10; final epoch; all10 normal classes.",
+                    r"Author PyTorch LeNet modules; AE 5 + SVDD 12 epochs.",
+                    r"Soft-boundary warmup 10; final epoch; all 10 normal classes.",
                     r"Later author-code replication; original Theano numeric parity unverified.",
                 ]
             )
@@ -550,8 +614,8 @@ run_plan_budgeted.json. Full detail: REPRODUCTION_REPORT.md and SOURCE_AUDIT.md.
             native_table("DROCC")
             + bullets(
                 [
-                    r"Author image CNN and Table11 parameters; five epochs.",
-                    r"All10 classes, three seeds;5000 train normals /10000 test.",
+                    r"Author image CNN and Table 11 parameters; five epochs.",
+                    r"All 10 classes, three seeds; 5,000 train normals / 10,000 test.",
                     r"Best-test epoch uses test labels; interpret it as optimistic.",
                 ]
             )
@@ -564,8 +628,8 @@ run_plan_budgeted.json. Full detail: REPRODUCTION_REPORT.md and SOURCE_AUDIT.md.
             native_table("Gaussian_OCSVM_equiv_SVDD")
             + bullets(
                 [
-                    r"Ruff image baseline: train-only PCA95\%, full kernel fit.",
-                    r"Gamma tuned on1000 labeled test images; evaluate the other9000.",
+                    r"Ruff image baseline: train-only PCA 95\%, full kernel fit.",
+                    r"Gamma tuned on 1,000 labeled test images; evaluate the other 9,000.",
                     r"Modern libsvm / Gaussian SVDD equivalence checked by independent QP.",
                 ]
             )
@@ -586,7 +650,7 @@ run_plan_budgeted.json. Full detail: REPRODUCTION_REPORT.md and SOURCE_AUDIT.md.
                     r"15 categories $\times$3 seeds; author WR50/V1 1,024-D descriptors.",
                     r"Image split:60\% FIT /20\% component calibration /remainder threshold.",
                     r"All methods: top1\% patch mean; normal-only image thresholds.",
-                    r"Deep head: AE5+SVDD15; DROCC head:15 epochs including10 warmup.",
+                    r"Deep head: AE 5+SVDD 15; DROCC head:15 epochs including10 warmup.",
                 ]
             )
             + band(r"Feature heads are controlled adaptations; the CNN is frozen."),
@@ -595,7 +659,11 @@ run_plan_budgeted.json. Full detail: REPRODUCTION_REPORT.md and SOURCE_AUDIT.md.
     contents.append(
         frame(
             "Common MVTec: baseline results",
-            image("rerun_baselines", "4.7cm") + source(),
+            image("rerun_baselines", "4.3cm")
+            + band(
+                r"PatchCore keeps a 10\% coreset. PatchScore byte budget is the separate NBD memory control."
+            )
+            + source(),
         )
     )
     threshold_rows = [
@@ -654,7 +722,7 @@ run_plan_budgeted.json. Full detail: REPRODUCTION_REPORT.md and SOURCE_AUDIT.md.
     )
     contents.append(
         frame(
-            "All15 categories, all11 variants",
+            "All 15 categories, all 11 variants",
             image("rerun_categories", "5.0cm") + source(),
         )
     )
@@ -681,7 +749,7 @@ run_plan_budgeted.json. Full detail: REPRODUCTION_REPORT.md and SOURCE_AUDIT.md.
     contents.append(
         frame(
             "Coverage and reproducibility",
-            table(["Track", "Completed / planned rows"], cvrows)
+            table(["Track", "Completed / planned result groups"], cvrows)
             + bullets(
                 [
                     f"Independent image-score audit: {audit['audited_prediction_rows']:,} exported predictions.",

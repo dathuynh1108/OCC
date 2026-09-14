@@ -76,3 +76,21 @@ Shallow6source-split/RNGcases+PCA+independentQPfixture passed. PatchCoredirect-f
 versus cachedfit selection/RNGfixture passedexactly. Tectonicinstalledlocaland
 warmingitsTeXbundle. No finalaggregates yet. Initial completed resultsrsyncedlocal,
 but finaloffboxmanifestnotverified. Do not stopGPUbeforebackupverification.
+
+## Lifecycle correction and code delivery
+
+User now explicitly requested DELETE the new Vast instance after verified local
+backup, complete concise slides and Git push. This supersedes earlier STOP-only.
+Delete only50996199; never delete before final checksum/readback. Code commit
+cc16d38 is pushed on codex/source-faithful-reproduction. Final results/main push
+and deletion remain outstanding. New scripts measure_inference.py and
+backup_manifest.py are not yet committed; inference replay fixture passed on
+actual bottle/seed0 models. Timing itself must wait for isolated GPU.
+
+Shallow strict replay exposed float32 PCA batch-shape variation (~2.04e-6):
+replaying9000rows differed from original10000rows. Corrected replay to transform
+all10000beforeselectingtest9000; exact score agreement0. No model/hyperparameter
+or metric tolerance changed. Failed attempts logged; reruns now pass. FourCPU
+processes run the same source protocol. Two stale failures.json entries may be
+fromthepre-fixattempt; resolveagainstcompletedresults/matrix_exit ratherthan
+claimingcurrentfailureorremovinghistory.

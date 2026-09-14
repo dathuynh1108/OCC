@@ -266,11 +266,15 @@ def main():
                 "svdd_squared_radius_excess": 2 * scores / (nu * len(train)),
             }
         ).to_csv(destination / "predictions.csv", index=False)
-        table = pd.read_csv(destination / "predictions.csv")
+        table = pd.read_csv(
+            destination / "predictions.csv", float_precision="round_trip"
+        )
+        assert np.array_equal(table.score.to_numpy(), scores)
         write_json(
             destination / "result.json",
             {
                 "target": plan["target"],
+                "csv_float_parser": "round_trip",
                 "dataset": args.dataset,
                 "normal_class": args.normal_class,
                 "seed": args.seed,

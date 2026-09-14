@@ -108,3 +108,17 @@ another reader audit results or retrain from the repository alone.
 The user requested deleting the rented instance after local backup verification,
 complete slides and Git push. Instance lifecycle commands must target the actual
 rented instance; no credentials or machine-specific SSH endpoints are stored here.
+
+Additional integrity gates and isolated timing:
+
+```bash
+python -m reproduction.audit_native_data
+python -m reproduction.measure_inference --validate-only
+# After GPU training ends, measure the declared single-image/category scope:
+python -m reproduction.measure_inference
+```
+
+`verify_csv_roundtrip.py` repairs historical exports from the initial default
+pandas CSV parser, retaining old metrics and replaying the stored estimator.
+New shallow exports already use exact round-trip parsing; no repair is needed.
+The independent summarizer will fail rather than silently accept changed ties.
