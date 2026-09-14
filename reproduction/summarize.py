@@ -45,6 +45,17 @@ def csv_rows(path):
         return list(csv.DictReader(f))
 
 
+def validate_history(path, epochs, examples, batch_size, losses=("loss",)):
+    rows = read(path)
+    assert len(rows) == epochs
+    assert [r["epoch"] for r in rows] == list(range(1, epochs + 1))
+    assert all(r["examples"] == examples for r in rows)
+    assert all(r["optimizer_steps"] == math.ceil(examples / batch_size) for r in rows)
+    assert all(
+        math.isfinite(r[key]) for r in rows for key in (*losses, "gradient_norm")
+    )
+
+
 def validate_prediction(path, result, expected_ids=None):
     rows = csv_rows(path)
     assert len(rows) == result["test_count"]
@@ -72,12 +83,22 @@ def validate_prediction(path, result, expected_ids=None):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--require-common-complete", action="store_true")
+    parser.add_argument("--require-native-complete", action="store_true")
     args = parser.parse_args()
     plan = read(ROOT / "run_plan_budgeted.json")
     OUT.mkdir(parents=True, exist_ok=True)
     coverage = []
     native = []
     audited_rows = 0
+    # Published evidence derives these counts from the original raw training
+    # labels; score/history auditing from a Git clone needs no image download.
+    data_audit = read(OUT / "evidence/native_data_audit.json")
+    mnist_counts = {
+        r["normal_class"]: r["original_train_normal_count"]
+        for r in data_audit["GCN_bounds"]
+        if r["dataset"] == "mnist"
+    }
+    assert set(mnist_counts) == set(range(10)) and sum(mnist_counts.values()) == 60000
     # Native PatchCore uses full normal train; it is a different protocol from the shared FIT table.
     pc = plan["native"]["patchcore"]
     pcroot = ROOT / "results/native/patchcore" / pc["target"]
@@ -166,8 +187,42 @@ def main():
                     assert r.get("checkpoint_replay_max_abs_error", 0) <= 1e-6
                     if key == "deep_svdd":
                         assert r["ae_epochs"] == 5 and r["svdd_epochs"] == 12
+                        train_count = (
+                            mnist_counts[normal] if dataset == "mnist" else 5000
+                        )
+                        validate_history(
+                            p.with_name("history.json"),
+                            12,
+                            train_count,
+                            cfg["batch_size"],
+                        )
+                        validate_history(
+                            directory / "ae/history.json",
+                            5,
+                            train_count,
+                            cfg["batch_size"],
+                        )
                     if key == "drocc":
                         assert r["trained_epochs"] == 5
+                        validate_history(
+                            directory / "history.json",
+                            5,
+                            5000,
+                            cfg["batch_size"],
+                            losses=("ce_loss", "adv_loss"),
+                        )
+                    if key == "shallow":
+                        assert r.get("csv_float_parser") == "round_trip"
+                        d = r["diagnostics"]
+                        assert d["fit_status"] == 0
+                        assert abs(d["alpha_sum"] - 1) < 1e-6
+                        assert d["alpha_min"] >= -1e-10
+                        assert d["alpha_max"] <= d["box_upper"] + 1e-8
+                        assert d["score_equivalence_max_abs_error"] < 1e-7
+                        tolerance = (
+                            2 * d["solver_tolerance"] / (r["nu"] * r["train_count"])
+                        )
+                        assert d["KKT_stationarity_residual"] <= tolerance + 1e-7
                     ids = (
                         range(10000)
                         if key != "shallow"
@@ -276,8 +331,13 @@ def main():
     coverage_frame = pd.DataFrame(coverage)
     coverage_frame.to_csv(OUT / "coverage.csv", index=False)
     complete_common = len(common) == 15 * 3 * 11
+    complete_native = bool(
+        coverage_frame[coverage_frame.track != "common_mvtec"].complete.all()
+    )
     if args.require_common_complete:
         assert complete_common, f"Common rows {len(common)}/495"
+    if args.require_native_complete:
+        assert complete_native, "Native matrix is incomplete; inspect coverage.csv"
     if common:
         table = pd.DataFrame(common)
         table["seed"] = table.seed.astype(int)
@@ -364,6 +424,8 @@ def main():
             "passed": True,
             "audited_prediction_rows": audited_rows,
             "common_complete": complete_common,
+            "native_complete": complete_native,
+            "native_epoch_example_and_optimizer_step_counts_checked": True,
             "common_metric_rows": len(common),
             "native_metric_rows": len(native),
             "metric_implementation": "stdlib tied-rank AUROC and threshold-group AP, strict > threshold FPR/TPR",

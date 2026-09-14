@@ -103,7 +103,35 @@ def main():
     assert audit["passed"] and audit["common_complete"]
     common = pd.read_csv(OUT / "common_summary.csv").set_index("method")
     native = pd.read_csv(OUT / "native_summary.csv")
+    paper = json.loads((ROOT / "docs/reproduction/paper_reference.json").read_text())
+
+    def reference(track, dataset, variant, normal=None):
+        if track == "PatchCore":
+            return paper["roth2022"]["mvtec_image_auroc_percent"]
+        if track == "DROCC":
+            values = paper["goyal2020"][dataset]
+        else:
+            key = "kernel_best_nu" if track == "Gaussian_OCSVM_equiv_SVDD" else variant
+            values = paper["ruff2018"][dataset][key]
+        return float(np.mean(values)) if normal is None else values[int(normal)]
+
+    native["paper_reference_auroc_percent"] = [
+        reference(r.track, r.dataset, r.variant) for _, r in native.iterrows()
+    ]
+    native["comparison_status"] = [
+        "source-code / shortened-schedule replication; protocol differs from reference"
+        for _ in range(len(native))
+    ]
+    native.to_csv(OUT / "paper_vs_measured_summary.csv", index=False)
+    per_class = pd.read_csv(OUT / "native_per_class_per_seed.csv")
+    per_class = per_class[per_class.track != "PatchCore"].copy()
+    per_class["paper_reference_auroc_percent"] = [
+        reference(r.track, r.dataset, r.variant, r.class_or_category)
+        for _, r in per_class.iterrows()
+    ]
+    per_class.to_csv(OUT / "paper_vs_measured_per_class.csv", index=False)
     coverage = pd.read_csv(OUT / "coverage_summary.csv")
+    inference = pd.read_csv(OUT / "inference_bottle_seed0.csv")
     cats = pd.read_csv(OUT / "common_category_summary.csv")
     methods = list(common.index)
     plt.rcParams.update(
@@ -239,7 +267,14 @@ def main():
         )
 
     native_rows = [
-        ["Target", "Dataset", "Variant", "Image AUROC (%)", "AP (%)", "Repeats"]
+        [
+            "Target",
+            "Dataset",
+            "Variant",
+            "Paper AUROC (%)",
+            "Measured AUROC (%)",
+            "Repeats",
+        ]
     ]
     for _, r in native.iterrows():
         native_rows.append(
@@ -247,9 +282,22 @@ def main():
                 r.track,
                 r.dataset,
                 r.variant,
+                f"{r.paper_reference_auroc_percent:.2f}",
                 stat(r.auroc_mean, r.auroc_sd),
-                stat(r.ap_mean, r.ap_sd),
                 str(r.repeats),
+            ]
+        )
+    inference_rows = [
+        ["Method", "Median ms", "p95 ms", "State MiB", "NBD calibration MiB"]
+    ]
+    for _, r in inference.iterrows():
+        inference_rows.append(
+            [
+                LABELS.get(r.method, "Shared author WR50 descriptor"),
+                f"{r.median_ms:.2f}",
+                f"{r.p95_ms:.2f}",
+                f"{r.state_array_bytes / 2**20:.2f}",
+                f"{r.separate_NBD_component_calibration_bytes / 2**20:.2f}",
             ]
         )
     nbd = common.loc["NBD"]
@@ -313,6 +361,14 @@ change. This is a post-result protocol correction, not evidence of a causal impr
 ## Native method results
 
 {md(native_rows)}
+Paper columns are reference values, not matched-protocol deltas. For Ruff/Goyal,
+they are macros calculated from the published Table 1 class means; no seed SD is
+inferred from class SDs. Ruff's kernel and soft-boundary paper rows select the
+better nu, whereas the measured rows retain the declared separate configurations.
+PatchCore references the paper's 10% row (99.0%), whose equation differs from
+the released image-score code. Source URLs and exact printed values are in
+[paper_reference.json](../../docs/reproduction/paper_reference.json).
+Per-class reference/measured values are in paper_vs_measured_per_class.csv.
 {coverage_text}
 
 - PatchCore: author-code WR50/V1, full normal training,10% approximate greedy coreset,
@@ -334,6 +390,18 @@ change. This is a post-result protocol correction, not evidence of a causal impr
   executed MATLAB dd_tools or Tax--Duin2004 numeric reproduction.
 - Tax--Duin Table2 remains unreproduced: exact Iris folds, sigma search and numerical
   settings were not recovered. No arbitrary substitute score is reported.
+
+## Inference scope and stored state
+
+{md(inference_rows)}
+Measured after training, on one bottle image / seed 0, batch size 1 (784 patches),
+30 repetitions after 3 warmups, CUDA synchronized. This is an illustrative actual
+checkpoint measurement, not a dataset-wide latency claim. Shared descriptor time
+excludes disk/PIL; method times exclude the CNN and include CPU descriptor input,
+transfers and image pooling. NBD includes the current implementation's ECDF sorting.
+State counts numerical arrays only; calibration is separate, not peak GPU memory.
+Full scope: inference_scope.json. Geometry budgets across all category/seed runs:
+common_resources.csv. The common backbone is counted once, separately.
 
 ## Verification, provenance and rerun
 
@@ -406,11 +474,31 @@ this report as slide prose. Preserve source citations and uncertainty; do not
 replace missing cells, low scores or final NBD with a stronger ablation.
 
 Sources of numbers: common_summary.csv, common_category_summary.csv,
-common_paired_deltas.csv, native_summary.csv, native_per_class_per_seed.csv.
+common_paired_deltas.csv, native_summary.csv, native_per_class_per_seed.csv,
+paper_vs_measured_summary.csv and paper_vs_measured_per_class.csv.
 Independent check: independent_metric_audit.json. Exact selected configuration:
 run_plan_budgeted.json. Full detail: REPRODUCTION_REPORT.md and SOURCE_AUDIT.md.
 """
     (OUT / "SLIDE_UPDATE_HANDOFF.md").write_text(handoff)
+    (ROOT / "CODEX_OCC_PAPER_REPRODUCTION.md").write_text(
+        "# Updated OCC reproduction handoff\n\n"
+        "The supplied task specification is preserved in docs/reproduction/REQUEST.md. "
+        "This file records the measured delivery; it does not replace the original evidence.\n\n"
+        + f"NBD B+A+D+F: **{stat(nbd.auroc_mean, nbd.auroc_sd)}% image AUROC**, "
+        + f"**{stat(nbd.ap_mean, nbd.ap_sd)}% AP** on all 15 MVTec categories × 3 seeds.\n\n"
+        + "- [Complete slide-update handoff](results/reproduction-2026-09-14/SLIDE_UPDATE_HANDOFF.md)\n"
+        + "- [Measured report and protocol differences](results/reproduction-2026-09-14/REPRODUCTION_REPORT.md)\n"
+        + "- [Paper versus measured native results](results/reproduction-2026-09-14/paper_vs_measured_summary.csv)\n"
+        + "- [Updated slide PDF](slides/paper-faithful-review/review.pdf) / [Overleaf source](slides/paper-faithful-review/review.tex)\n"
+        + "- [Exact rerun commands](docs/reproduction/RERUN.md)\n\n"
+        + "The user selected fewer epochs and about two hours remaining: native Deep "
+        + "AE5/SVDD12, native DROCC5, common heads15. These are source-audited shortened "
+        + "replications. Historical Theano numerical parity and Tax2004's exact Iris table "
+        + "remain unverified/unreproduced. Native datasets and the common MVTec comparison "
+        + "are separate. All weak scores and the declared final NBD remain visible.\n\n"
+        + coverage_text
+        + "\n"
+    )
     readme = f"""# OCC: NBD and source-audited anomaly detection benchmarks
 
 Latest delivery:14 September2026. One shared MVTec comparison, plus separate
@@ -543,12 +631,12 @@ must not be mixed into this corrected1024-D experiment.
                 [
                     esc(r.dataset),
                     label,
+                    f"{r.paper_reference_auroc_percent:.2f}",
                     stat(r.auroc_mean, r.auroc_sd, True),
-                    str(int(r.repeats)),
                 ]
             )
         return (
-            table(["Dataset", "Variant", "Image AUROC (\\%)", "Seeds"], rows)
+            table(["Dataset", "Variant", "Paper (\\%)", "Measured (\\%)"], rows)
             if rows
             else r"No balanced complete repeat available; see coverage.csv."
         )
@@ -576,15 +664,34 @@ must not be mixed into this corrected1024-D experiment.
     )
     contents.append(
         frame(
+            "Deep SVDD: collapse and safeguards",
+            r"\[s(x)=\|f_\theta(x)-c\|^2,\qquad f_\theta(x)\equiv c\ \Rightarrow\ s(x)=0.\]"
+            + bullets(
+                [
+                    r"Train the image CNN end to end; fix a nonzero center $c$.",
+                    r"No convolution/linear bias; non-affine BatchNorm; leaky ReLU.",
+                    r"Reconstruct normal images with an AE, copy its encoder, discard the decoder.",
+                    r"AE is an initialization; output variance is a collapse diagnostic.",
+                ]
+            )
+            + band(
+                r"MNIST: conv 8/4 $\to$32. CIFAR: conv 32/64/128 $\to$128. No ImageNet backbone."
+            )
+            + r"\src{\href{https://github.com/lukasruff/Deep-SVDD/tree/e20f18c8d0ad9dc01cad09fdf311bd861351a9ad}{Original Theano source} $\mid$ \href{https://github.com/lukasruff/Deep-SVDD-PyTorch/tree/1901612d595e23675fb75c4ebb563dd0ffebc21e}{Executed author PyTorch modules}.}",
+        )
+    )
+    contents.append(
+        frame(
             "Deep SVDD: native image CNNs",
             native_table("DeepSVDD")
             + bullets(
                 [
                     r"Author PyTorch LeNet modules; AE 5 + SVDD 12 epochs.",
-                    r"Soft-boundary warmup 10; final epoch; all 10 normal classes.",
+                    r"Soft-boundary warmup 10; final epoch; 10 classes $\times$10 seeds.",
                     r"Later author-code replication; original Theano numeric parity unverified.",
                 ]
             )
+            + r"\src{Paper: \href{https://proceedings.mlr.press/v80/ruff18a/ruff18a.pdf}{Ruff et al., Table 1}; class macro of printed means. Protocols differ.}"
             + source(),
         )
     )
@@ -604,8 +711,9 @@ must not be mixed into this corrected1024-D experiment.
             )
             + r"\end{column}\end{columns}"
             + band(
-                r"CIFAR author code:50 ascent steps; project every10; $\gamma=1$ gives a sphere."
-            ),
+                r"CIFAR author code: 50 ascent steps; project every 10; $\gamma=1$ gives a sphere."
+            )
+            + r"\src{\href{https://github.com/microsoft/EdgeML/tree/81025fce8ba28707eabe72e11bf3987a8d745608/examples/pytorch/DROCC}{Author CIFAR runner} $\mid$ \href{https://github.com/microsoft/EdgeML/blob/81025fce8ba28707eabe72e11bf3987a8d745608/pytorch/edgeml_pytorch/trainer/drocc_trainer.py}{Adversarial training source}.}",
         )
     )
     contents.append(
@@ -619,6 +727,7 @@ must not be mixed into this corrected1024-D experiment.
                     r"Best-test epoch uses test labels; interpret it as optimistic.",
                 ]
             )
+            + r"\src{Paper: \href{https://proceedings.mlr.press/v119/goyal20c/goyal20c.pdf}{Goyal et al., Table 1}; class macro of printed means. Protocols differ.}"
             + source(),
         )
     )
@@ -635,7 +744,8 @@ must not be mixed into this corrected1024-D experiment.
             )
             + band(
                 r"Tax--Duin2004 original numeric table remains unreproduced: missing exact folds and search settings."
-            ),
+            )
+            + r"\src{\href{https://github.com/DMJTax/dd_tools/tree/efaaf04efae1f8be78906836a5d31547b48be7af}{Tax author reference toolbox} $\mid$ Paper column: \href{https://proceedings.mlr.press/v80/ruff18a/ruff18a.pdf}{Ruff Table 1, better nu}; measured: 10 seeds per nu.}",
         )
     )
     contents.append(
@@ -758,6 +868,27 @@ must not be mixed into this corrected1024-D experiment.
                 ]
             )
             + source(),
+        )
+    )
+    timing_rows = [
+        [
+            esc(
+                row[0].replace(" (feature adaptation)", "").replace(" (15 epochs)", "")
+            ),
+            row[1],
+            row[3],
+        ]
+        for row in inference_rows[1:]
+    ]
+    contents.append(
+        frame(
+            "Inference: shared CNN and scorer costs",
+            r"\footnotesize"
+            + table(["Method", "Median ms", "State MiB"], timing_rows)
+            + band(
+                r"One bottle image, seed 0; batch 1; 30 repeats. NBD calibration arrays are additional; see report."
+            )
+            + r"\src{CUDA-synchronized after training. Scorer time excludes shared CNN; state is not peak GPU memory.}",
         )
     )
     contents.append(

@@ -13,6 +13,8 @@ was one RTX3090. Install the matching CUDA Torch build before the other packages
 python -m pip install torch==2.11.0 torchvision==0.26.0 --index-url https://download.pytorch.org/whl/cu128
 python -m pip install -r requirements-reproduction.txt
 python -m reproduction.fetch_sources
+mkdir -p artifacts/reproduction/runtime
+python -m pip list --format=freeze > artifacts/reproduction/runtime/pip-versions.txt
 ```
 
 Exact installed versions are also retained in the runtime evidence. Source
@@ -92,7 +94,8 @@ identity or an independently preserved checkout/output directory.
 After the final result files are stable and copied locally:
 
 ```bash
-python reproduction/summarize.py --require-common-complete
+python reproduction/collect_evidence.py
+python reproduction/summarize.py --require-common-complete --require-native-complete
 python reproduction/render_delivery.py
 cd slides/paper-faithful-review
 tectonic --keep-logs review.tex
@@ -104,6 +107,8 @@ seed repeats are summarized; partial repeats remain in the per-class table.
 Large `.pt`, `.npz`, `.joblib`, datasets and original weights stay in the verified
 local backup, outside Git. Predictions, losses, configs and SHA256 manifests let
 another reader audit results or retrain from the repository alone.
+From a published Git clone, the evidence directory is already included: skip
+collect_evidence.py and run summarize.py directly without downloading images.
 
 The user requested deleting the rented instance after local backup verification,
 complete slides and Git push. Instance lifecycle commands must target the actual

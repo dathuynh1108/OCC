@@ -1,0 +1,29 @@
+{
+  "note": "Published AUROC percentages; reference values are not rerun scores. Class macros are calculated from these printed class means, with no inferred seed SD.",
+  "ruff2018": {
+    "url": "https://proceedings.mlr.press/v80/ruff18a/ruff18a.pdf",
+    "location": "Table 1, PDF page 7",
+    "class_order": "MNIST digits 0..9; CIFAR airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck",
+    "mnist": {
+      "one-class": [98.0, 99.7, 91.7, 91.9, 94.9, 88.5, 98.3, 94.6, 93.9, 96.5],
+      "soft-boundary": [97.8, 99.6, 89.5, 90.3, 93.8, 85.8, 98.0, 92.7, 92.9, 94.9],
+      "kernel_best_nu": [98.6, 99.5, 82.5, 88.1, 94.9, 77.1, 96.5, 93.7, 88.9, 93.1]
+    },
+    "cifar10": {
+      "one-class": [61.7, 65.9, 50.8, 59.1, 60.9, 65.7, 67.7, 67.3, 75.9, 73.1],
+      "soft-boundary": [61.7, 64.8, 49.5, 56.0, 59.1, 62.1, 67.8, 65.2, 75.6, 71.0],
+      "kernel_best_nu": [61.6, 63.8, 50.0, 55.9, 66.0, 62.4, 74.7, 62.6, 74.9, 75.9]
+    }
+  },
+  "goyal2020": {
+    "url": "https://proceedings.mlr.press/v119/goyal20c/goyal20c.pdf",
+    "location": "Table 1, PDF page 7",
+    "cifar10": [81.66, 76.738, 66.664, 67.132, 73.624, 74.434, 74.426, 71.39, 80.016, 76.21]
+  },
+  "roth2022": {
+    "url": "https://openaccess.thecvf.com/content/CVPR2022/html/Roth_Towards_Total_Recall_in_Industrial_Anomaly_Detection_CVPR_2022_paper.html",
+    "location": "Table 1, PatchCore 10%",
+    "mvtec_image_auroc_percent": 99.0,
+    "comparison_limit": "Paper equation includes image reweighting; released source baseline omits it. Seed and source-runtime settings also differ."
+  }
+}
