@@ -48,3 +48,8 @@ common_paired_deltas.csv, native_summary.csv, native_per_class_per_seed.csv,
 paper_vs_measured_summary.csv and paper_vs_measured_per_class.csv.
 Independent check: independent_metric_audit.json. Exact selected configuration:
 run_plan_budgeted.json. Full detail: REPRODUCTION_REPORT.md and SOURCE_AUDIT.md.
+
+Delivery: code, tables, raw predictions and final PDF/TeX are on GitHub `main`.
+The `reproduction-2026-09-14` release contains the final Overleaf ZIP and incremental
+checkpoint archives. See `docs/reproduction/BACKUP_RESTORE.md` for the hybrid backup
+scope and `execution_closure.json` for verified instance deletion.

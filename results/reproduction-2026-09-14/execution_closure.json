@@ -1,13 +1,19 @@
 {
-  "status": "checkpoint_transfer_in_progress",
+  "status": "backup_and_git_delivery_verified_pending_instance_deletion",
   "training_complete": true,
   "training_last_finished_unix": 1789384839.2814932,
   "all_selected_matrix_rows_complete": true,
   "independent_prediction_rows_audited": 8262100,
   "slides_compiled_and_visually_reviewed": true,
-  "backup_verified": false,
+  "backup_verified": true,
   "vast_instance_id": 50996199,
   "vast_instance_deleted": false,
   "deletion_gate": "after verified off-box backup and completed Git delivery",
-  "transfer_issue": "Direct SSH/HTTP throughput degraded; retrying via authenticated HTTPS tunnel."
+  "transfer_issue": "Direct local transfer suffered severe packet loss; remaining 422 fitted-state files were preserved as ten SHA-256-verified GitHub Release archives. Training had already completed.",
+  "backup_mode": "local_plus_github_release",
+  "all_checkpoints_local": false,
+  "backup_proof": "backup_offbox_verified.json",
+  "published_artifact_git_commit": "d1d15b1955dca4798c699d11eeda85452e06ce65",
+  "published_branch": "main",
+  "release_url": "https://github.com/dathuynh1108/OCC/releases/tag/reproduction-2026-09-14"
 }

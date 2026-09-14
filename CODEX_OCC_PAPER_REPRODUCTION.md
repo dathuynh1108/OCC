@@ -13,3 +13,7 @@ NBD B+A+D+F: **78.66 ± 1.99% image AUROC**, **90.99 ± 0.77% AP** on all 15 MVT
 The user selected fewer epochs and about two hours remaining: native Deep AE5/SVDD12, native DROCC5, common heads15. These are source-audited shortened replications. Historical Theano numerical parity and Tax2004's exact Iris table remain unverified/unreproduced. Native datasets and the common MVTec comparison are separate. All weak scores and the declared final NBD remain visible.
 
 All selected matrix rows completed.
+
+Fitted-state backup and restore: [instructions](docs/reproduction/BACKUP_RESTORE.md).
+The [GitHub Release](https://github.com/dathuynh1108/OCC/releases/tag/reproduction-2026-09-14)
+contains the final Overleaf ZIP and ten incremental checkpoint archives.

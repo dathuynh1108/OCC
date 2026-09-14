@@ -146,7 +146,10 @@ estimator scores. No gamma selection or trained model was changed.
 
 Code, CSVs, histories, manifests, figures and updated Beamer source/PDF are in Git.
 Large checkpoints, score maps, official datasets and V1 weights are tracked by
-backup_manifest.json. backup_verified.json is written only after all local
-checksums pass; execution_closure.json records the live delivery state.
+backup_manifest.json. Verified snapshot coverage spans 5,577 local files and
+422 additional files in ten GitHub Release ZIPs. See backup_offbox_verified.json,
+cloud_backup_manifest.json and docs/reproduction/BACKUP_RESTORE.md. This is a hybrid
+backup; backup_verified.json is reserved for a future complete local restore.
+execution_closure.json records the final provider lifecycle state.
 Historical results/mvtec-full-v2 are preserved unchanged and must not be mixed
 with this author-encoder/reduced-epoch experiment.
