@@ -1,0 +1,34 @@
+{
+  "target": "DeepSVDD_author_torch_readme_AE5_SVDD12",
+  "dataset": "mnist",
+  "normal_class": 6,
+  "seed": 4,
+  "smoke": false,
+  "feature_before": {
+    "sample_count": 200,
+    "mean_feature_variance": 0.06554217636585236,
+    "mean_norm": 5.796268939971924,
+    "finite": true
+  },
+  "ae_epochs": 5,
+  "svdd_epochs": 12,
+  "nu": 0.1,
+  "ae_checkpoint_sha256": "ae28e2017e977b856828e06cf3c79e11aa4aea0b4e34794a29efd33cb8ee0af1",
+  "run_plan_sha256": "7c0b42aea57b97226fb05486cefce7fe298f19197957e6ecbe2c48da924c368b",
+  "source_commit": "1901612d595e23675fb75c4ebb563dd0ffebc21e",
+  "objective": "soft-boundary",
+  "selection": "fixed_final_epoch",
+  "auroc": 0.9695801407396427,
+  "average_precision": 0.9951363345794126,
+  "test_count": 10000,
+  "checkpoint_sha256": "71c94b601e2294584427384c2aaced87ab83b9ce1efc69385036ae4fad13e295",
+  "prediction_sha256": "ab003e328f51ad243f55ca6e8fbb9f11e7f6c202abd34276fef81484b0cc7319",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "feature_after": {
+    "sample_count": 200,
+    "mean_feature_variance": 0.005163371562957764,
+    "mean_norm": 5.55539608001709,
+    "finite": true
+  },
+  "complete": true
+}

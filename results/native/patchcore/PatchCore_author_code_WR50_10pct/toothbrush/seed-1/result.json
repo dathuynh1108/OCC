@@ -1,0 +1,27 @@
+{
+  "auroc": 0.9972222222222222,
+  "average_precision": 0.9989247311827957,
+  "pixel_auroc": 0.9857728113995214,
+  "target": "PatchCore_author_code_WR50_10pct",
+  "category": "toothbrush",
+  "seed": 1,
+  "train_normal_count": 60,
+  "test_count": 42,
+  "memory_descriptors": 4704,
+  "memory_bytes": 19267584,
+  "effective_backbone_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "feature_sha256": "767a05d2b795ca5585d21fbab1a853aee51d288e48e274352dafae4fc2ee92a4",
+  "checkpoint_sha256": "4e3207dcd8fc9f58a9a126a9fd995cab9bdd6b270f7561accad48e9f990a2e90",
+  "predictions_sha256": "7cb314508956d50b5c9360b22e94a10e61bd2b6ea29396b67b505fb4b28d07a7",
+  "replay_errors": {
+    "images": 0.0,
+    "patches": 0.0,
+    "maps": 0.0
+  },
+  "seconds": 4.603508696993231,
+  "smoke": false,
+  "image_score": "max_squared_L2_1NN_no_Eq7_reweighting",
+  "AUPRO": "not_evaluated",
+  "mask_rule": "upstream_resize_crop_then_astype_int",
+  "complete": true
+}

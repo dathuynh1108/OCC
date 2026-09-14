@@ -115,6 +115,8 @@ def main():
                 class_or_category=category,
                 seed=seed,
                 variant="author_code",
+                target=pc["target"],
+                result_path=p.relative_to(ROOT).as_posix(),
                 complete=p.exists(),
             )
         )
@@ -177,6 +179,8 @@ def main():
                             class_or_category=normal,
                             seed=seed,
                             variant=variant,
+                            target=cfg["target"],
+                            result_path=p.relative_to(ROOT).as_posix(),
                             complete=p.exists(),
                         )
                     )
@@ -270,6 +274,8 @@ def main():
                     class_or_category=category,
                     seed=seed,
                     variant=kind,
+                    target=plan["controlled"]["output"],
+                    result_path=gate.relative_to(ROOT).as_posix(),
                     complete=gate.exists(),
                 )
             )
@@ -330,6 +336,13 @@ def main():
             predictions.extend(pred)
     coverage_frame = pd.DataFrame(coverage)
     coverage_frame.to_csv(OUT / "coverage.csv", index=False)
+    matrix = coverage_frame.rename(
+        columns={"class_or_category": "normal_class", "variant": "objective_or_nu"}
+    ).copy()
+    matrix["status"] = matrix.complete.map({True: "complete", False: "pending"})
+    matrix.drop(columns="complete").to_csv(
+        ROOT / "docs/reproduction/reproduction_matrix.csv", index=False
+    )
     complete_common = len(common) == 15 * 3 * 11
     complete_native = bool(
         coverage_frame[coverage_frame.track != "common_mvtec"].complete.all()

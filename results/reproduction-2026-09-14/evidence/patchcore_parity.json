@@ -1,0 +1,128 @@
+{
+  "real_images": [
+    "bottle/train/good/000.png",
+    "bottle/test/broken_large/000.png"
+  ],
+  "checks": [
+    {
+      "name": "layer2",
+      "shape": [
+        2,
+        512,
+        28,
+        28
+      ],
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "atol": 1e-05,
+      "rtol": 1e-05,
+      "passed": true
+    },
+    {
+      "name": "layer3",
+      "shape": [
+        2,
+        1024,
+        14,
+        14
+      ],
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "atol": 1e-05,
+      "rtol": 1e-05,
+      "passed": true
+    },
+    {
+      "name": "descriptor",
+      "shape": [
+        2,
+        784,
+        1024
+      ],
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "atol": 1e-05,
+      "rtol": 1e-05,
+      "passed": true
+    },
+    {
+      "name": "cached_image_scores",
+      "shape": [
+        2
+      ],
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "atol": 0.0001,
+      "rtol": 1e-05,
+      "passed": true
+    },
+    {
+      "name": "cached_score_maps",
+      "shape": [
+        2,
+        224,
+        224
+      ],
+      "max_abs_error": 6.198883056640625e-06,
+      "mean_abs_error": 4.018147592432797e-07,
+      "atol": 0.0001,
+      "rtol": 1e-05,
+      "passed": true
+    },
+    {
+      "name": "faiss_squared_L2",
+      "shape": [
+        2,
+        784
+      ],
+      "max_abs_error": 1.0846574341361048e-05,
+      "mean_abs_error": 1.7991236775631783e-06,
+      "atol": 0.0002,
+      "rtol": 0.0001,
+      "passed": true
+    },
+    {
+      "name": "bilinear_gaussian_maps",
+      "shape": [
+        2,
+        224,
+        224
+      ],
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "atol": 0.0001,
+      "rtol": 1e-05,
+      "passed": true
+    },
+    {
+      "name": "batch1_vs_batch2",
+      "shape": [
+        2,
+        784,
+        1024
+      ],
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "atol": 0.0001,
+      "rtol": 0.0001,
+      "passed": true
+    },
+    {
+      "name": "cache_roundtrip",
+      "shape": [
+        2,
+        784,
+        1024
+      ],
+      "max_abs_error": 0.0,
+      "mean_abs_error": 0.0,
+      "atol": 0,
+      "rtol": 0,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "raw_V1_state_sha256": "91609a33f9dc31406f968a27addec1ba52d0d38f8941962a70ed39caef7cafac",
+  "post_author_dimension_probe_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "BN_changed_in_upstream_startup": true
+}

@@ -1,0 +1,27 @@
+{
+  "auroc": 1.0,
+  "average_precision": 0.9999999999999998,
+  "pixel_auroc": 0.9849939761611911,
+  "target": "PatchCore_author_code_WR50_10pct",
+  "category": "bottle",
+  "seed": 2,
+  "train_normal_count": 209,
+  "test_count": 83,
+  "memory_descriptors": 16385,
+  "memory_bytes": 67112960,
+  "effective_backbone_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "feature_sha256": "62cfb8e5c63e2b315fc16b5a78a5ef8f1168ecf26cd04547722915a2ebe7deb5",
+  "checkpoint_sha256": "e5269669add49866249d47b41af5e99ebd33d25238e7c760bd60f10633adc3a0",
+  "predictions_sha256": "37e06a4ed884ad0807071daddf7f9b7d61c5ea90cde979593d034c820d6933ed",
+  "replay_errors": {
+    "images": 0.0,
+    "patches": 0.0,
+    "maps": 0.0
+  },
+  "seconds": 30.185711255995557,
+  "smoke": false,
+  "image_score": "max_squared_L2_1NN_no_Eq7_reweighting",
+  "AUPRO": "not_evaluated",
+  "mask_rule": "upstream_resize_crop_then_astype_int",
+  "complete": true
+}

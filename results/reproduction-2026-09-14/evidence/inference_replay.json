@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "method": "PatchScore_same_centers",
+      "max_abs_error": 4.76837158203125e-07
+    },
+    {
+      "method": "PatchScore_byte_budget",
+      "max_abs_error": 2.384185799897409e-07
+    },
+    {
+      "method": "RBF_SVDD",
+      "max_abs_error": 1.3877787807814457e-17
+    },
+    {
+      "method": "DeepSVDD_head",
+      "max_abs_error": 9.313225676765846e-09
+    },
+    {
+      "method": "DROCC_head",
+      "max_abs_error": 1.3969838688621117e-09
+    },
+    {
+      "method": "NBD",
+      "max_abs_error": 1.7763568394002505e-15
+    },
+    {
+      "method": "PatchCore_same_fit_top1pct",
+      "max_abs_error": 2.27661134388768e-08
+    }
+  ]
+}

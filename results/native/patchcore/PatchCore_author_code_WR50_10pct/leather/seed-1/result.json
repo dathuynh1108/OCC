@@ -1,0 +1,27 @@
+{
+  "auroc": 1.0,
+  "average_precision": 1.0000000000000002,
+  "pixel_auroc": 0.9927785168727271,
+  "target": "PatchCore_author_code_WR50_10pct",
+  "category": "leather",
+  "seed": 1,
+  "train_normal_count": 245,
+  "test_count": 124,
+  "memory_descriptors": 19208,
+  "memory_bytes": 78675968,
+  "effective_backbone_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "feature_sha256": "6167efbc93bba3ee1089209ebfa5043b1e4057f2032b3b592e7b906baac60963",
+  "checkpoint_sha256": "5444294121702008a4658a5f5bc2033126335d606119086c1db21d59995b149e",
+  "predictions_sha256": "40bcf8435bb00f6417626fea2d3fad658b6d3933576e593b58a6ba16d7d42179",
+  "replay_errors": {
+    "images": 0.0,
+    "patches": 0.0,
+    "maps": 0.0
+  },
+  "seconds": 31.639383752990398,
+  "smoke": false,
+  "image_score": "max_squared_L2_1NN_no_Eq7_reweighting",
+  "AUPRO": "not_evaluated",
+  "mask_rule": "upstream_resize_crop_then_astype_int",
+  "complete": true
+}

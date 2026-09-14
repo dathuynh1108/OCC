@@ -1,0 +1,27 @@
+{
+  "auroc": 0.98989898989899,
+  "average_precision": 0.9969625237482378,
+  "pixel_auroc": 0.9569631962290566,
+  "target": "PatchCore_author_code_WR50_10pct",
+  "category": "tile",
+  "seed": 1,
+  "train_normal_count": 230,
+  "test_count": 117,
+  "memory_descriptors": 18032,
+  "memory_bytes": 73859072,
+  "effective_backbone_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "feature_sha256": "19e118dedf6fea335bda50bc27709836f09d90a2959c24bf0f37d1b3600e3057",
+  "checkpoint_sha256": "a543d9581f0883035525ad3d9cb574a71e9600d34c9df20f1dec297ea7bdecb8",
+  "predictions_sha256": "97b09164b3968b4356c3e36978ab0cd214b7a4d333828290ef27d9914a5c977f",
+  "replay_errors": {
+    "images": 0.0,
+    "patches": 0.0,
+    "maps": 0.0
+  },
+  "seconds": 29.320146427009604,
+  "smoke": false,
+  "image_score": "max_squared_L2_1NN_no_Eq7_reweighting",
+  "AUPRO": "not_evaluated",
+  "mask_rule": "upstream_resize_crop_then_astype_int",
+  "complete": true
+}

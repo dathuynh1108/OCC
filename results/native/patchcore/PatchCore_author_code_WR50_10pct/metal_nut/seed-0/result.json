@@ -1,0 +1,27 @@
+{
+  "auroc": 0.9990224828934506,
+  "average_precision": 0.9997736276174306,
+  "pixel_auroc": 0.983402962871029,
+  "target": "PatchCore_author_code_WR50_10pct",
+  "category": "metal_nut",
+  "seed": 0,
+  "train_normal_count": 220,
+  "test_count": 115,
+  "memory_descriptors": 17248,
+  "memory_bytes": 70647808,
+  "effective_backbone_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "feature_sha256": "250255bf9a042b308231d96b0ab551cdf29e88bc54bcdff10b63cf8cb4123a1b",
+  "checkpoint_sha256": "6a9ea76a6d0eb065f421cb060b30a80d895e77e81faea2169f95086b894466a9",
+  "predictions_sha256": "f2a8ccd56b1fc88f6ef0e8203dbca4b9f5ba452d6443c4eb81ad6ef4e07ac4f8",
+  "replay_errors": {
+    "images": 0.0,
+    "patches": 0.0,
+    "maps": 0.0
+  },
+  "seconds": 26.979104600002756,
+  "smoke": false,
+  "image_score": "max_squared_L2_1NN_no_Eq7_reweighting",
+  "AUPRO": "not_evaluated",
+  "mask_rule": "upstream_resize_crop_then_astype_int",
+  "complete": true
+}

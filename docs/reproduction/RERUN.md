@@ -77,6 +77,9 @@ GPU tracks and used four isolated CPU libsvm processes; source-level math and
 batch sizes stayed unchanged. Full matrix size:45 native PatchCore,400 Deep
 objective results,60 DROCC selection exports,400 shallow nu results and495
 common MVTec metric rows. Check `coverage.csv` before calling any target complete.
+The updated `docs/reproduction/reproduction_matrix.csv` records the measured
+budgeted targets and result paths; `reproduction_matrix_full_schedule.csv`
+preserves the initial long-schedule planning matrix.
 
 Native Deep AE5+SVDD12; native DROCC5; common AE5/Deep15/DROCC15. Source milestones,
 soft-boundary warmup and ascent iterations remain explicit in the plan. These

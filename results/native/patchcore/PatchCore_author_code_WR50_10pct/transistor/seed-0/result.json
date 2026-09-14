@@ -1,0 +1,27 @@
+{
+  "auroc": 0.9987499999999999,
+  "average_precision": 0.9981242182614134,
+  "pixel_auroc": 0.9609811469460097,
+  "target": "PatchCore_author_code_WR50_10pct",
+  "category": "transistor",
+  "seed": 0,
+  "train_normal_count": 213,
+  "test_count": 100,
+  "memory_descriptors": 16699,
+  "memory_bytes": 68399104,
+  "effective_backbone_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "feature_sha256": "9049a245e0c1a713fb639966640afc5048bf92890d0f6b1408277133a1aca680",
+  "checkpoint_sha256": "237966bab8ff7c7abbf5e15f3a906fc9d6ba1331eb44f1833c51606c22ce1714",
+  "predictions_sha256": "94765328a91ab03832c073182d05748dbaf7ae0d0797cb546eb3d03c223763fc",
+  "replay_errors": {
+    "images": 0.0,
+    "patches": 0.0,
+    "maps": 0.0
+  },
+  "seconds": 26.311940510000568,
+  "smoke": false,
+  "image_score": "max_squared_L2_1NN_no_Eq7_reweighting",
+  "AUPRO": "not_evaluated",
+  "mask_rule": "upstream_resize_crop_then_astype_int",
+  "complete": true
+}

@@ -118,10 +118,15 @@ def main():
     native["paper_reference_auroc_percent"] = [
         reference(r.track, r.dataset, r.variant) for _, r in native.iterrows()
     ]
-    native["comparison_status"] = [
-        "source-code / shortened-schedule replication; protocol differs from reference"
-        for _ in range(len(native))
-    ]
+    native["comparison_status"] = native.track.map(
+        {
+            "PatchCore": "released_code_replication; image reweighting differs from paper",
+            "DeepSVDD": "later_author_port_replication; reduced epochs; historical parity unverified",
+            "DROCC": "released_image_CNN_replication; reduced epochs; selection policy explicit",
+            "Gaussian_OCSVM_equiv_SVDD": "source_protocol_modern_solver_adaptation; separate nu rows",
+        }
+    )
+    assert native.comparison_status.notna().all()
     native.to_csv(OUT / "paper_vs_measured_summary.csv", index=False)
     per_class = pd.read_csv(OUT / "native_per_class_per_seed.csv")
     per_class = per_class[per_class.track != "PatchCore"].copy()
@@ -573,7 +578,18 @@ must not be mixed into this corrected1024-D experiment.
         "Baselines $\\;\\to\\;$ Baseline results $\\;\\to\\;$ NBD $\\;\\to\\;$ Comparison",
         "Native methods $\\;\\to\\;$ Shared MVTec $\\;\\to\\;$ NBD",
     )
-    contents = [title, pick("One-class detection")]
+    problem = (
+        pick("One-class detection")
+        .replace(
+            "Training and calibration: normal only.",
+            "Common MVTec train/calibration: normal only.",
+        )
+        .replace(
+            r"Image benchmark: $z_p=f_{\rm CNN}(x)_p$; the same frozen CNN descriptors are used by every method.",
+            "Common MVTec uses shared frozen CNN descriptors. Native methods use their own input pipelines.",
+        )
+    )
+    contents = [title, problem]
     contents.append(
         frame(
             "Two evaluation tracks",
@@ -900,11 +916,32 @@ must not be mixed into this corrected1024-D experiment.
                     r"\href{https://proceedings.mlr.press/v119/goyal20c.html}{Goyal et al.: DROCC (2020).}",
                     r"\href{https://github.com/amazon-science/patchcore-inspection}{Roth et al.: PatchCore (2022), released author code.}",
                     r"Tax and Duin: Support Vector Data Description (2004).",
+                    r"Coifman and Lafon: Diffusion Maps (2006).",
                     r"\href{https://github.com/dathuynh1108/OCC}{Code, full tables, handoff and source audit: dathuynh1108/OCC.}",
                 ]
             )
             + band(r"Scores describe these declared protocols and training budgets."),
         )
+    )
+    old = pd.read_csv(ROOT / "results/mvtec-full-v2/summary.csv")
+    historical_rows = [
+        [
+            esc(LABELS[r.method].replace(" (15 epochs)", " (100 epochs)")),
+            stat(r.auroc_mean, r.auroc_sd, True),
+        ]
+        for _, r in old.iterrows()
+    ]
+    contents.insert(
+        -1,
+        frame(
+            "Appendix: historical v2 shared-feature results",
+            r"\footnotesize"
+            + table(["Historical method", "Image AUROC (\\%)"], historical_rows)
+            + band(
+                r"Previous 1,536-D extractor, AE 50 / heads 100 epochs. Preserved evidence; a different protocol."
+            )
+            + r"\src{\href{https://github.com/dathuynh1108/OCC/tree/91223d63adc3289786bbdeff16d5feeb59aeb3d7/results/mvtec-full-v2}{Historical v2 at 91223d6}. Do not infer a causal feature effect from this comparison.}",
+        ),
     )
     (DECK / "review.tex").write_text(
         pre + "\\begin{document}\n" + "\n".join(contents) + "\n\\end{document}\n"

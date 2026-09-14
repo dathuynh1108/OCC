@@ -1,0 +1,27 @@
+{
+  "auroc": 0.9774436090225564,
+  "average_precision": 0.9929858267350367,
+  "pixel_auroc": 0.9875219514212679,
+  "target": "PatchCore_author_code_WR50_10pct",
+  "category": "grid",
+  "seed": 2,
+  "train_normal_count": 264,
+  "test_count": 78,
+  "memory_descriptors": 20697,
+  "memory_bytes": 84774912,
+  "effective_backbone_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "feature_sha256": "7431b0a1031b0e08e3c7a069cf5c1218b3d52776303c08c53a37385ab0aa0024",
+  "checkpoint_sha256": "dde899bf80938cf04e506311b1053308cf97c10a286139e5f6ace281db6005f3",
+  "predictions_sha256": "c2a262f26f3390aa1dd0f6723ea5a98143c9081f58be138de0e768f5a19b459e",
+  "replay_errors": {
+    "images": 0.0,
+    "patches": 0.0,
+    "maps": 0.0
+  },
+  "seconds": 52.10452438298671,
+  "smoke": false,
+  "image_score": "max_squared_L2_1NN_no_Eq7_reweighting",
+  "AUPRO": "not_evaluated",
+  "mask_rule": "upstream_resize_crop_then_astype_int",
+  "complete": true
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "optimizer": "adam",
+    "ascent_steps": 50,
+    "BCE_comparisons": 52,
+    "loss_max_abs_error": 0.0,
+    "gradient_max_abs_error": 0.0,
+    "parameter_BN_max_abs_error": 0.0,
+    "resume_max_abs_error": 0.0,
+    "tolerance": 1e-07,
+    "passed": true
+  },
+  {
+    "optimizer": "sgd",
+    "ascent_steps": 50,
+    "BCE_comparisons": 52,
+    "loss_max_abs_error": 0.0,
+    "gradient_max_abs_error": 0.0,
+    "parameter_BN_max_abs_error": 0.0,
+    "resume_max_abs_error": 0.0,
+    "tolerance": 1e-07,
+    "passed": true
+  }
+]

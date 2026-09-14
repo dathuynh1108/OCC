@@ -1,0 +1,27 @@
+{
+  "auroc": 1.0,
+  "average_precision": 0.9999999999999998,
+  "pixel_auroc": 0.9867676777637034,
+  "target": "PatchCore_author_code_WR50_10pct",
+  "category": "hazelnut",
+  "seed": 0,
+  "train_normal_count": 391,
+  "test_count": 110,
+  "memory_descriptors": 30654,
+  "memory_bytes": 125558784,
+  "effective_backbone_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "feature_sha256": "b09c4cfa27ded72ec665ac3ebe35469ed2ea13f81515d6f37dd07729d47c9c5c",
+  "checkpoint_sha256": "70e6e78a8a5f0159e5fced4d2876606e967d9d7981fcfb2e880214cfc25b509e",
+  "predictions_sha256": "721326cc01a10df2750e2e2e94c9f42435b6d1c8da6a6ec59b5ff3e04fa9bd06",
+  "replay_errors": {
+    "images": 0.0,
+    "patches": 0.0,
+    "maps": 0.0
+  },
+  "seconds": 90.47550839700853,
+  "smoke": false,
+  "image_score": "max_squared_L2_1NN_no_Eq7_reweighting",
+  "AUPRO": "not_evaluated",
+  "mask_rule": "upstream_resize_crop_then_astype_int",
+  "complete": true
+}

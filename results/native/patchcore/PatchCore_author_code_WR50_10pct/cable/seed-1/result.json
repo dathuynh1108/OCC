@@ -1,0 +1,27 @@
+{
+  "auroc": 0.9968140929535232,
+  "average_precision": 0.9980228071111977,
+  "pixel_auroc": 0.9839872301365398,
+  "target": "PatchCore_author_code_WR50_10pct",
+  "category": "cable",
+  "seed": 1,
+  "train_normal_count": 224,
+  "test_count": 150,
+  "memory_descriptors": 17561,
+  "memory_bytes": 71929856,
+  "effective_backbone_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "feature_sha256": "d35d7ff7cce6afe85bb47dc841b665a3e9d097aa99d643ef115e038543d3a7d3",
+  "checkpoint_sha256": "edb4cb151b71019907b08134715baebac82db03cc6901f4d7a3a9a9d105ceb4f",
+  "predictions_sha256": "72283b143d443fdbd7687ddba7ac8f315da46bc125a0e5b1fb956bc15296f71d",
+  "replay_errors": {
+    "images": 0.0,
+    "patches": 0.0,
+    "maps": 0.0
+  },
+  "seconds": 50.74292022100417,
+  "smoke": false,
+  "image_score": "max_squared_L2_1NN_no_Eq7_reweighting",
+  "AUPRO": "not_evaluated",
+  "mask_rule": "upstream_resize_crop_then_astype_int",
+  "complete": true
+}

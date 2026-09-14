@@ -1,0 +1,27 @@
+{
+  "auroc": 0.9877023980323837,
+  "average_precision": 0.9955535859932847,
+  "pixel_auroc": 0.9952476938123278,
+  "target": "PatchCore_author_code_WR50_10pct",
+  "category": "screw",
+  "seed": 0,
+  "train_normal_count": 320,
+  "test_count": 160,
+  "memory_descriptors": 25088,
+  "memory_bytes": 102760448,
+  "effective_backbone_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "feature_sha256": "1e3a25cef543963d0f44995da064a34ae298223c69537430cf25b643a26ae4e9",
+  "checkpoint_sha256": "600de6b5900797f94d95c2ae4d8a4c84765cbfa951812520fd45f929dc4eebd6",
+  "predictions_sha256": "89d39dd2e2606830b25b151545a9883a038be466b994834fa42a470768e4b9ff",
+  "replay_errors": {
+    "images": 0.0,
+    "patches": 0.0,
+    "maps": 0.0
+  },
+  "seconds": 50.035715146004804,
+  "smoke": false,
+  "image_score": "max_squared_L2_1NN_no_Eq7_reweighting",
+  "AUPRO": "not_evaluated",
+  "mask_rule": "upstream_resize_crop_then_astype_int",
+  "complete": true
+}

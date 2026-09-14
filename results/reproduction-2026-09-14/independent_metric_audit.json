@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "audited_prediction_rows": 8262100,
+  "common_complete": true,
+  "native_complete": true,
+  "native_epoch_example_and_optimizer_step_counts_checked": true,
+  "common_metric_rows": 495,
+  "native_metric_rows": 905,
+  "metric_implementation": "stdlib tied-rank AUROC and threshold-group AP, strict > threshold FPR/TPR",
+  "plan_sha256": "7c0b42aea57b97226fb05486cefce7fe298f19197957e6ecbe2c48da924c368b",
+  "partial_rows_excluded_from_balanced_native_summary": true
+}

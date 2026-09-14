@@ -1,0 +1,133 @@
+{
+  "target": "DROCC_author_CIFAR_Table11_E5",
+  "dataset": "cifar10",
+  "classes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "epochs": 5,
+  "batch_size": 128,
+  "gamma": 1,
+  "momentum": 0,
+  "weight_decay": 0,
+  "ascent_num_steps": 50,
+  "projection_interval": 10,
+  "only_ce_epochs": 0,
+  "selection_exports": [
+    "test_selected",
+    "fixed_final_epoch"
+  ],
+  "class_params": [
+    {
+      "optimizer": "adam",
+      "lr": 0.001,
+      "ascent_step_size": 0.001,
+      "radius": 8,
+      "mu": 1,
+      "normal_class": 0
+    },
+    {
+      "optimizer": "sgd",
+      "lr": 0.001,
+      "ascent_step_size": 0.001,
+      "radius": 8,
+      "mu": 0.5,
+      "normal_class": 1
+    },
+    {
+      "optimizer": "adam",
+      "lr": 0.001,
+      "ascent_step_size": 0.001,
+      "radius": 40,
+      "mu": 0.5,
+      "normal_class": 2
+    },
+    {
+      "optimizer": "sgd",
+      "lr": 0.001,
+      "ascent_step_size": 0.001,
+      "radius": 28,
+      "mu": 1,
+      "normal_class": 3
+    },
+    {
+      "optimizer": "sgd",
+      "lr": 0.001,
+      "ascent_step_size": 0.001,
+      "radius": 32,
+      "mu": 1,
+      "normal_class": 4
+    },
+    {
+      "optimizer": "sgd",
+      "lr": 0.01,
+      "ascent_step_size": 0.001,
+      "radius": 24,
+      "mu": 0.5,
+      "normal_class": 5
+    },
+    {
+      "optimizer": "sgd",
+      "lr": 0.001,
+      "ascent_step_size": 0.01,
+      "radius": 36,
+      "mu": 1,
+      "normal_class": 6
+    },
+    {
+      "optimizer": "sgd",
+      "lr": 0.001,
+      "ascent_step_size": 0.001,
+      "radius": 32,
+      "mu": 0.5,
+      "normal_class": 7
+    },
+    {
+      "optimizer": "sgd",
+      "lr": 0.001,
+      "ascent_step_size": 0.001,
+      "radius": 28,
+      "mu": 0.5,
+      "normal_class": 8
+    },
+    {
+      "optimizer": "sgd",
+      "lr": 0.001,
+      "ascent_step_size": 0.001,
+      "radius": 16,
+      "mu": 0.5,
+      "normal_class": 9
+    }
+  ],
+  "citation": "DROCC supplement Table11; edgeml main_cifar.py:45-93; drocc_trainer.py:36-38,107-114,158-214",
+  "optimizer": "sgd",
+  "lr": 0.001,
+  "ascent_step_size": 0.01,
+  "radius": 36,
+  "mu": 1,
+  "normal_class": 6,
+  "seed": 0,
+  "smoke": false,
+  "runtime": {
+    "python": "3.12.14",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "run_plan_sha256": "7c0b42aea57b97226fb05486cefce7fe298f19197957e6ecbe2c48da924c368b"
+  },
+  "trainable_parameters": 528800
+}

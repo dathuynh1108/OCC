@@ -1,0 +1,23 @@
+{
+  "runtime": {
+    "python": "3.12.14",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "run_plan_sha256": "7c0b42aea57b97226fb05486cefce7fe298f19197957e6ecbe2c48da924c368b"
+  },
+  "category": "bottle",
+  "seed": 0,
+  "image_id": "bottle/test/broken_large/000.png",
+  "batch_images": 1,
+  "patches": 784,
+  "descriptor_dim": 1024,
+  "warmup": 3,
+  "repetitions": 30,
+  "timing": "wall clock with CUDA synchronization; CPU descriptor input, includes transfers and image pooling; NBD includes source ECDF sorting",
+  "shared_descriptor_excludes": "image disk I/O and PIL preprocessing",
+  "method_timings_exclude": "shared CNN; checkpoint loading; threshold comparison; pixel maps",
+  "state_bytes_exclude": "Python overhead, allocator, optimizer; NBD calibration reported separately",
+  "other_training_processes": "must be stopped before this command"
+}

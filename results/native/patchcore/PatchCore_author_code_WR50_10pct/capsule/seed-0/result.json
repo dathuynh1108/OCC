@@ -1,0 +1,27 @@
+{
+  "auroc": 0.9792580773833267,
+  "average_precision": 0.9952710076719686,
+  "pixel_auroc": 0.9895443467549312,
+  "target": "PatchCore_author_code_WR50_10pct",
+  "category": "capsule",
+  "seed": 0,
+  "train_normal_count": 219,
+  "test_count": 132,
+  "memory_descriptors": 17169,
+  "memory_bytes": 70324224,
+  "effective_backbone_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "feature_sha256": "0150bf8b3f20ed795dd7d94c99e8f99ba3fc69b527572e4d09a10d75d3a6fd15",
+  "checkpoint_sha256": "bd0b7edd97dc9008913ee4c88ab9d7dd65ec1cac3168d9e282d5f6644a22ad9c",
+  "predictions_sha256": "139304ded47373d5996d4a1037bde3c8ab56a0d6f364493a6c1931db0a13175e",
+  "replay_errors": {
+    "images": 0.0,
+    "patches": 0.0,
+    "maps": 0.0
+  },
+  "seconds": 39.87984722200781,
+  "smoke": false,
+  "image_score": "max_squared_L2_1NN_no_Eq7_reweighting",
+  "AUPRO": "not_evaluated",
+  "mask_rule": "upstream_resize_crop_then_astype_int",
+  "complete": true
+}

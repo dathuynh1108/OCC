@@ -1,0 +1,27 @@
+{
+  "auroc": 0.9934348739495799,
+  "average_precision": 0.9982424694332077,
+  "pixel_auroc": 0.9887831525856434,
+  "target": "PatchCore_author_code_WR50_10pct",
+  "category": "zipper",
+  "seed": 1,
+  "train_normal_count": 240,
+  "test_count": 151,
+  "memory_descriptors": 18816,
+  "memory_bytes": 77070336,
+  "effective_backbone_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "feature_sha256": "8b5cc4694fcd396fb081f35693a989d18283a33938991d3878e5b52224c2c92b",
+  "checkpoint_sha256": "c2cd44a3d6bb7cca96502d2c82ade872f73b2bca4beddf71383bdbdcbc24c421",
+  "predictions_sha256": "86997c416f23ca2fe3284dcc274b5de729feacd070350bf2cffb100e51ca0ce9",
+  "replay_errors": {
+    "images": 0.0,
+    "patches": 0.0,
+    "maps": 0.0
+  },
+  "seconds": 25.407457929002703,
+  "smoke": false,
+  "image_score": "max_squared_L2_1NN_no_Eq7_reweighting",
+  "AUPRO": "not_evaluated",
+  "mask_rule": "upstream_resize_crop_then_astype_int",
+  "complete": true
+}

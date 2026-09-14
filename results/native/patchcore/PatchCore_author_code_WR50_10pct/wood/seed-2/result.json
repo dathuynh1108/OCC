@@ -1,0 +1,27 @@
+{
+  "auroc": 0.9903508771929825,
+  "average_precision": 0.9970509733235492,
+  "pixel_auroc": 0.9510094789198568,
+  "target": "PatchCore_author_code_WR50_10pct",
+  "category": "wood",
+  "seed": 2,
+  "train_normal_count": 247,
+  "test_count": 79,
+  "memory_descriptors": 19364,
+  "memory_bytes": 79314944,
+  "effective_backbone_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "feature_sha256": "a19f5df2b515988d8cbd72817cb6829595bd982f363af295de61a228f20bffb0",
+  "checkpoint_sha256": "83275efcab22f855c7e9c2a3ab1d012135d9d755b3b5d5f94e988b35e7b789af",
+  "predictions_sha256": "6b47339bf30c47dc5f4b28e591f8bd833e14a04628d7b0e06ced7fb96ce32098",
+  "replay_errors": {
+    "images": 0.0,
+    "patches": 0.0,
+    "maps": 0.0
+  },
+  "seconds": 23.2326250319893,
+  "smoke": false,
+  "image_score": "max_squared_L2_1NN_no_Eq7_reweighting",
+  "AUPRO": "not_evaluated",
+  "mask_rule": "upstream_resize_crop_then_astype_int",
+  "complete": true
+}

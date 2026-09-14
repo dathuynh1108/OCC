@@ -1,0 +1,27 @@
+{
+  "auroc": 0.9895666131621187,
+  "average_precision": 0.9969499155585471,
+  "pixel_auroc": 0.9905984943300574,
+  "target": "PatchCore_author_code_WR50_10pct",
+  "category": "carpet",
+  "seed": 1,
+  "train_normal_count": 280,
+  "test_count": 117,
+  "memory_descriptors": 21952,
+  "memory_bytes": 89915392,
+  "effective_backbone_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "feature_sha256": "a16af26bbe896ce32c6aa97a330ba98c317b6cedfb08e9d7f6f9896fd6d51b3e",
+  "checkpoint_sha256": "2a332e1ff907d5ae9ae7faf90dd48f9cc770d3db8ed21906dc64e739b7e3079a",
+  "predictions_sha256": "3df97414aacb30a1662ae5663d87802f7b7133ec007322c01af64450c28148b1",
+  "replay_errors": {
+    "images": 0.0,
+    "patches": 0.0,
+    "maps": 0.0
+  },
+  "seconds": 64.48141100499197,
+  "smoke": false,
+  "image_score": "max_squared_L2_1NN_no_Eq7_reweighting",
+  "AUPRO": "not_evaluated",
+  "mask_rule": "upstream_resize_crop_then_astype_int",
+  "complete": true
+}

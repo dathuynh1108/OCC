@@ -1,0 +1,27 @@
+{
+  "auroc": 0.9667212220403709,
+  "average_precision": 0.9941063221115958,
+  "pixel_auroc": 0.9780119313119339,
+  "target": "PatchCore_author_code_WR50_10pct",
+  "category": "pill",
+  "seed": 0,
+  "train_normal_count": 267,
+  "test_count": 167,
+  "memory_descriptors": 20932,
+  "memory_bytes": 85737472,
+  "effective_backbone_state_sha256": "ce1523b649832bda4c60244bf49e8ee9ed216d1a4ea623f3952f489995aa756d",
+  "feature_sha256": "5ab332f3df01fd38e58a8dd71a2e424ba359ae60854cf9933337224c9628b4a7",
+  "checkpoint_sha256": "9f5cda657cb81ec281f83a7d5f8b66f978098f7f96477f17bcd1177926fa3770",
+  "predictions_sha256": "6a46fe1509c94edc34be769e4d45d09d2b5ac44b70e6cc7b72d0023a9a188736",
+  "replay_errors": {
+    "images": 0.0,
+    "patches": 0.0,
+    "maps": 0.0
+  },
+  "seconds": 36.891204832005315,
+  "smoke": false,
+  "image_score": "max_squared_L2_1NN_no_Eq7_reweighting",
+  "AUPRO": "not_evaluated",
+  "mask_rule": "upstream_resize_crop_then_astype_int",
+  "complete": true
+}
