@@ -1,0 +1,42 @@
+{
+  "checked_date": "2026-09-14",
+  "status": "source audit only; new training not run",
+  "sources": {
+    "OCC": {
+      "repo": "dathuynh1108/OCC",
+      "commit": "91223d63adc3289786bbdeff16d5feeb59aeb3d7",
+      "role": "existing shared-CNN result",
+      "git_url": "https://github.com/dathuynh1108/OCC"
+    },
+    "PatchCore": {
+      "repo": "amazon-science/patchcore-inspection",
+      "commit": "fcaa92f124fb1ad74a7acf56726decd4b27cbcad",
+      "role": "author code",
+      "git_url": "https://github.com/amazon-science/patchcore-inspection"
+    },
+    "SVDD": {
+      "repo": "DMJTax/dd_tools",
+      "commit": "efaaf04efae1f8be78906836a5d31547b48be7af",
+      "role": "later author MATLAB reference",
+      "git_url": "https://github.com/DMJTax/dd_tools"
+    },
+    "DeepSVDD_original": {
+      "repo": "lukasruff/Deep-SVDD",
+      "commit": "e20f18c8d0ad9dc01cad09fdf311bd861351a9ad",
+      "role": "original Theano/Lasagne paper implementation",
+      "git_url": "https://github.com/lukasruff/Deep-SVDD"
+    },
+    "DeepSVDD_PyTorch": {
+      "repo": "lukasruff/Deep-SVDD-PyTorch",
+      "commit": "1901612d595e23675fb75c4ebb563dd0ffebc21e",
+      "role": "author PyTorch implementation",
+      "git_url": "https://github.com/lukasruff/Deep-SVDD-PyTorch"
+    },
+    "DROCC": {
+      "repo": "microsoft/EdgeML",
+      "commit": "81025fce8ba28707eabe72e11bf3987a8d745608",
+      "role": "author code; examples/pytorch/DROCC",
+      "git_url": "https://github.com/microsoft/EdgeML"
+    }
+  }
+}

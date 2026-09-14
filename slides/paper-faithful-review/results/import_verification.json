@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "repository": "dathuynh1108/OCC",
+  "commit": "91223d63adc3289786bbdeff16d5feeb59aeb3d7",
+  "scope": "Imported blob identities, row coverage and aggregate arithmetic only.",
+  "benchmark_rerun_here": false,
+  "checkpoint_replay_here": false,
+  "prediction_level_audit_here": false,
+  "source_files": {
+    "results/summary.csv": {
+      "git_blob_sha1": "69592dd1ed2ecdfe28f6a8209a95eab6c222cb3d",
+      "sha256": "ce541eb2dfee321bd51f15d849a1b8b5741e37d680facca3f5b34bbd0d01432a",
+      "bytes": 1374,
+      "matches_published_git_blob": true
+    },
+    "results/category_summary.csv": {
+      "git_blob_sha1": "72d09e7235b2be17950601afc24e2d2dee78e728",
+      "sha256": "b2d9ef797a3a64f7e759eea4bbc98897a01bbb042a96e926352721bf43244561",
+      "bytes": 8710,
+      "matches_published_git_blob": true
+    },
+    "results/paired_deltas.csv": {
+      "git_blob_sha1": "cd31ee412dde6730e52c4260078e614a5e1d5169",
+      "sha256": "e3e38064c97f3edfbc290cc5146d52ed5c27e24e30a18dd880a46ca15f502e0f",
+      "bytes": 2352,
+      "matches_published_git_blob": true
+    },
+    "configs/full.json": {
+      "git_blob_sha1": "5e9f73841151dc7ec4144291b9b675fdee9aacb4",
+      "sha256": "ae3ae4520f0a2ef57099601ecc0e4712b11396fd87eb3195033ae8394f3804b2",
+      "bytes": 1211,
+      "matches_published_git_blob": true
+    }
+  },
+  "row_counts": {
+    "summary": 10,
+    "category_summary": 150,
+    "paired_deltas": 45
+  },
+  "category_means_match_published_macro_means": true,
+  "paired_deltas": {
+    "NBD_minus_same_centers": {
+      "mean_pp": -17.06678344235741,
+      "sample_sd_pp": 2.222428804202059
+    },
+    "NBD_minus_byte_budget": {
+      "mean_pp": -19.772529176250952,
+      "sample_sd_pp": 2.2948241873506374
+    }
+  },
+  "limitations": [
+    "AUROC/AP/SD are taken from the published benchmark.",
+    "Only paired-delta SD is recomputed here from its three seed macro means.",
+    "Per-epoch/variance/replay diagnostics are reported by the repository, not rerun here."
+  ]
+}

@@ -1,0 +1,338 @@
+{
+  "schema": 1,
+  "status": "locked_before_smoke",
+  "target_type": "released_author_code_replication_plus_explicit_controlled_adaptation",
+  "source_lock_sha256": "809666ff44691270b772d3a0228e584e98c4289265bb04a88ffe1715b03c1d6e",
+  "precision": {
+    "dtype": "float32",
+    "amp": false,
+    "tf32": false
+  },
+  "native": {
+    "patchcore": {
+      "target": "PatchCore_author_code_WR50_10pct",
+      "categories": [
+        "bottle",
+        "cable",
+        "capsule",
+        "carpet",
+        "grid",
+        "hazelnut",
+        "leather",
+        "metal_nut",
+        "pill",
+        "screw",
+        "tile",
+        "toothbrush",
+        "transistor",
+        "wood",
+        "zipper"
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "resize": 256,
+      "crop": 224,
+      "layers": [
+        "layer2",
+        "layer3"
+      ],
+      "patchsize": 3,
+      "patchstride": 1,
+      "pretrain_dim": 1024,
+      "target_dim": 1024,
+      "coreset_ratio": 0.1,
+      "projection_dim": 128,
+      "starting_points": 10,
+      "num_nn": 1,
+      "nn_backend": "faiss_gpu_fp32_IndexFlatL2",
+      "image_pool": "max",
+      "map_sigma": 4,
+      "extract_batch": 1,
+      "citation": "patchcore README.md:23-34; sampler.py:118-171; common.py:186-208"
+    },
+    "deep_svdd": {
+      "target": "DeepSVDD_author_torch_readme",
+      "fallback_condition": "recorded failure to resolve or execute original Theano lock on rented GPU",
+      "datasets": [
+        "mnist",
+        "cifar10"
+      ],
+      "classes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "objectives": [
+        "one-class",
+        "soft-boundary"
+      ],
+      "nu": 0.1,
+      "batch_size": 200,
+      "optimizer": "adam",
+      "lr": 0.0001,
+      "lr_gamma": 0.1,
+      "svdd_epochs": 150,
+      "svdd_milestone": 50,
+      "weight_decay": 5e-07,
+      "ae": {
+        "mnist": {
+          "epochs": 150,
+          "milestone": 50,
+          "weight_decay": 0.0005
+        },
+        "cifar10": {
+          "epochs": 350,
+          "milestone": 250,
+          "weight_decay": 5e-07
+        }
+      },
+      "scheduler": "source_step_before_epoch_modern_torch_record_effective_lr",
+      "warmup_epochs": 10,
+      "radius_update": "source_minibatch_quantile",
+      "center_epsilon": 0.1,
+      "selection": "fixed_final_epoch",
+      "test_count": 10000,
+      "reuse_identical_ae_across_objectives": true,
+      "citation": "deep_svdd_torch README.md:86,105; src/optim/deepSVDD_trainer.py:31-94,156-182; deep_svdd_theano experiments/mnist_svdd_exp_seeds.sh:5",
+      "historic_parity": "unverified; source differs from paper schedule and Theano BN/activation/radius"
+    },
+    "drocc": {
+      "target": "DROCC_author_CIFAR_Table11",
+      "dataset": "cifar10",
+      "classes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "epochs": 100,
+      "batch_size": 128,
+      "gamma": 1,
+      "momentum": 0,
+      "weight_decay": 0,
+      "ascent_num_steps": 50,
+      "projection_interval": 10,
+      "only_ce_epochs": 0,
+      "selection_exports": [
+        "test_selected",
+        "fixed_final_epoch"
+      ],
+      "class_params": [
+        {
+          "optimizer": "adam",
+          "lr": 0.001,
+          "ascent_step_size": 0.001,
+          "radius": 8,
+          "mu": 1,
+          "normal_class": 0
+        },
+        {
+          "optimizer": "sgd",
+          "lr": 0.001,
+          "ascent_step_size": 0.001,
+          "radius": 8,
+          "mu": 0.5,
+          "normal_class": 1
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.001,
+          "ascent_step_size": 0.001,
+          "radius": 40,
+          "mu": 0.5,
+          "normal_class": 2
+        },
+        {
+          "optimizer": "sgd",
+          "lr": 0.001,
+          "ascent_step_size": 0.001,
+          "radius": 28,
+          "mu": 1,
+          "normal_class": 3
+        },
+        {
+          "optimizer": "sgd",
+          "lr": 0.001,
+          "ascent_step_size": 0.001,
+          "radius": 32,
+          "mu": 1,
+          "normal_class": 4
+        },
+        {
+          "optimizer": "sgd",
+          "lr": 0.01,
+          "ascent_step_size": 0.001,
+          "radius": 24,
+          "mu": 0.5,
+          "normal_class": 5
+        },
+        {
+          "optimizer": "sgd",
+          "lr": 0.001,
+          "ascent_step_size": 0.01,
+          "radius": 36,
+          "mu": 1,
+          "normal_class": 6
+        },
+        {
+          "optimizer": "sgd",
+          "lr": 0.001,
+          "ascent_step_size": 0.001,
+          "radius": 32,
+          "mu": 0.5,
+          "normal_class": 7
+        },
+        {
+          "optimizer": "sgd",
+          "lr": 0.001,
+          "ascent_step_size": 0.001,
+          "radius": 28,
+          "mu": 0.5,
+          "normal_class": 8
+        },
+        {
+          "optimizer": "sgd",
+          "lr": 0.001,
+          "ascent_step_size": 0.001,
+          "radius": 16,
+          "mu": 0.5,
+          "normal_class": 9
+        }
+      ],
+      "citation": "DROCC supplement Table11; edgeml main_cifar.py:45-93; drocc_trainer.py:36-38,107-114,158-214"
+    },
+    "shallow": {
+      "target": "Ruff_Table1_Gaussian_OCSVM_equivalent_SVDD",
+      "datasets": [
+        "mnist",
+        "cifar10"
+      ],
+      "classes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "nu": [
+        0.01,
+        0.1
+      ],
+      "gamma_exponents": [
+        -10,
+        -9,
+        -8,
+        -7,
+        -6,
+        -5,
+        -4,
+        -3,
+        -2,
+        -1
+      ],
+      "pca_variance": 0.95,
+      "gcn": false,
+      "test_holdout_fraction": 0.1,
+      "selection": "gamma_by_labeled_test_holdout; retain both nu; report historical better-nu separately",
+      "citation": "Ruff18 Sec4.1/Table1; deep_svdd_theano src/svm.py:139-176; scripts/mnist_ocsvm.sh; datasets/preprocessing.py:50-66,191-212"
+    }
+  },
+  "controlled": {
+    "categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "split_source": "results/mvtec-full-v2/run_evidence",
+    "config": "configs/full.json",
+    "feature_dim": 1024,
+    "pooling": "top_1pct_mean",
+    "status": "post_result_protocol_correction",
+    "citation": "OCC 91223d6 configs/full.json and REQUEST.md Track B"
+  },
+  "coverage_only": [
+    {
+      "target": "Tax_Duin_2004_original_numeric",
+      "status": "unresolved_original_data_settings_and_MATLAB_runtime"
+    },
+    {
+      "target": "PatchCore_paper_Eq7",
+      "status": "unresolved_reweighting_neighborhood"
+    },
+    {
+      "target": "DeepSVDD_Theano_historical_numeric",
+      "status": "legacy_runtime_probe_pending"
+    },
+    {
+      "target": "DROCC_tabular_ImageNet10",
+      "status": "outside_selected_native_CIFAR_target"
+    }
+  ]
+}

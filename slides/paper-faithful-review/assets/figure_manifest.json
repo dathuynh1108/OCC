@@ -1,0 +1,96 @@
+{
+  "problem": {
+    "kind": "schematic",
+    "description": "Normal samples lie near a curved support; test anomalies need not."
+  },
+  "patchscore": {
+    "kind": "schematic",
+    "description": "Query scored by squared distance to the nearest stored normal vector."
+  },
+  "svdd": {
+    "kind": "schematic",
+    "description": "Illustrative enclosing circle in fixed kernel feature space; not a fitted decision boundary."
+  },
+  "deep_svdd": {
+    "kind": "schematic",
+    "description": "Schematic learned mapping concentrating normal representations near a fixed center."
+  },
+  "drocc": {
+    "kind": "schematic",
+    "description": "Schematic pseudo-negative search around a normal point; the annulus does not exclude all other normals."
+  },
+  "manifold3d": {
+    "kind": "schematic",
+    "description": "Analytic curved surface with tangent-aligned ellipsoids; a schematic, not benchmark data."
+  },
+  "bubble_detail": {
+    "kind": "schematic",
+    "description": "A query projected onto the local tangent line; the dashed leg is the perpendicular residual."
+  },
+  "pair_centers": {
+    "kind": "schematic",
+    "description": "Displacement between the two bubble centers."
+  },
+  "pair_frames": {
+    "kind": "schematic",
+    "description": "Projectors compare subspaces, independently of sign changes in a tangent basis."
+  },
+  "pair_thickness": {
+    "kind": "schematic",
+    "description": "Optional comparison of residual thickness; not a full covariance distance."
+  },
+  "bubble_graph": {
+    "kind": "schematic",
+    "description": "Toy graph with bubble nodes and symmetric local edge weights; line width encodes affinity."
+  },
+  "diffusion_walks": {
+    "kind": "computed toy illustration",
+    "description": "Two three-step transition distributions on the toy bubble graph, not a benchmark result."
+  },
+  "attachment_near": {
+    "kind": "schematic",
+    "description": "Illustrative attachment mass in diffusion coordinates; circle area is b_j and star is the weighted mean."
+  },
+  "attachment_far": {
+    "kind": "schematic",
+    "description": "Illustrative attachment mass in diffusion coordinates; circle area is b_j and star is the weighted mean."
+  },
+  "mvtec_macro_auroc": {
+    "kind": "measured benchmark chart",
+    "source": "results/summary.csv",
+    "commit": "91223d63adc3289786bbdeff16d5feeb59aeb3d7",
+    "training_rerun_for_figure": false
+  },
+  "mvtec_ablations": {
+    "kind": "measured benchmark chart",
+    "source": "results/summary.csv",
+    "commit": "91223d63adc3289786bbdeff16d5feeb59aeb3d7",
+    "training_rerun_for_figure": false
+  },
+  "mvtec_categories": {
+    "kind": "measured benchmark chart",
+    "source": "results/category_summary.csv",
+    "commit": "91223d63adc3289786bbdeff16d5feeb59aeb3d7",
+    "training_rerun_for_figure": false
+  },
+  "mvtec_paired_deltas": {
+    "kind": "measured benchmark chart",
+    "source": "results/paired_deltas.csv",
+    "commit": "91223d63adc3289786bbdeff16d5feeb59aeb3d7",
+    "training_rerun_for_figure": false
+  },
+  "mvtec_baseline_auroc": {
+    "kind": "measured benchmark view",
+    "source": "results/summary.csv",
+    "view_specification": "results/figure_views.json",
+    "commit": "91223d63adc3289786bbdeff16d5feeb59aeb3d7",
+    "training_rerun_for_figure": false
+  },
+  "mvtec_nbd_comparison": {
+    "kind": "measured benchmark view",
+    "source": "results/summary.csv",
+    "view_specification": "results/figure_views.json",
+    "commit": "91223d63adc3289786bbdeff16d5feeb59aeb3d7",
+    "training_rerun_for_figure": false
+  }
+}

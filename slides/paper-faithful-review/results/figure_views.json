@@ -1,0 +1,28 @@
+{
+  "source": "results/summary.csv",
+  "commit": "91223d63adc3289786bbdeff16d5feeb59aeb3d7",
+  "benchmark_rerun": false,
+  "baseline_chart": [
+    "PatchScore_same_centers",
+    "RBF_SVDD",
+    "DeepSVDD_head",
+    "DROCC_head"
+  ],
+  "later_comparison_chart": [
+    "PatchScore_same_centers",
+    "PatchScore_byte_budget",
+    "RBF_SVDD",
+    "DeepSVDD_head",
+    "DROCC_head",
+    "NBD"
+  ],
+  "display_names": {
+    "PatchScore_same_centers": "PatchScore (128 centers)",
+    "PatchScore_byte_budget": "PatchScore (byte budget)",
+    "RBF_SVDD": "RBF SVDD",
+    "DeepSVDD_head": "Deep SVDD-head",
+    "DROCC_head": "DROCC-head",
+    "NBD": "NBD (B+A+D+F)"
+  },
+  "note": "PatchScore (128 centers) is the existing same-center CSV row, not a new run. All 10 variants remain in the appendix and category chart."
+}
