@@ -17,5 +17,7 @@ reviewed. Root CODEX_OCC_PAPER_REPRODUCTION.md and the result handoff point to t
 measured tables, source references and rerun commands.
 
 Lifecycle status is authoritative in results/reproduction-2026-09-14/execution_closure.json.
-Only delete instance50996199 after verified off-box backup and Git delivery, as
-explicitly requested by the user. Initial long-run checkpoints remain separate.
+Instance 50996199 was destroyed after verified off-box backup and Git delivery.
+Provider listing confirmed its absence at 2026-09-14T12:16:26.979079+00:00. All 5,999 snapshot files
+are verified across the local checkout and GitHub Release; see BACKUP_RESTORE.md.
+Initial long-run checkpoints remain separate.

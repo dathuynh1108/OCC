@@ -1,5 +1,5 @@
 {
-  "status": "backup_and_git_delivery_verified_pending_instance_deletion",
+  "status": "completed_instance_deleted",
   "training_complete": true,
   "training_last_finished_unix": 1789384839.2814932,
   "all_selected_matrix_rows_complete": true,
@@ -7,7 +7,7 @@
   "slides_compiled_and_visually_reviewed": true,
   "backup_verified": true,
   "vast_instance_id": 50996199,
-  "vast_instance_deleted": false,
+  "vast_instance_deleted": true,
   "deletion_gate": "after verified off-box backup and completed Git delivery",
   "transfer_issue": "Direct local transfer suffered severe packet loss; remaining 422 fitted-state files were preserved as ten SHA-256-verified GitHub Release archives. Training had already completed.",
   "backup_mode": "local_plus_github_release",
@@ -15,5 +15,8 @@
   "backup_proof": "backup_offbox_verified.json",
   "published_artifact_git_commit": "d1d15b1955dca4798c699d11eeda85452e06ce65",
   "published_branch": "main",
-  "release_url": "https://github.com/dathuynh1108/OCC/releases/tag/reproduction-2026-09-14"
+  "release_url": "https://github.com/dathuynh1108/OCC/releases/tag/reproduction-2026-09-14",
+  "vast_deletion_verified_at_utc": "2026-09-14T12:16:26.979079+00:00",
+  "vast_deletion_proof": "vast_deletion_verified.json",
+  "backup_delivery_git_commit": "2d60d8545c2691ebdb99a73f06d77bc414c0c06a"
 }
