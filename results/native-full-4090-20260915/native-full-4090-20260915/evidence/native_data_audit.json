@@ -1,0 +1,389 @@
+{
+  "GCN_bounds": [
+    {
+      "dataset": "mnist",
+      "normal_class": 0,
+      "original_train_normal_count": 5923,
+      "source_bounds": [
+        -0.8826567065619495,
+        9.001545489292527
+      ],
+      "all_train_float64_GCN_bounds": [
+        -0.8826567065619493,
+        9.001545489292528
+      ],
+      "max_abs_error": 1.7763568394002505e-15,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "mnist",
+      "normal_class": 1,
+      "original_train_normal_count": 6742,
+      "source_bounds": [
+        -0.6661464580883915,
+        20.108062262467364
+      ],
+      "all_train_float64_GCN_bounds": [
+        -0.6661464580883915,
+        20.108062262467364
+      ],
+      "max_abs_error": 0.0,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "mnist",
+      "normal_class": 2,
+      "original_train_normal_count": 5958,
+      "source_bounds": [
+        -0.7820454743183202,
+        11.665100841080346
+      ],
+      "all_train_float64_GCN_bounds": [
+        -0.7820454743183203,
+        11.665100841080342
+      ],
+      "max_abs_error": 3.552713678800501e-15,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "mnist",
+      "normal_class": 3,
+      "original_train_normal_count": 6131,
+      "source_bounds": [
+        -0.7645772083211267,
+        12.895051191467457
+      ],
+      "all_train_float64_GCN_bounds": [
+        -0.7645772083211264,
+        12.895051191467457
+      ],
+      "max_abs_error": 3.3306690738754696e-16,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "mnist",
+      "normal_class": 4,
+      "original_train_normal_count": 5842,
+      "source_bounds": [
+        -0.7253923114302238,
+        12.683235701611533
+      ],
+      "all_train_float64_GCN_bounds": [
+        -0.7253923114302236,
+        12.683235701611531
+      ],
+      "max_abs_error": 1.7763568394002505e-15,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "mnist",
+      "normal_class": 5,
+      "original_train_normal_count": 5421,
+      "source_bounds": [
+        -0.7698501867861425,
+        13.103278415430502
+      ],
+      "all_train_float64_GCN_bounds": [
+        -0.7698501867861428,
+        13.103278415430502
+      ],
+      "max_abs_error": 3.3306690738754696e-16,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "mnist",
+      "normal_class": 6,
+      "original_train_normal_count": 5918,
+      "source_bounds": [
+        -0.778418217980696,
+        10.457837397569108
+      ],
+      "all_train_float64_GCN_bounds": [
+        -0.778418217980696,
+        10.457837397569108
+      ],
+      "max_abs_error": 0.0,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "mnist",
+      "normal_class": 7,
+      "original_train_normal_count": 6265,
+      "source_bounds": [
+        -0.7129780970522351,
+        12.057777597673047
+      ],
+      "all_train_float64_GCN_bounds": [
+        -0.7129780970522351,
+        12.057777597673047
+      ],
+      "max_abs_error": 0.0,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "mnist",
+      "normal_class": 8,
+      "original_train_normal_count": 5851,
+      "source_bounds": [
+        -0.8280402650205075,
+        10.581538445782988
+      ],
+      "all_train_float64_GCN_bounds": [
+        -0.8280402650205075,
+        10.581538445782986
+      ],
+      "max_abs_error": 1.7763568394002505e-15,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "mnist",
+      "normal_class": 9,
+      "original_train_normal_count": 5949,
+      "source_bounds": [
+        -0.7369959242164307,
+        10.697039838804978
+      ],
+      "all_train_float64_GCN_bounds": [
+        -0.7369959242164307,
+        10.697039838804981
+      ],
+      "max_abs_error": 3.552713678800501e-15,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "cifar10",
+      "normal_class": 0,
+      "original_train_normal_count": 5000,
+      "source_bounds": [
+        -28.94083453598571,
+        13.802961825439636
+      ],
+      "all_train_float64_GCN_bounds": [
+        -28.94083453598541,
+        13.802961825439633
+      ],
+      "max_abs_error": 3.019806626980426e-13,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "cifar10",
+      "normal_class": 1,
+      "original_train_normal_count": 5000,
+      "source_bounds": [
+        -6.681770233365245,
+        9.158067708230273
+      ],
+      "all_train_float64_GCN_bounds": [
+        -6.681770233365248,
+        9.158067708230275
+      ],
+      "max_abs_error": 3.552713678800501e-15,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "cifar10",
+      "normal_class": 2,
+      "original_train_normal_count": 5000,
+      "source_bounds": [
+        -34.924463588638204,
+        14.419298165027628
+      ],
+      "all_train_float64_GCN_bounds": [
+        -34.924463588638545,
+        14.419298165027627
+      ],
+      "max_abs_error": 3.410605131648481e-13,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "cifar10",
+      "normal_class": 3,
+      "original_train_normal_count": 5000,
+      "source_bounds": [
+        -10.599172931391799,
+        11.093187820377565
+      ],
+      "all_train_float64_GCN_bounds": [
+        -10.599172931391806,
+        11.093187820377565
+      ],
+      "max_abs_error": 7.105427357601002e-15,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "cifar10",
+      "normal_class": 4,
+      "original_train_normal_count": 5000,
+      "source_bounds": [
+        -11.945022995801637,
+        10.628045447867583
+      ],
+      "all_train_float64_GCN_bounds": [
+        -11.945022995801619,
+        10.628045447867581
+      ],
+      "max_abs_error": 1.7763568394002505e-14,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "cifar10",
+      "normal_class": 5,
+      "original_train_normal_count": 5000,
+      "source_bounds": [
+        -9.691969487694928,
+        8.948326776180823
+      ],
+      "all_train_float64_GCN_bounds": [
+        -9.691969487694923,
+        8.948326776180823
+      ],
+      "max_abs_error": 5.329070518200751e-15,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "cifar10",
+      "normal_class": 6,
+      "original_train_normal_count": 5000,
+      "source_bounds": [
+        -9.174940012342555,
+        13.847014686472365
+      ],
+      "all_train_float64_GCN_bounds": [
+        -9.174940012342555,
+        13.847014686472368
+      ],
+      "max_abs_error": 3.552713678800501e-15,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "cifar10",
+      "normal_class": 7,
+      "original_train_normal_count": 5000,
+      "source_bounds": [
+        -6.876682005899029,
+        12.282371383343161
+      ],
+      "all_train_float64_GCN_bounds": [
+        -6.876682005899027,
+        12.282371383343161
+      ],
+      "max_abs_error": 1.7763568394002505e-15,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "cifar10",
+      "normal_class": 8,
+      "original_train_normal_count": 5000,
+      "source_bounds": [
+        -15.603507135507172,
+        15.2464923804279
+      ],
+      "all_train_float64_GCN_bounds": [
+        -15.603507135507138,
+        15.2464923804279
+      ],
+      "max_abs_error": 3.375077994860476e-14,
+      "matches_at_1e_4": true
+    },
+    {
+      "dataset": "cifar10",
+      "normal_class": 9,
+      "original_train_normal_count": 5000,
+      "source_bounds": [
+        -6.132882973622672,
+        8.046098172351265
+      ],
+      "all_train_float64_GCN_bounds": [
+        -6.132882973622665,
+        8.046098172351261
+      ],
+      "max_abs_error": 7.105427357601002e-15,
+      "matches_at_1e_4": true
+    }
+  ],
+  "all_bounds_match": true,
+  "files": {
+    "data/native/MNIST/raw/t10k-images-idx3-ubyte": {
+      "sha256": "0fa7898d509279e482958e8ce81c8e77db3f2f8254e26661ceb7762c4d494ce7",
+      "bytes": 7840016,
+      "md5": "2646ac647ad5339dbf082846283269ea"
+    },
+    "data/native/MNIST/raw/t10k-images-idx3-ubyte.gz": {
+      "sha256": "8d422c7b0a1c1c79245a5bcf07fe86e33eeafee792b84584aec276f5a2dbc4e6",
+      "bytes": 1648877,
+      "md5": "9fb629c4189551a2d022fa330f9573f3"
+    },
+    "data/native/MNIST/raw/t10k-labels-idx1-ubyte": {
+      "sha256": "ff7bcfd416de33731a308c3f266cc351222c34898ecbeaf847f06e48f7ec33f2",
+      "bytes": 10008,
+      "md5": "27ae3e4e09519cfbb04c329615203637"
+    },
+    "data/native/MNIST/raw/t10k-labels-idx1-ubyte.gz": {
+      "sha256": "f7ae60f92e00ec6debd23a6088c31dbd2371eca3ffa0defaefb259924204aec6",
+      "bytes": 4542,
+      "md5": "ec29112dd5afa0611ce80d1b7f02629c"
+    },
+    "data/native/MNIST/raw/train-images-idx3-ubyte": {
+      "sha256": "ba891046e6505d7aadcbbe25680a0738ad16aec93bde7f9b65e87a2fc25776db",
+      "bytes": 47040016,
+      "md5": "6bbc9ace898e44ae57da46a324031adb"
+    },
+    "data/native/MNIST/raw/train-images-idx3-ubyte.gz": {
+      "sha256": "440fcabf73cc546fa21475e81ea370265605f56be210a4024d2ca8f203523609",
+      "bytes": 9912422,
+      "md5": "f68b3c2dcbeaaa9fbdd348bbdeb94873"
+    },
+    "data/native/MNIST/raw/train-labels-idx1-ubyte": {
+      "sha256": "65a50cbbf4e906d70832878ad85ccda5333a97f0f4c3dd2ef09a8a9eef7101c5",
+      "bytes": 60008,
+      "md5": "a25bea736e30d166cdddb491f175f624"
+    },
+    "data/native/MNIST/raw/train-labels-idx1-ubyte.gz": {
+      "sha256": "3552534a0a558bbed6aed32b30c495cca23d567ec52cac8be1a0730e8010255c",
+      "bytes": 28881,
+      "md5": "d53e105ee54ea40749a09fcbcd1e9432"
+    },
+    "data/native/cifar-10-batches-py/batches.meta": {
+      "sha256": "f962466ef690d46b226450fb9aadc74ba4bc64a76aa526b5827fe4bc5c7125cb",
+      "bytes": 158,
+      "md5": "5ff9c542aee3614f3951f8cda6e48888"
+    },
+    "data/native/cifar-10-batches-py/data_batch_1": {
+      "sha256": "54636561a3ce25bd3e19253c6b0d8538147b0ae398331ac4a2d86c6d987368cd",
+      "bytes": 31035704,
+      "md5": "c99cafc152244af753f735de768cd75f"
+    },
+    "data/native/cifar-10-batches-py/data_batch_2": {
+      "sha256": "766b2cef9fbc745cf056b3152224f7cf77163b330ea9a15f9392beb8b89bc5a8",
+      "bytes": 31035320,
+      "md5": "d4bba439e000b95fd0a9bffe97cbabec"
+    },
+    "data/native/cifar-10-batches-py/data_batch_3": {
+      "sha256": "0f00d98ebfb30b3ec0ad19f9756dc2630b89003e10525f5e148445e82aa6a1f9",
+      "bytes": 31035999,
+      "md5": "54ebc095f3ab1f0389bbae665268c751"
+    },
+    "data/native/cifar-10-batches-py/data_batch_4": {
+      "sha256": "3f7bb240661948b8f4d53e36ec720d8306f5668bd0071dcb4e6c947f78e9682b",
+      "bytes": 31035696,
+      "md5": "634d18415352ddfa80567beed471001a"
+    },
+    "data/native/cifar-10-batches-py/data_batch_5": {
+      "sha256": "d91802434d8376bbaeeadf58a737e3a1b12ac839077e931237e0dcd43adcb154",
+      "bytes": 31035623,
+      "md5": "482c414d41f54cd18b22e5b47cb7c3cb"
+    },
+    "data/native/cifar-10-batches-py/readme.html": {
+      "sha256": "4d1c3fb199d6a183ae03f5162b469d7bc04edf2fad9547bd5f224271d52f98e5",
+      "bytes": 88,
+      "md5": "82949b010606e8171045e61c60921d12"
+    },
+    "data/native/cifar-10-batches-py/test_batch": {
+      "sha256": "f53d8d457504f7cff4ea9e021afcf0e0ad8e24a91f3fc42091b8adef61157831",
+      "bytes": 31035526,
+      "md5": "40351d587109b95175f43aff81a1287e"
+    }
+  },
+  "fit_population": "original training split only; no test images used for this audit",
+  "training_transforms": "unchanged author constants regardless of audit result"
+}
