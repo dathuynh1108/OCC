@@ -1,4 +1,4 @@
-"""Full native PatchCore and controlled NBD tracks with the exact author encoder."""
+"""Native PatchCore by default; the controlled NBD experiment is an explicit track."""
 
 from __future__ import annotations
 
@@ -25,13 +25,14 @@ from .common import (
     sha256,
     write_json,
 )
-from .patchcore import AuthorPatchCore, datasets, extract_category
 from nbdbench.data import EXPECTED, array_sha256, inspect_dataset, split_normal_indices
 from nbdbench.math import image_score, normal_threshold
 from nbdbench.run import metric_row, run_one
 
 
 def selection_rng_from_source(adapter, data_root, category):
+    from .patchcore import datasets
+
     # Source constructs model, then iterates the unshuffled train loader before
     # drawing projection weights. Creating its iterator consumes the RNG base seed;
     # deterministic image transforms/CNN extraction consume no further random draws.
@@ -259,19 +260,26 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--category", choices=list(EXPECTED))
     parser.add_argument("--smoke", action="store_true")
+    parser.add_argument(
+        "--track", choices=("native", "controlled"), default="native",
+        help="Native author-code reproduction or the separate NBD comparison.",
+    )
     args = parser.parse_args()
+    from .patchcore import AuthorPatchCore, extract_category
+
     plan = load_plan()
     parity = json.loads(
         (ROOT / "artifacts/reproduction/fixtures/patchcore_parity.json").read_text()
     )
     assert parity["passed"]
-    if not args.smoke:
+    if not args.smoke and args.track == "native":
         assert json.loads(
             (
                 ROOT
                 / "artifacts/reproduction/smoke/mvtec/native/toothbrush/seed-0/result.json"
             ).read_text()
         )["complete"]
+    if not args.smoke and args.track == "controlled":
         assert (
             ROOT
             / "artifacts/reproduction/smoke/mvtec/controlled/toothbrush/seed-0/base/COMPLETE.json"
@@ -284,31 +292,33 @@ def main():
         else plan["native"]["patchcore"]["categories"]
     )
     seeds = [0] if args.smoke else plan["native"]["patchcore"]["seeds"]
-    cfg = json.loads((ROOT / "configs/full.json").read_text())
-    cfg.update(
-        protocol=plan["controlled"]
-        .get("output", "results/mvtec-author-encoder-controlled-v3")
-        .split("/")[-1],
-        feature_batch=1,
-    )
-    cfg.update(plan["controlled"].get("epoch_overrides", {}))
-    if args.smoke:
-        cfg.update(ae_epochs=1, deep_epochs=1, drocc_epochs=1)
-    data_root = ROOT / "data/mvtec_ad"
-    native_root = ROOT / (
-        "artifacts/reproduction/smoke/mvtec/native"
-        if args.smoke
-        else "results/native/patchcore/PatchCore_author_code_WR50_10pct"
-    )
-    controlled_root = ROOT / (
-        "artifacts/reproduction/smoke/mvtec/controlled"
-        if args.smoke
-        else plan["controlled"].get(
-            "output", "results/mvtec-author-encoder-controlled-v3"
+    if args.track == "controlled":
+        cfg = json.loads((ROOT / "configs/full.json").read_text())
+        cfg.update(
+            protocol=plan["controlled"]
+            .get("output", "results/mvtec-author-encoder-controlled-v3")
+            .split("/")[-1],
+            feature_batch=1,
         )
-    )
-    native_root.mkdir(parents=True, exist_ok=True)
-    controlled_root.mkdir(parents=True, exist_ok=True)
+        cfg.update(plan["controlled"].get("epoch_overrides", {}))
+        if args.smoke:
+            cfg.update(ae_epochs=1, deep_epochs=1, drocc_epochs=1)
+    data_root = ROOT / "data/mvtec_ad"
+    if args.track == "native":
+        result_root = ROOT / (
+            "artifacts/reproduction/smoke/mvtec/native"
+            if args.smoke
+            else "results/native/patchcore/PatchCore_author_code_WR50_10pct"
+        )
+    else:
+        result_root = ROOT / (
+            "artifacts/reproduction/smoke/mvtec/controlled"
+            if args.smoke
+            else plan["controlled"].get(
+                "output", "results/mvtec-author-encoder-controlled-v3"
+            )
+        )
+    result_root.mkdir(parents=True, exist_ok=True)
     threadpool_limits(4)
     for category in categories:
         seed_everything(0)
@@ -331,8 +341,7 @@ def main():
             "run_plan_sha256": sha256(plan_path()),
             "raw_v2_features_reused": False,
         }
-        write_json(native_root / f"{category}_features.json", info)
-        write_json(controlled_root / f"{category}_features.json", info)
+        write_json(result_root / f"{category}_features.json", info)
         for seed in seeds:
             del adapter
             gc.collect()
@@ -340,24 +349,17 @@ def main():
             seed_everything(seed)
             adapter = AuthorPatchCore()
             assert adapter.after_probe == info["effective_backbone_state_sha256"]
-            selection_rng_from_source(adapter, data_root, category)
-            native(
-                adapter,
-                features,
-                paths,
-                masks,
-                labels,
-                count,
-                category,
-                seed,
-                native_root / category / f"seed-{seed}",
-                feature_hash,
-                args.smoke,
-            )
+            if args.track == "native":
+                selection_rng_from_source(adapter, data_root, category)
+                native(
+                    adapter, features, paths, masks, labels, count, category, seed,
+                    result_root / category / f"seed-{seed}", feature_hash, args.smoke,
+                )
+                continue
             split, old_hash = validate_historical_splits(
                 paths, count, cfg, category, seed
             )
-            out = controlled_root / category / f"seed-{seed}"
+            out = result_root / category / f"seed-{seed}"
             out.mkdir(parents=True, exist_ok=True)
             identity = hashlib.sha256(
                 json.dumps(

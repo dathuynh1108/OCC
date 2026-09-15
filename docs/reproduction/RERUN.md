@@ -6,8 +6,9 @@ Start at `results/reproduction-2026-09-14/REPRODUCTION_REPORT.md` and
 
 ## Environment and inputs
 
-Use Linux, Python3.12 and a CUDA12.8-capable NVIDIA environment. The measured host
-was one RTX3090. Install the matching CUDA Torch build before the other packages:
+Use Linux, Python3.12 and a CUDA12.8-capable NVIDIA environment. The published
+full native matrix was run on one RTX4090. Install the matching CUDA Torch build
+before the other packages:
 
 ```bash
 python -m pip install torch==2.11.0 torchvision==0.26.0 --index-url https://download.pytorch.org/whl/cu128
@@ -51,14 +52,41 @@ python -m reproduction.verify_shallow
 python -m reproduction.deep_svdd --dataset mnist --normal-class 0 --seed 1 --smoke
 python -m reproduction.deep_svdd --dataset cifar10 --normal-class 0 --seed 1 --smoke
 python -m reproduction.drocc --normal-class 0 --seed 0 --smoke
-python -m reproduction.mvtec --smoke
+python -m reproduction.mvtec --track native --smoke
+python -m reproduction.mvtec --track controlled --smoke
 ```
 
 Smoke outputs are separate and never enter the benchmark table. Some parity
 fixtures intentionally refuse overwriting an existing fixture directory: retain
 or move that evidence before a genuinely new validation execution.
 
-## Measured budgeted configuration
+## Published full native matrix
+
+`results/native-full-4090-20260915/` is the completed full-schedule MNIST and
+CIFAR-10 matrix: 400 Deep SVDD fixed-final exports, 30 DROCC fixed-final
+exports and 30 retained DROCC test-selected diagnostics. The independent audit
+replays all 4,600,000 predictions and writes only fixed-final metrics into
+`native_summary.csv` and the presentation.
+
+Use a new output directory for a new full rerun. First create fresh Deep SVDD
+and DROCC parity fixtures, then run the immutable `run_plan.json`:
+
+```bash
+unset OCC_RUN_PLAN
+export PYTHONHASHSEED=0
+export OMP_NUM_THREADS=4
+export OPENBLAS_NUM_THREADS=4
+export CUBLAS_WORKSPACE_CONFIG=:4096:8
+python -m reproduction.audit_native_data
+python -m reproduction.run_native_full --parity-root artifacts/reproduction/fixtures/full-parity
+python -m reproduction.summarize_native_full --root results/native-full-4090-20260915
+python -m reproduction.report_native_full --root results/native-full-4090-20260915
+```
+
+## Optional light MVTec configuration
+
+`reproduction.mvtec` defaults to the native PatchCore track. Select the separate
+NBD experiment explicitly with `--track controlled`.
 
 ```bash
 export OCC_RUN_PLAN=run_plan_budgeted.json
@@ -66,30 +94,18 @@ export PYTHONHASHSEED=0
 export OMP_NUM_THREADS=4
 export OPENBLAS_NUM_THREADS=4
 export CUBLAS_WORKSPACE_CONFIG=:4096:8
-python -m reproduction.mvtec
+python -m reproduction.mvtec --track native
+python -m reproduction.mvtec --track controlled
 python -m reproduction.run_deep_matrix
 python -m reproduction.run_drocc_matrix
 python -m reproduction.run_shallow_matrix
 ```
 
-The commands are sequential here for simple reruns. The measured run overlapped
-GPU tracks and used four isolated CPU libsvm processes; source-level math and
-batch sizes stayed unchanged. Full matrix size:45 native PatchCore,400 Deep
-objective results,60 DROCC selection exports,400 shallow nu results and495
-common MVTec metric rows. Check `coverage.csv` before calling any target complete.
-The updated `docs/reproduction/reproduction_matrix.csv` records the measured
-budgeted targets and result paths; `reproduction_matrix_full_schedule.csv`
-preserves the initial long-schedule planning matrix.
+The commands are sequential here for simple reruns. The light MVTec run used
+four isolated CPU libsvm processes; source-level math and batch sizes stayed
+unchanged. Check `coverage.csv` before calling any target complete.
 
-Native Deep AE5+SVDD12; native DROCC5; common AE5/Deep15/DROCC15. Source milestones,
-soft-boundary warmup and ascent iterations remain explicit in the plan. These
-short schedules were selected by the user for runtime, not tuned to test scores.
-
-For the original long schedules, unset `OCC_RUN_PLAN` and use the same commands.
-The immutable `run_plan.json` selects separate full-schedule Deep/DROCC/common
-output identities. PatchCore and shallow are unchanged non-epoch targets and
-may reuse a completed identical result. Expect substantially longer training.
-Do not change a config in place under existing output: use a new target/output
+Do not change a config in place under an existing output. Use a new target/output
 identity or an independently preserved checkout/output directory.
 
 ## Export and slides

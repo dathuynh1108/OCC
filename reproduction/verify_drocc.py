@@ -1,6 +1,8 @@
 """Compare native DROCC losses, gradients and BN/optimizer behavior to upstream."""
 
+import argparse
 import copy
+from pathlib import Path
 
 import numpy as np
 import torch
@@ -25,7 +27,14 @@ def compare_state(a, b):
     return errors
 
 
-def main():
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--output", type=Path,
+        default=ROOT / "artifacts/reproduction/fixtures/drocc",
+        help="Fresh fixture directory; this command refuses to reuse it.",
+    )
+    args = parser.parse_args(argv)
     verify_source("edgeml")
     seed_everything(17)
     x = torch.randn(4, 3, 32, 32)
@@ -33,7 +42,7 @@ def main():
     test_data = TensorDataset(x, torch.tensor([1, 0, 0, 1]), torch.arange(4))
     train_loader = DataLoader(train_data, batch_size=4, shuffle=True)
     test_loader = DataLoader(test_data, batch_size=4, shuffle=False)
-    root = ROOT / "artifacts/reproduction/fixtures/drocc"
+    root = args.output.resolve()
     assert not root.exists(), "Refuse stale parity fixture output"
     results = []
     for normal_class in [
@@ -153,7 +162,7 @@ def main():
                 "passed": True,
             }
         )
-    write_json(ROOT / "artifacts/reproduction/fixtures/drocc_parity.json", results)
+    write_json(root.parent / "drocc_parity.json", results)
     print("PASS", results)
 
 

@@ -1,6 +1,8 @@
 """Tiny deterministic source parity and interrupted-resume fixtures; not benchmarks."""
 
+import argparse
 import copy
+from pathlib import Path
 
 import torch
 from torch.utils.data import TensorDataset
@@ -40,10 +42,17 @@ def state_errors(a, b):
     return values
 
 
-def main():
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--output", type=Path,
+        default=ROOT / "artifacts/reproduction/fixtures/deep",
+        help="Fresh fixture directory; this command refuses to reuse it.",
+    )
+    args = parser.parse_args(argv)
     verify_source("deep_svdd_torch")
     seed_everything(123)
-    root = ROOT / "artifacts/reproduction/fixtures/deep"
+    root = args.output.resolve()
     # Refuse reuse of results so a fixture cannot pass from a stale checkpoint.
     root.mkdir(parents=True, exist_ok=True)
     output = []
@@ -142,7 +151,7 @@ def main():
                     "historical_theano_parity": "not verified",
                 }
             )
-    write_json(ROOT / "artifacts/reproduction/fixtures/deep_parity.json", output)
+    write_json(root.parent / "deep_parity.json", output)
     print("PASS: 6 source loss/gradient/state cases, 6 uninterrupted/resume cases")
 
 

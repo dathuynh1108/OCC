@@ -8,6 +8,7 @@ import csv
 import json
 import sys
 import time
+from pathlib import Path
 
 import torch
 from sklearn.metrics import average_precision_score, roc_auc_score
@@ -268,6 +269,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--normal-class", type=int, required=True)
     parser.add_argument("--seed", type=int, required=True)
+    parser.add_argument("--output-root", type=Path)
     parser.add_argument("--smoke", action="store_true")
     args = parser.parse_args()
     verify_source("edgeml")
@@ -277,11 +279,12 @@ def main():
     if args.smoke:
         cfg["epochs"] = 1
     seed_everything(args.seed)
-    base = ROOT / (
-        "artifacts/reproduction/smoke/drocc"
-        if args.smoke
-        else f"results/native/drocc/{cfg['target']}"
-    )
+    if args.smoke:
+        base = ROOT / "artifacts/reproduction/smoke/drocc"
+    elif args.output_root:
+        base = args.output_root
+    else:
+        base = ROOT / f"results/native/drocc/{cfg['target']}"
     out = base / f"class_{args.normal_class}" / f"seed_{args.seed}"
     data, test, labels = load_data(
         ROOT / "data/native", args.normal_class, out / "data_evidence.json"

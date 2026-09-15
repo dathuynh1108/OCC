@@ -12,10 +12,15 @@
 From this directory:
 
 ```sh
-python3 generate_tables.py --mvtec-comparison ../../results/mvtec-native-full-4090-20260915
+python3 generate_tables.py \
+  --native-results ../../results/native-full-4090-20260915 \
+  --mvtec-comparison ../../results/mvtec-native-full-4090-20260915
 tectonic --keep-logs review.tex
 ```
 
-The generator reads saved measurements only; it does not run training. It validates the 405 NBD category/seed rows, 905 native reproduction rows, and the MVTec comparison file hashes and test-ID/label equality checks before writing the six table fragments in `tables/`.
+The generator reads saved measurements only; it does not run training. It validates
+the 405 NBD category/seed rows, the audited 430 fixed-final native rows, and the
+MVTec comparison file hashes and test-ID/label equality checks before writing the
+six table fragments in `tables/`.
 
 The MVTec comparison uses the completed seed-0 image-model measurements in `../../results/mvtec-native-full-4090-20260915/`. The separate NBD controls remain in `../../results/lean-nbd-5070-20260915/` and report three-seed means with sample SD.

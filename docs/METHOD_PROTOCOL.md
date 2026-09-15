@@ -40,7 +40,12 @@ neighborhood mean, not the farthest-first anchor. Tangential variance and residu
 variance are regularized by the declared positive epsilon. The graph uses the
 union of directed normal-center neighbor edges and therefore has symmetric
 weights. Graph scales are positive medians over normal-only candidate edges.
-Self-loop weight is 1; the optional thickness-mismatch term is disabled.
+The optional third graph term compares residual thickness symmetrically as
+`r_perp(i,j) = [log((sigma_perp,i^2 + epsilon) / (sigma_perp,j^2 + epsilon))]^2`.
+It would enter the pre-diffusion edge dissimilarity as
+`lambda_perp * r_perp / tau_perp`. The reported run sets `lambda_perp=0`, so
+this documented optional term does not change its saved graph or metrics.
+Self-loop weight is 1.
 
 Diffusion coordinates retain all M−1 nonconstant modes, ordered by absolute
 eigenvalue. The constant eigenfunction is removed explicitly, including when
