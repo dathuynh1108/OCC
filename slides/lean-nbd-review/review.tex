@@ -156,6 +156,24 @@ One memory per category.
 \end{columns}
 \end{frame}
 
+\begin{frame}[t]{PaDiM: a distributional view of patch anomalies}
+\vspace{.55cm}
+\begin{columns}[T,onlytextwidth]
+\column{.42\textwidth}
+\head{PatchCore / PatchScore}
+Store normal patch vectors in a memory bank.
+\par\vspace{.28cm}
+At test time, compare each new patch with its nearest stored patch.
+\column{.51\textwidth}
+\head{PaDiM}
+At each patch location, fit a Gaussian distribution to normal features.
+\par\vspace{.28cm}
+At test time, Mahalanobis distance from that distribution is the anomaly score.
+\end{columns}
+\vfill
+{\scriptsize\textcolor{teal}{\href{https://arxiv.org/abs/2011.08785}{Defard et al., \textit{PaDiM: A Patch Distribution Modeling Framework for Anomaly Detection and Localization}, ICPR 2020.}}}
+\end{frame}
+
 \def\phase{BASELINE METHODS}
 \begin{frame}[t]{Kernel SVDD: enclose normal data in a sphere}
 \small
