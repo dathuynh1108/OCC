@@ -186,13 +186,17 @@ Search $\gamma\in\{2^{-10},\ldots,2^{-1}\}$ and $\nu\in\{0.01,0.1\}$.
 \small
 \begin{columns}[T,onlytextwidth]
 \column{.44\textwidth}
-\centering\includegraphics[width=\linewidth,height=2.7cm,keepaspectratio]{deep_svdd.pdf}
+\centering\includegraphics[width=\linewidth,height=2.55cm,keepaspectratio]{deep_svdd.pdf}
 \raggedright
 \head{Train the image encoder}
 An autoencoder initializes the CNN. Deep SVDD then brings normal image embeddings toward a fixed center $c$.
 \par\vspace{.18cm}
 \textbf{MNIST:} LeNet, 8/4 channels, 32-D output.\\[.10cm]
 \textbf{CIFAR-10:} LeNet, 32/64/128 channels, 128-D output.
+\par\vspace{.18cm}
+\head{Full reproduction schedule}
+MNIST: AE 150 $\rightarrow$ SVDD 150 epochs.\\
+CIFAR-10: AE 350 $\rightarrow$ SVDD 150 epochs.
 \column{.52\textwidth}
 \head{One-class objective}
 \[
@@ -247,23 +251,29 @@ Pretrain an autoencoder on normal images, then transfer its encoder weights.
 
 \def\phase{BASELINE METHODS}
 \begin{frame}[t]{DROCC: generate negatives around normal images}
-\vspace{.38cm}
+\small
+\vspace{.18cm}
 \begin{columns}[T,onlytextwidth]
 \column{.48\textwidth}
 \centering\includegraphics[width=\linewidth,height=4.6cm,keepaspectratio]{drocc.pdf}
 \column{.46\textwidth}
 \head{Generate negatives}
 Perturb normal images; search a local shell.
-\par\vspace{.24cm}
+\par\vspace{.13cm}
 \head{Train}
 Separate normal images from generated negatives.
-\par\vspace{.24cm}
+\par\vspace{.13cm}
 \head{Score}
 Negate the normal-class output.
-\par\vspace{.24cm}
+\par\vspace{.13cm}
 \head{CIFAR-10 benchmark}
 10 one-vs-rest tasks.\\
 Per task: 5,000 normal train; 10,000 test.
+\par\vspace{.13cm}
+\head{Full reproduction settings}
+100 epochs; batch 128; no CE-only warmup.\\
+50 ascent steps; project every 10.\\
+LR steps at 40, 80; Table 11 class settings.
 \end{columns}
 \end{frame}
 
