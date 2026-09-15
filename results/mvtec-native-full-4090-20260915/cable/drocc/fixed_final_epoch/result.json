@@ -1,0 +1,15 @@
+{
+  "method": "DROCC",
+  "category": "cable",
+  "selection": "fixed_final_epoch",
+  "selected_epoch": 100,
+  "checkpoint_sha256": "f964d44826d598f3adb398f40a73f7aea6ae9bc4ba02279cc8f759073b3a456c",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 150,
+  "auroc": 0.6285607196401799,
+  "average_precision": 0.7879354681630476,
+  "predictions_sha256": "db5b66db48b937e63e5dd1b3a960d9456ad28387adf13c5093cfba0bc6868a38",
+  "complete": true
+}

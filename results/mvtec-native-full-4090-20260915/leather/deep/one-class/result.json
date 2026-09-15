@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_one-class",
+  "category": "leather",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "80fc380d3e1df5a19b49361712597c48a6d6193240b867cd0836a54da9ef836f",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 124,
+  "auroc": 0.9847146739130435,
+  "average_precision": 0.9951618434798084,
+  "predictions_sha256": "32d8d04f643ca25ed43e3488b51c6b20779c554a8d74288fce8848672a34702e",
+  "complete": true
+}

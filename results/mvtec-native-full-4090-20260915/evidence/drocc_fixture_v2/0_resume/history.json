@@ -1,0 +1,24 @@
+[
+  {
+    "epoch": 1,
+    "ce_loss": 0.6232895255088806,
+    "adv_loss": 0.7770955562591553,
+    "gradient_norm": 1.8474490642547607,
+    "lr": 0.001,
+    "optimizer_steps": 1,
+    "examples": 4,
+    "test_selected_diagnostic_auroc": 0.5,
+    "seconds": 0.2203371236100793
+  },
+  {
+    "epoch": 2,
+    "ce_loss": 1.0131945610046387,
+    "adv_loss": 0.45637911558151245,
+    "gradient_norm": 2.7788944244384766,
+    "lr": 0.0001,
+    "optimizer_steps": 1,
+    "examples": 4,
+    "test_selected_diagnostic_auroc": 0.5,
+    "seconds": 0.18086934741586447
+  }
+]

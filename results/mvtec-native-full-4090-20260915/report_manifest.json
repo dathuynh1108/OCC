@@ -1,0 +1,207 @@
+{
+  "passed": true,
+  "full_protocol_sha256": "796cc7e796a0fba4cc227b6a6bf7fb1f6dcfc37f7d752344ce4b7853ae7ad7b6",
+  "report_sha256": "7fcc7ac237151403363ae712ddf8ee910c9ae85eebfad7df9ac43cbf794fdcbf",
+  "categories": [
+    "bottle",
+    "cable",
+    "capsule",
+    "carpet",
+    "grid",
+    "hazelnut",
+    "leather",
+    "metal_nut",
+    "pill",
+    "screw",
+    "tile",
+    "toothbrush",
+    "transistor",
+    "wood",
+    "zipper"
+  ],
+  "deep_total_seconds": 229.36926301196218,
+  "drocc_total_seconds": 764.6056434260681,
+  "full_summary": [
+    {
+      "label": "DeepSVDD one-class",
+      "full_auroc": 0.794330032402895,
+      "full_ap": 0.9102755813032357,
+      "light_auroc": 0.576122699179109,
+      "light_ap": 0.8042710099476849
+    },
+    {
+      "label": "DeepSVDD soft-boundary",
+      "full_auroc": 0.7660093740340755,
+      "full_ap": 0.8982498786996911,
+      "light_auroc": 0.5796119535707539,
+      "light_ap": 0.8042205265846811
+    },
+    {
+      "label": "DROCC fixed-final",
+      "full_auroc": 0.4376717522967427,
+      "full_ap": 0.7313065891153259,
+      "light_auroc": 0.4646620281276045,
+      "light_ap": 0.7410831295921522
+    }
+  ],
+  "drocc_fixed_final": {
+    "auroc": 0.4376717522967427,
+    "average_precision": 0.7313065891153259
+  },
+  "drocc_test_selected_diagnostic": {
+    "auroc": 0.7155876837317574,
+    "average_precision": 0.867959720181919
+  },
+  "diagnostics": [
+    {
+      "category": "bottle",
+      "ae_final_loss": 9.086987495422363,
+      "one_class_final_loss": 0.13516049087047577,
+      "soft_boundary_final_loss": 0.4409058541059494,
+      "soft_boundary_final_radius": 0.623858630657196,
+      "drocc_final_ce_loss": 0.6931896805763245,
+      "drocc_final_adv_loss": 0.6931818425655365,
+      "drocc_best_test_epoch": 2
+    },
+    {
+      "category": "cable",
+      "ae_final_loss": 14.547134399414062,
+      "one_class_final_loss": 0.5859379470348358,
+      "soft_boundary_final_loss": 1.6368377208709717,
+      "soft_boundary_final_radius": 1.2723201513290405,
+      "drocc_final_ce_loss": 0.6931903958320618,
+      "drocc_final_adv_loss": 0.6931942105293274,
+      "drocc_best_test_epoch": 22
+    },
+    {
+      "category": "capsule",
+      "ae_final_loss": 2.913925051689148,
+      "one_class_final_loss": 0.060786038637161255,
+      "soft_boundary_final_loss": 0.26558060944080353,
+      "soft_boundary_final_radius": 0.47413748502731323,
+      "drocc_final_ce_loss": 0.6931668817996979,
+      "drocc_final_adv_loss": 0.6931622922420502,
+      "drocc_best_test_epoch": 4
+    },
+    {
+      "category": "carpet",
+      "ae_final_loss": 23.753968238830566,
+      "one_class_final_loss": 0.5139057338237762,
+      "soft_boundary_final_loss": 1.7312976121902466,
+      "soft_boundary_final_radius": 1.310221552848816,
+      "drocc_final_ce_loss": 0.6932129661242167,
+      "drocc_final_adv_loss": 0.6931986610094706,
+      "drocc_best_test_epoch": 1
+    },
+    {
+      "category": "grid",
+      "ae_final_loss": 78.41790008544922,
+      "one_class_final_loss": 0.5189126133918762,
+      "soft_boundary_final_loss": 1.669628083705902,
+      "soft_boundary_final_radius": 1.2892414331436157,
+      "drocc_final_ce_loss": 0.6931244532267252,
+      "drocc_final_adv_loss": 0.6932454903920492,
+      "drocc_best_test_epoch": 25
+    },
+    {
+      "category": "hazelnut",
+      "ae_final_loss": 3.046387553215027,
+      "one_class_final_loss": 0.2653147131204605,
+      "soft_boundary_final_loss": 0.8600660562515259,
+      "soft_boundary_final_radius": 0.922619640827179,
+      "drocc_final_ce_loss": 0.6930835992097855,
+      "drocc_final_adv_loss": 0.6932543069124222,
+      "drocc_best_test_epoch": 1
+    },
+    {
+      "category": "leather",
+      "ae_final_loss": 1.575146734714508,
+      "one_class_final_loss": 0.11791820079088211,
+      "soft_boundary_final_loss": 0.3417484611272812,
+      "soft_boundary_final_radius": 0.5454331040382385,
+      "drocc_final_ce_loss": 0.6930248737335205,
+      "drocc_final_adv_loss": 0.6932508945465088,
+      "drocc_best_test_epoch": 4
+    },
+    {
+      "category": "metal_nut",
+      "ae_final_loss": 11.278337001800537,
+      "one_class_final_loss": 0.6468119621276855,
+      "soft_boundary_final_loss": 1.775981068611145,
+      "soft_boundary_final_radius": 1.3220325708389282,
+      "drocc_final_ce_loss": 0.6932351589202881,
+      "drocc_final_adv_loss": 0.6932123601436615,
+      "drocc_best_test_epoch": 13
+    },
+    {
+      "category": "pill",
+      "ae_final_loss": 5.816507816314697,
+      "one_class_final_loss": 0.10750346630811691,
+      "soft_boundary_final_loss": 0.29099850356578827,
+      "soft_boundary_final_radius": 0.5207366347312927,
+      "drocc_final_ce_loss": 0.6931705872217814,
+      "drocc_final_adv_loss": 0.6931637326876322,
+      "drocc_best_test_epoch": 4
+    },
+    {
+      "category": "screw",
+      "ae_final_loss": 6.387941122055054,
+      "one_class_final_loss": 0.2068830281496048,
+      "soft_boundary_final_loss": 0.9167177975177765,
+      "soft_boundary_final_radius": 0.9534252882003784,
+      "drocc_final_ce_loss": 0.6931288043657938,
+      "drocc_final_adv_loss": 0.6932126681009928,
+      "drocc_best_test_epoch": 1
+    },
+    {
+      "category": "tile",
+      "ae_final_loss": 49.16188049316406,
+      "one_class_final_loss": 0.6203201115131378,
+      "soft_boundary_final_loss": 1.9946991801261902,
+      "soft_boundary_final_radius": 1.408366322517395,
+      "drocc_final_ce_loss": 0.6931559145450592,
+      "drocc_final_adv_loss": 0.6932318806648254,
+      "drocc_best_test_epoch": 2
+    },
+    {
+      "category": "toothbrush",
+      "ae_final_loss": 8.003911972045898,
+      "one_class_final_loss": 0.09369782358407974,
+      "soft_boundary_final_loss": 0.4390014111995697,
+      "soft_boundary_final_radius": 0.6615358591079712,
+      "drocc_final_ce_loss": 0.6933883428573608,
+      "drocc_final_adv_loss": 0.6929866075515747,
+      "drocc_best_test_epoch": 46
+    },
+    {
+      "category": "transistor",
+      "ae_final_loss": 15.055631160736084,
+      "one_class_final_loss": 0.3824462592601776,
+      "soft_boundary_final_loss": 1.0274162292480469,
+      "soft_boundary_final_radius": 0.9867135286331177,
+      "drocc_final_ce_loss": 0.6931594610214233,
+      "drocc_final_adv_loss": 0.6931818723678589,
+      "drocc_best_test_epoch": 4
+    },
+    {
+      "category": "wood",
+      "ae_final_loss": 5.371759414672852,
+      "one_class_final_loss": 0.2712469846010208,
+      "soft_boundary_final_loss": 0.8805682957172394,
+      "soft_boundary_final_radius": 0.9346758127212524,
+      "drocc_final_ce_loss": 0.6932220757007599,
+      "drocc_final_adv_loss": 0.6931766271591187,
+      "drocc_best_test_epoch": 2
+    },
+    {
+      "category": "zipper",
+      "ae_final_loss": 2.0633718967437744,
+      "one_class_final_loss": 0.05211300402879715,
+      "soft_boundary_final_loss": 0.23525216430425644,
+      "soft_boundary_final_radius": 0.4401506781578064,
+      "drocc_final_ce_loss": 0.6931594908237457,
+      "drocc_final_adv_loss": 0.6931760013103485,
+      "drocc_best_test_epoch": 3
+    }
+  ]
+}

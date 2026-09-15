@@ -1,0 +1,15 @@
+{
+  "method": "DROCC",
+  "category": "bottle",
+  "selection": "fixed_final_epoch",
+  "selected_epoch": 100,
+  "checkpoint_sha256": "da00f7715eafcfd491a962ab418bcad375b17241b773a4d840d3f61c1d556cf2",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 83,
+  "auroc": 0.3658730158730158,
+  "average_precision": 0.7325668038332862,
+  "predictions_sha256": "1e6693dc472b5f44ee2067b5d4f2cd6bb3f6d85388e5e3b385d70dd2d3eac0ee",
+  "complete": true
+}

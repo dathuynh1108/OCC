@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_one-class",
+  "category": "carpet",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "49ed0aff93d0687c9670031efdae657770bbbb93585ea6dd575c5dac512c92c4",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 117,
+  "auroc": 0.5236757624398074,
+  "average_precision": 0.8123119120528349,
+  "predictions_sha256": "c3a2304af829199a6a8d39b913a0fbbf08e498ab2ec1dd75ab0411a5c45f6359",
+  "complete": true
+}

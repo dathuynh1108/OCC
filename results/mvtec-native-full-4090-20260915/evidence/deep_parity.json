@@ -1,0 +1,529 @@
+[
+  {
+    "dataset": "mnist",
+    "phase": "ae",
+    "objective": "initialization",
+    "parameter_buffer_errors": [
+      {
+        "key": "conv1.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn1.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn1.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn1.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "conv2.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "fc1.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "deconv1.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn3.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn3.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn3.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "deconv2.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn4.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn4.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn4.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "deconv3.weight",
+        "max": 0.0,
+        "mean": 0.0
+      }
+    ],
+    "gradient_max_abs_error": 0.0,
+    "resume_max_abs_error": 0.0,
+    "tolerance": 1e-07,
+    "upstream_same_runtime_parity": true,
+    "historical_theano_parity": "not verified"
+  },
+  {
+    "dataset": "mnist",
+    "phase": "svdd",
+    "objective": "one-class",
+    "parameter_buffer_errors": [
+      {
+        "key": "conv1.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn1.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn1.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn1.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "conv2.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "fc1.weight",
+        "max": 0.0,
+        "mean": 0.0
+      }
+    ],
+    "gradient_max_abs_error": 0.0,
+    "resume_max_abs_error": 0.0,
+    "tolerance": 1e-07,
+    "upstream_same_runtime_parity": true,
+    "historical_theano_parity": "not verified"
+  },
+  {
+    "dataset": "mnist",
+    "phase": "svdd",
+    "objective": "soft-boundary",
+    "parameter_buffer_errors": [
+      {
+        "key": "conv1.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn1.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn1.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn1.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "conv2.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "fc1.weight",
+        "max": 0.0,
+        "mean": 0.0
+      }
+    ],
+    "gradient_max_abs_error": 0.0,
+    "resume_max_abs_error": 0.0,
+    "tolerance": 1e-07,
+    "upstream_same_runtime_parity": true,
+    "historical_theano_parity": "not verified"
+  },
+  {
+    "dataset": "cifar10",
+    "phase": "ae",
+    "objective": "initialization",
+    "parameter_buffer_errors": [
+      {
+        "key": "conv1.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d1.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d1.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d1.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "conv2.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d2.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d2.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d2.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "conv3.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d3.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d3.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d3.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "fc1.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn1d.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn1d.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn1d.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "deconv1.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d4.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d4.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d4.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "deconv2.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d5.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d5.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d5.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "deconv3.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d6.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d6.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d6.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "deconv4.weight",
+        "max": 0.0,
+        "mean": 0.0
+      }
+    ],
+    "gradient_max_abs_error": 0.0,
+    "resume_max_abs_error": 0.0,
+    "tolerance": 1e-07,
+    "upstream_same_runtime_parity": true,
+    "historical_theano_parity": "not verified"
+  },
+  {
+    "dataset": "cifar10",
+    "phase": "svdd",
+    "objective": "one-class",
+    "parameter_buffer_errors": [
+      {
+        "key": "conv1.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d1.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d1.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d1.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "conv2.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d2.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d2.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d2.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "conv3.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d3.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d3.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d3.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "fc1.weight",
+        "max": 0.0,
+        "mean": 0.0
+      }
+    ],
+    "gradient_max_abs_error": 0.0,
+    "resume_max_abs_error": 0.0,
+    "tolerance": 1e-07,
+    "upstream_same_runtime_parity": true,
+    "historical_theano_parity": "not verified"
+  },
+  {
+    "dataset": "cifar10",
+    "phase": "svdd",
+    "objective": "soft-boundary",
+    "parameter_buffer_errors": [
+      {
+        "key": "conv1.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d1.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d1.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d1.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "conv2.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d2.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d2.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d2.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "conv3.weight",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d3.running_mean",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d3.running_var",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "bn2d3.num_batches_tracked",
+        "max": 0.0,
+        "mean": 0.0
+      },
+      {
+        "key": "fc1.weight",
+        "max": 0.0,
+        "mean": 0.0
+      }
+    ],
+    "gradient_max_abs_error": 0.0,
+    "resume_max_abs_error": 0.0,
+    "tolerance": 1e-07,
+    "upstream_same_runtime_parity": true,
+    "historical_theano_parity": "not verified"
+  }
+]

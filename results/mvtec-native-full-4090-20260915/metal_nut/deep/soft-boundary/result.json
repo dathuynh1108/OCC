@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_soft-boundary",
+  "category": "metal_nut",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "c86a9535277ca9872584afa17512fafe3f504ee6fbb42ac042273b46c359a31c",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 115,
+  "auroc": 0.647605083088954,
+  "average_precision": 0.9002568317228243,
+  "predictions_sha256": "b464d6e79e2af0ee182cc12435bde7fb1fe1553fd6c6e03a5331d606890471ae",
+  "complete": true
+}

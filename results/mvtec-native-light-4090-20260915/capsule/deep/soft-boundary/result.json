@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_soft-boundary",
+  "category": "capsule",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "0857fc44905fbc1a1f29a0d61204b8731b60ec22977a1292237529519e4381f1",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 132,
+  "auroc": 0.5823693657758277,
+  "average_precision": 0.8839534251525311,
+  "predictions_sha256": "84e17a14451879e0847b59858464aa7c95779ce868f27dfdc29e0a5923edb45a",
+  "complete": true
+}

@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_soft-boundary",
+  "category": "tile",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "f6bef077ca701bc50b8d10cca37cdf78ea6d13ff8723d61392c512f12a4a7699",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 117,
+  "auroc": 0.757936507936508,
+  "average_precision": 0.9003208999723538,
+  "predictions_sha256": "0daf39d414fe5ae457cc3928cba3c547e308fb3c07e8f53dff7badf63076c8fb",
+  "complete": true
+}

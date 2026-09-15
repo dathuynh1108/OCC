@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_one-class",
+  "category": "grid",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "a308a5edd234167e72a729c8e3c0e115d006dcaae131cd87cf06718bd32161a0",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 78,
+  "auroc": 0.7510442773600668,
+  "average_precision": 0.8853501104133847,
+  "predictions_sha256": "ac8cf39c29de03d211148c589a928ff7574d0289617cb72d2c43cabada8eb147",
+  "complete": true
+}

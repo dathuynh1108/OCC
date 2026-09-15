@@ -1,0 +1,21 @@
+{
+  "target": "MVTec_author_CIFAR_CNN_CLI_defaults_E5",
+  "dataset": "mvtec",
+  "seed": 0,
+  "smoke": false,
+  "epochs": 5,
+  "batch_size": 128,
+  "optimizer": "adam",
+  "lr": 0.001,
+  "radius": 0.2,
+  "gamma": 2.0,
+  "mu": 1.0,
+  "only_ce_epochs": 0,
+  "ascent_num_steps": 50,
+  "ascent_step_size": 0.001,
+  "preprocessing": "author CIFAR mean/std, applied to 32x32 MVTec RGB",
+  "parameters_source": "main_cifar.py CLI defaults; train() effective ascent default",
+  "primary_selection": "author_test_selected",
+  "additional_selection": "fixed_final_epoch",
+  "category": "carpet"
+}

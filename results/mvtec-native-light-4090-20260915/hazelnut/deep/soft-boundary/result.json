@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_soft-boundary",
+  "category": "hazelnut",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "a9c5ffb9bf8c22a62dcb1816040a3b71a4ed5d0ad08a41370712aace438c5865",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 110,
+  "auroc": 0.5067857142857143,
+  "average_precision": 0.6988273146284278,
+  "predictions_sha256": "bb0458ee9681f3d683d8519e3b99ed218b5d5ecfbaaa75d94a5ba0cdb9b2b981",
+  "complete": true
+}

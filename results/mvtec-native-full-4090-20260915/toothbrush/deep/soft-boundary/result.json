@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_soft-boundary",
+  "category": "toothbrush",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "9747c64edcd2bb30c2c1f8f0f5a74584358186b05f95bfd5b970cae4b160b8db",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 42,
+  "auroc": 0.9777777777777777,
+  "average_precision": 0.9929824561403509,
+  "predictions_sha256": "ccd2feb52c0f43522a235b40675f8ad4cc37c9dd113739c4db917a180fd83127",
+  "complete": true
+}

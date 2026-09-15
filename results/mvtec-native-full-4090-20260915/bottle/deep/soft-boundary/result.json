@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_soft-boundary",
+  "category": "bottle",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "0a61c9b3b071a8432874ff334c2aa2766a3a5f09c5d46f4f8472508dcd58df82",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 83,
+  "auroc": 0.9238095238095237,
+  "average_precision": 0.9740311554153485,
+  "predictions_sha256": "1473f30bacd617a2530e403e3a75127d5eab7b84ecc840357e5c889f3e6a22be",
+  "complete": true
+}

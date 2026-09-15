@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_one-class",
+  "category": "metal_nut",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "6ffe4a12bb9b6a23686497edc44c0e41cee6ce489a4fe61883bb4ebfd9d15291",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 115,
+  "auroc": 0.6661779081133921,
+  "average_precision": 0.8871832051581088,
+  "predictions_sha256": "99ed1a07547f7b9d426ad95ac59f3711d2c071bb96a75344ef8eac8f4b257667",
+  "complete": true
+}

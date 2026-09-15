@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_one-class",
+  "category": "toothbrush",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "74daf4152bf6468d7b2d90bc55dd58a5bbb17092d922a3b6fa23f4aff620adf4",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 42,
+  "auroc": 0.5333333333333334,
+  "average_precision": 0.7712390641501559,
+  "predictions_sha256": "24cb36178f1fa03e57260af9ec76173eb019db377232ed117841d4f3f17e9a2e",
+  "complete": true
+}

@@ -1,0 +1,15 @@
+{
+  "method": "DROCC",
+  "category": "zipper",
+  "selection": "fixed_final_epoch",
+  "selected_epoch": 5,
+  "checkpoint_sha256": "48e814cf8f503f915a7a4d9be154d3d4fefab5836e067f61f5b5bd61e99f57ed",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 151,
+  "auroc": 0.6365546218487395,
+  "average_precision": 0.8674856596269926,
+  "predictions_sha256": "ee5408e5e96e313e08382a9ba7f833460441770aa6b4c76de6f4b654516aa6f5",
+  "complete": true
+}

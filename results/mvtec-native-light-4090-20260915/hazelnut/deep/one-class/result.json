@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_one-class",
+  "category": "hazelnut",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "2b5d5648769787275c35889a891507eb486269107349c59ddb46ba8efe7953a3",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 110,
+  "auroc": 0.5035714285714286,
+  "average_precision": 0.7004376753266237,
+  "predictions_sha256": "9e87ed6ebc597723858e4d806f3c2a3de020a3e6e70ef63d515a0756b4b2e10f",
+  "complete": true
+}

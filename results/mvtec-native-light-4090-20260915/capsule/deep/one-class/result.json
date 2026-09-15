@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_one-class",
+  "category": "capsule",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "0404a407e3d8723407ecf3b63596c5016e14b22ccaeac783080aa44d167718ac",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 132,
+  "auroc": 0.5931392102114083,
+  "average_precision": 0.8873394151659479,
+  "predictions_sha256": "84201c7043aedec3eafc9116aef761beb2578503fb73009cae041af185bbacc7",
+  "complete": true
+}

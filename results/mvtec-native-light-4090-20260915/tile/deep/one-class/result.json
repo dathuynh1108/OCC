@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_one-class",
+  "category": "tile",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "45e66c68d24c3e9f6cd659d112caec7bcde229309edbd10db7544ead08d5b229",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 117,
+  "auroc": 0.6572871572871571,
+  "average_precision": 0.8512643405036731,
+  "predictions_sha256": "719e899cd4724443ab138cf610b59e65ba1daf285cec55b50e2dec83eda3184e",
+  "complete": true
+}

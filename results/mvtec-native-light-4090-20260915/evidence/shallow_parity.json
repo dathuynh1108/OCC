@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "split_cases": [
+    {
+      "dataset": "mnist",
+      "normal_class": 0,
+      "seed": 1,
+      "split_rng_equal": true
+    },
+    {
+      "dataset": "mnist",
+      "normal_class": 4,
+      "seed": 5,
+      "split_rng_equal": true
+    },
+    {
+      "dataset": "mnist",
+      "normal_class": 9,
+      "seed": 10,
+      "split_rng_equal": true
+    },
+    {
+      "dataset": "cifar10",
+      "normal_class": 0,
+      "seed": 1,
+      "split_rng_equal": true
+    },
+    {
+      "dataset": "cifar10",
+      "normal_class": 4,
+      "seed": 5,
+      "split_rng_equal": true
+    },
+    {
+      "dataset": "cifar10",
+      "normal_class": 9,
+      "seed": 10,
+      "split_rng_equal": true
+    }
+  ],
+  "PCA_source_max_abs_error": 0,
+  "independent_osqp_alpha_max_abs_error": 5.121943416272479e-09,
+  "diagnostics": {
+    "alpha_sum": 1.0000000000000004,
+    "alpha_min": 0.0,
+    "alpha_max": 0.125,
+    "box_upper": 0.125,
+    "free_support_count": 9,
+    "rho_normalized": 0.21626620255792023,
+    "center_norm_squared": 0.21253442913827114,
+    "radius_squared": 0.7800020240224307,
+    "KKT_stationarity_residual": 5.849548068148636e-09,
+    "score_equivalence_max_abs_error": 1.6653345369377348e-16,
+    "gamma": 0.2,
+    "sigma_dd_tools": 2.23606797749979,
+    "fit_status": 0,
+    "iterations": 62,
+    "fit_count": 40,
+    "solver_tolerance": 1e-09
+  },
+  "scope": "modern sklearn source-protocol adaptation; not MATLAB numeric reproduction"
+}

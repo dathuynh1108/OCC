@@ -1,0 +1,15 @@
+{
+  "method": "DROCC",
+  "category": "screw",
+  "selection": "fixed_final_epoch",
+  "selected_epoch": 100,
+  "checkpoint_sha256": "b0325c3a5f3065008f21a11fd7e19da2ded651604fca7b5441fdd6d9e79ffaf0",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 160,
+  "auroc": 0.2309899569583931,
+  "average_precision": 0.597346517674156,
+  "predictions_sha256": "4aa751c27d320a35741cd9a40fdd2ce2ac84b23e2b579ec31a26684eec33ddf8",
+  "complete": true
+}

@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_soft-boundary",
+  "category": "cable",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "c77ebda970be24670ebe7e0fb132c6835229e5608358370032b8187a7f212290",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 150,
+  "auroc": 0.7974137931034482,
+  "average_precision": 0.8684535572251626,
+  "predictions_sha256": "12a7601ce678c423065c398386dce1e620ad5462b5335a57d225fc0faa4cb8de",
+  "complete": true
+}

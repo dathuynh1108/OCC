@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_one-class",
+  "category": "transistor",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "b4e56a4a3f5387d0b54b3362827ac8b6af511d3c8e3147f4e1e50b44254367dc",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 100,
+  "auroc": 0.6508333333333333,
+  "average_precision": 0.6373719216119382,
+  "predictions_sha256": "8d7309228f7fc8905be63534f1601a646003b89c447e4d5762f362494f941212",
+  "complete": true
+}

@@ -1,0 +1,15 @@
+{
+  "method": "DROCC",
+  "category": "grid",
+  "selection": "fixed_final_epoch",
+  "selected_epoch": 100,
+  "checkpoint_sha256": "defc765b7372676092b417cee53d4980ec27ebd6fa59fe09ae34e517d07d4b29",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 78,
+  "auroc": 0.3634085213032582,
+  "average_precision": 0.7032380883001856,
+  "predictions_sha256": "07bf33e50793bd7d9856da3df5152593f8a29412422c0b0c419f28cf82edf1f4",
+  "complete": true
+}

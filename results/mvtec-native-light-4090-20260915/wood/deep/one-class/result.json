@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_one-class",
+  "category": "wood",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "fad9bd6f3faaccecb47d61844d5c28c73264b30d659efaea57172645bb4aff7d",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 79,
+  "auroc": 0.48596491228070177,
+  "average_precision": 0.8100397191088741,
+  "predictions_sha256": "247fbd5f9f8607519aebf0e507d7e2b804496547dae67c3629f2bcb5bf24bf83",
+  "complete": true
+}

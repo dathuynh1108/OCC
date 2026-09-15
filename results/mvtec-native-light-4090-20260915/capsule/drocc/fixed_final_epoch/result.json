@@ -1,0 +1,15 @@
+{
+  "method": "DROCC",
+  "category": "capsule",
+  "selection": "fixed_final_epoch",
+  "selected_epoch": 5,
+  "checkpoint_sha256": "e8b02b877c2b6be77b02ff0c69bd496a1ecaf50f51edd61c43511a788c8a5163",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 132,
+  "auroc": 0.45472676505783804,
+  "average_precision": 0.795816249590256,
+  "predictions_sha256": "89741ca2bf8d098980ffff27fc7bd6d73a2c1b26adc46a8339dbd7f9da88b15c",
+  "complete": true
+}

@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_soft-boundary",
+  "category": "transistor",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "9dd61b53322241c204fa8d3639d3468af1506addf1783f644196c4077c737fd3",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 100,
+  "auroc": 0.7704166666666666,
+  "average_precision": 0.7854016170370639,
+  "predictions_sha256": "96a380046437734fd5ff87a4fd44ad6e81dc64fe6e3aebcc509c31b2a38761a1",
+  "complete": true
+}

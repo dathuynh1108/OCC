@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_soft-boundary",
+  "category": "leather",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "c61c1c5ca825a7318263146b0a35db55da0ca41759957cb1b80711b623298a57",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 124,
+  "auroc": 0.9833559782608695,
+  "average_precision": 0.9947547510711723,
+  "predictions_sha256": "a8a597eaa3f92eae87cf8cba7813bab7138e390df0544222353b4cf1d5fe25cf",
+  "complete": true
+}

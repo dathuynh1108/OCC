@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_one-class",
+  "category": "pill",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "89c8991fe115a6e2404aa9c5ada1484ab953dc4d0f488f9b9548216200c5ca68",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 167,
+  "auroc": 0.40207310420076375,
+  "average_precision": 0.822525692483703,
+  "predictions_sha256": "29e7b2ad30d8b03f3042b0b50cb9f74a5c530167f9b9af14c93b444c26d6621f",
+  "complete": true
+}

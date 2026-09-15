@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_one-class",
+  "category": "cable",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "2eefaa5a149cc536a0212f6c1b839ef662a4b11af92f9b9aeaf8a86717d623e2",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 150,
+  "auroc": 0.835832083958021,
+  "average_precision": 0.8922585909154332,
+  "predictions_sha256": "987a2e8968196a30913d228e8760cec7e44a57b5ef90f3eaeb1b8a200ed105a5",
+  "complete": true
+}

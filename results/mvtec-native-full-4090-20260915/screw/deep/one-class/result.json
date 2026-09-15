@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_one-class",
+  "category": "screw",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "e8f885e1af19121ac86c1bf4dfd1ec92375ce960cf917c0c87640fe43d735710",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 160,
+  "auroc": 0.5130149620823938,
+  "average_precision": 0.7588958980950343,
+  "predictions_sha256": "57d7e3ddd91e69373a4cbcbbeaf8b9a900eba7d51cf12f8602d3952d3bfbd73a",
+  "complete": true
+}

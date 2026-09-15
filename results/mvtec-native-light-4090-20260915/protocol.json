@@ -1,0 +1,113 @@
+{
+  "scope": "MVTec image-method comparison, light run, seed 0",
+  "dataset": "mvtec",
+  "seed": 0,
+  "data_manifest_sha256": "9c469576ab86e93c7104530d08d4aef3862360d28d0c2154d69dc6911edc5829",
+  "source_lock_sha256": "809666ff44691270b772d3a0228e584e98c4289265bb04a88ffe1715b03c1d6e",
+  "deep": {
+    "target": "MVTec_author_CIFAR_CNN_AE5_SVDD12",
+    "fallback_condition": "recorded failure to resolve or execute original Theano lock on rented GPU",
+    "datasets": [
+      "mnist",
+      "cifar10"
+    ],
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "objectives": [
+      "one-class",
+      "soft-boundary"
+    ],
+    "nu": 0.1,
+    "batch_size": 200,
+    "optimizer": "adam",
+    "lr": 0.0001,
+    "lr_gamma": 0.1,
+    "svdd_epochs": 12,
+    "svdd_milestone": 50,
+    "weight_decay": 5e-07,
+    "ae": {
+      "mnist": {
+        "epochs": 5,
+        "milestone": 50,
+        "weight_decay": 0.0005
+      },
+      "cifar10": {
+        "epochs": 5,
+        "milestone": 250,
+        "weight_decay": 5e-07
+      }
+    },
+    "scheduler": "source_step_before_epoch_modern_torch_record_effective_lr",
+    "warmup_epochs": 10,
+    "radius_update": "source_minibatch_quantile",
+    "center_epsilon": 0.1,
+    "selection": "fixed_final_epoch",
+    "test_count": 10000,
+    "reuse_identical_ae_across_objectives": true,
+    "citation": "deep_svdd_torch README.md:86,105; src/optim/deepSVDD_trainer.py:31-94,156-182; deep_svdd_theano experiments/mnist_svdd_exp_seeds.sh:5",
+    "historic_parity": "unverified; source differs from paper schedule and Theano BN/activation/radius",
+    "ae_settings": {
+      "epochs": 5,
+      "milestone": 250,
+      "weight_decay": 5e-07
+    },
+    "dataset": "mvtec",
+    "seed": 0,
+    "preprocessing": "source L1 GCN; scalar min/max fitted on MVTec normal train only"
+  },
+  "drocc": {
+    "target": "MVTec_author_CIFAR_CNN_CLI_defaults_E5",
+    "dataset": "mvtec",
+    "seed": 0,
+    "smoke": false,
+    "epochs": 5,
+    "batch_size": 128,
+    "optimizer": "adam",
+    "lr": 0.001,
+    "radius": 0.2,
+    "gamma": 2.0,
+    "mu": 1.0,
+    "only_ce_epochs": 0,
+    "ascent_num_steps": 50,
+    "ascent_step_size": 0.001,
+    "preprocessing": "author CIFAR mean/std, applied to 32x32 MVTec RGB",
+    "parameters_source": "main_cifar.py CLI defaults; train() effective ascent default",
+    "primary_selection": "author_test_selected",
+    "additional_selection": "fixed_final_epoch"
+  },
+  "shallow": {
+    "target": "MVTec_RBF_SVDD_source_non_gridsearch",
+    "nu": [
+      0.01,
+      0.1
+    ],
+    "pca_variance": 0.95,
+    "gamma": "1 / max_pairwise_normal_train_distance_squared",
+    "source": "deep_svdd_theano/src/svm.py:188-192, GridSearch=False",
+    "preprocessing": "source divide255, train min/max, train-only PCA95"
+  },
+  "evaluation": "all 15 categories, official full test; DROCC retains upstream test-AUC checkpoint selection",
+  "deep_selection": "fixed_final_epoch"
+}

@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_one-class",
+  "category": "zipper",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "fac88254f295af020c4ce5574ac9ff5753e7d0cafc00f546baf71cf725593b34",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 151,
+  "auroc": 0.4201680672268907,
+  "average_precision": 0.7551732714820774,
+  "predictions_sha256": "a3d3e10dc1afb5dd37f9870966a083346114a8cde956f64d779897be0d0dccaf",
+  "complete": true
+}

@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_one-class",
+  "category": "bottle",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "f03f63f39f4b8de6e35138d5259feed3e71ebe4af9c984ede5e75be2f8870165",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 83,
+  "auroc": 0.8698412698412699,
+  "average_precision": 0.9585484157709545,
+  "predictions_sha256": "6e9e9ac6a6090ab5394f91d654190710d1047f5a93b3e54649d27e6af4be5456",
+  "complete": true
+}

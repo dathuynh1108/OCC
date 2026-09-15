@@ -1,0 +1,12 @@
+{
+  "target": "MVTec_RBF_SVDD_source_non_gridsearch",
+  "nu": [
+    0.01,
+    0.1
+  ],
+  "pca_variance": 0.95,
+  "gamma": "1 / max_pairwise_normal_train_distance_squared",
+  "source": "deep_svdd_theano/src/svm.py:188-192, GridSearch=False",
+  "preprocessing": "source divide255, train min/max, train-only PCA95",
+  "category": "zipper"
+}

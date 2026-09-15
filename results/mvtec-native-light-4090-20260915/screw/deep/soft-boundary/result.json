@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_soft-boundary",
+  "category": "screw",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "d3a47a3ef3bea918760b4d1dcd7eaa96eab07f3913a0d76772306f953a803dda",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 160,
+  "auroc": 0.4732527157204345,
+  "average_precision": 0.7463086660174042,
+  "predictions_sha256": "a281fef215cda14e508678e0a9239467dd3f45f76bd905bd5ef42594cb5f445e",
+  "complete": true
+}

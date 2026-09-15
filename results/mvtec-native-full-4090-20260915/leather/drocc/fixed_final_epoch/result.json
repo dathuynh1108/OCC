@@ -1,0 +1,15 @@
+{
+  "method": "DROCC",
+  "category": "leather",
+  "selection": "fixed_final_epoch",
+  "selected_epoch": 100,
+  "checkpoint_sha256": "5d27ae1192e115d82cdb0e47c54635d3f6a43ba65104b3ac49cd1fde07b94fdc",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 124,
+  "auroc": 0.5081521739130435,
+  "average_precision": 0.8188871436998255,
+  "predictions_sha256": "5ad894f6c74bfd5d9428d469e847e4140fc58e79df2c7e16a0c653f87b2acbc7",
+  "complete": true
+}

@@ -1,0 +1,14 @@
+{
+  "method": "DeepSVDD_soft-boundary",
+  "category": "wood",
+  "selection": "fixed_final_epoch",
+  "checkpoint_sha256": "a40c7ba86e09567e7ab6ae8d6d94a15a7891ea9d2e6ffc975a4b8818779a6333",
+  "checkpoint_replay_max_abs_error": 0.0,
+  "dataset": "mvtec",
+  "seed": 0,
+  "test_count": 79,
+  "auroc": 0.9403508771929825,
+  "average_precision": 0.9788899968196999,
+  "predictions_sha256": "7ac15c3a7d8fca6297b79cb693ae07e26c10e94da2ac31bd755b2c8fba26e3e6",
+  "complete": true
+}
