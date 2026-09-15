@@ -573,15 +573,16 @@ Average the 8 largest combined patch scores, using the same image aggregation as
 
 \def\phase{CONCLUSION}
 \begin{frame}[t]{What the experiment shows}
+\small
 \vspace{.26cm}
-\head{1. Distance to normal examples is a strong baseline}
-The matched-memory PatchScore control achieves \textbf{98.57\% AUROC}; the same-center control achieves \textbf{95.86\%}.
-\par\vspace{.42cm}
-\head{2. Adding diffusion reduces overall accuracy}
-Soft-min + diffusion loses \textbf{6.31 pp}; hard-min + diffusion loses \textbf{7.06 pp}. Both improve only \textbf{2 of 15 categories}.
-\par\vspace{.42cm}
-\head{3. The current evidence favors the local score}
-The results do not support adding diffusion in this configuration. Further work should isolate graph connectivity and component scaling before changing the scoring rule.
+\head{1. Frozen features set a high bar}
+The ImageNet-pretrained Wide ResNet descriptor likely already captures much nonlinear normal structure: PatchScore with a normal memory bank reaches \textbf{98.57\% AUROC}.
+\par\vspace{.30cm}
+\head{2. Bubble centers are an encouraging compressed summary}
+The center-only control uses \textbf{128} bubble centers $c_j$ and reaches \textbf{95.86\% AUROC}: only \textbf{2.71 pp} below the \textbf{2,262}-vector PatchScore memory reference. This is evidence that the local bubble fit captures a large share of normal structure.
+\par\vspace{.30cm}
+\head{3. The current limitation is diffusion}
+Soft-min + diffusion loses \textbf{6.31 pp}; hard-min + diffusion loses \textbf{7.06 pp}. On these strong features, the evidence favors the local center score; next isolate graph connectivity and component scaling.
 \end{frame}
 
 \def\phase{APPENDIX}
