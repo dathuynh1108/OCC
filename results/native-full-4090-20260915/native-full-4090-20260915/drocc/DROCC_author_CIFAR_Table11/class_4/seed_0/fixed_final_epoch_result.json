@@ -1,0 +1,17 @@
+{
+  "target": "DROCC_author_CIFAR_Table11",
+  "dataset": "cifar10",
+  "normal_class": 4,
+  "seed": 0,
+  "selection": "fixed_final_epoch",
+  "selected_epoch": 100,
+  "trained_epochs": 100,
+  "test_count": 10000,
+  "auroc": 0.6945812222222222,
+  "average_precision": 0.9525496058013277,
+  "checkpoint_replay_max_abs_error": 0.0,
+  "checkpoint_sha256": "d5454c85a0e6beca82661f1bfaeb95f610de2765123dd8fe1a303b332f6e5bb6",
+  "prediction_sha256": "9eb7cb6c7345ef87c7709dae2dec95c900ed255c52ce5613708a7b41065d2202",
+  "smoke": false,
+  "complete": true
+}

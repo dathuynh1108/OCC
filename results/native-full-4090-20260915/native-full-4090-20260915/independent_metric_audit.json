@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "run_plan": "run_plan.json",
+  "run_plan_sha256": "39019ebc0e3a8b57e8c52263c051b22778372a6119f51e6c84449b579649316d",
+  "source_lock_sha256": "809666ff44691270b772d3a0228e584e98c4289265bb04a88ffe1715b03c1d6e",
+  "prediction_rows_checked": 4600000,
+  "fixed_final_metric_rows": 430,
+  "test_selected_diagnostic_rows": 30,
+  "summary_rows": 5,
+  "presentation_selection": "fixed_final_epoch",
+  "metric_implementation": "stdlib tied-rank AUROC and threshold-group AP"
+}
