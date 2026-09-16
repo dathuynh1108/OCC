@@ -601,8 +601,8 @@ Average the 8 largest combined patch scores, using the same image aggregation as
 \head{1. Frozen features set a high bar}
 The ImageNet-pretrained Wide ResNet descriptor likely already captures much nonlinear normal structure: PatchScore with a normal memory bank reaches \textbf{98.57\% AUROC}.
 \par\vspace{.30cm}
-\head{2. Bubble centers are an encouraging compressed summary}
-The center-only control uses \textbf{128} bubble centers $c_j$ and reaches \textbf{95.86\% AUROC}: only \textbf{2.71 pp} below the \textbf{2,262}-vector PatchScore memory reference. This is evidence that the local bubble fit captures a large share of normal structure.
+\head{2. Finding: compact centers retain most of PatchScore}
+Replacing the \textbf{2,262}-vector PatchScore memory bank with only \textbf{128} bubble centers ($\sim$\textbf{17.7$\times$ fewer representatives}) still reaches \textbf{95.86\% AUROC}, just \textbf{2.71 pp} lower. The bubble construction therefore acts as a compact normal memory while preserving most of the useful structure.
 \par\vspace{.30cm}
 \head{3. The current limitation is diffusion}
 Soft-min + diffusion loses \textbf{6.31 pp}; hard-min + diffusion loses \textbf{7.06 pp}. On these strong features, the evidence favors the local center score; next isolate graph connectivity and component scaling.
