@@ -149,10 +149,19 @@ One memory per category.
 \column{.54\textwidth}
 \head{Get the score}
 \textbf{Patch:} distance to the nearest memory patch.
+\[
+s_i=\min_{m\in\mathcal M}\|z_i-m\|_2.
+\]
+\textbf{Image:} take the largest patch score, then apply neighborhood reweighting.
+\[
+\begin{aligned}
+s^*&=\max_i s_i,\\
+s(x)&=\left(1-\frac{e^{\|m_{\mathrm{test},*}-m^*\|_2}}
+{\sum_{m\in\mathcal N_b(m^*)}e^{\|m_{\mathrm{test},*}-m\|_2}}\right)s^*.
+\end{aligned}
+\]
 \par\vspace{.28cm}
-\textbf{Image:} largest patch distance, reweighted using neighboring memory patches.
-\par\vspace{.28cm}
-\textbf{Map:} arrange patch scores, upsample, smooth.
+\textbf{Map:} arrange patch scores, upsample, smooth (Gaussian blur).
 \end{columns}
 \end{frame}
 
