@@ -284,29 +284,41 @@ Pretrain an autoencoder on normal images, then transfer its encoder weights.
 \def\phase{BASELINE METHODS}
 \begin{frame}[t]{DROCC: generate negatives around normal images}
 \small
-\vspace{.18cm}
+\vspace{.03cm}
+{\footnotesize
+\[
+\min_\theta\;\lambda\|\theta\|^2+
+\sum_i\!\left[\ell(g_\theta(x_i),+1)
++\mu\max_{\tilde x\in\mathcal N_i(r)}\ell(g_\theta(\tilde x),-1)\right].
+\]
+}
+\vspace{-.18cm}
 \begin{columns}[T,onlytextwidth]
-\column{.48\textwidth}
-\centering\includegraphics[width=\linewidth,height=4.6cm,keepaspectratio]{drocc.pdf}
-\column{.46\textwidth}
-\head{Generate negatives}
-Perturb normal images; search a local shell.
-\par\vspace{.13cm}
-\head{Train}
-Separate normal images from generated negatives.
-\par\vspace{.13cm}
-\head{Score}
-Negate the normal-class output.
-\par\vspace{.13cm}
-\head{CIFAR-10 benchmark}
-10 one-vs-rest tasks.\\
-Per task: 5,000 normal train; 10,000 test.
-\par\vspace{.13cm}
-\head{Full reproduction settings}
-100 epochs; batch 128; no CE-only warmup.\\
-50 ascent steps; project every 10.\\
-LR steps at 40, 80; Table 11 class settings.
+\column{.43\textwidth}
+\centering\includegraphics[width=\linewidth,height=3.55cm,keepaspectratio]{drocc.pdf}
+\column{.53\textwidth}
+\head{Generate a hard negative}
+\textbf{1.} Start from $\tilde x=x_i+h$ near a normal sample.
+\par\vspace{.04cm}
+\textbf{2.} Make it harder by projected gradient ascent:
+{\footnotesize
+\[
+h\leftarrow\Pi_{[r,\gamma r]}\!\left(
+h+\eta\frac{\nabla_h\ell(g_\theta(x_i+h),-1)}
+{\|\nabla_h\ell(g_\theta(x_i+h),-1)\|_2}
+\right).
+\]
+}
+Increase the negative-label loss, then project back to
+$r\le\|h\|_2\le\gamma r$.
+\par\vspace{.06cm}
+\textbf{3.} Train $x_i\mapsto +1$, $\tilde x\mapsto -1$; anomaly score is the negative normal-class output.
 \end{columns}
+\vspace{.10cm}
+{\footnotesize
+\textbf{CIFAR-10:} 10 one-vs-rest tasks; 5,000 normal train / 10,000 test per task.\\[-.01cm]
+\textbf{Reproduction:} 100 epochs, batch 128, no CE-only warmup; 50 ascent steps, project every 10; LR steps 40/80.
+}
 \end{frame}
 
 \def\phase{REPRODUCTION}
