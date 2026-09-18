@@ -403,7 +403,7 @@ S_{\mathrm{soft}}(z)=-T_b\log\!\left[\frac1K\sum_{j\in\Cand(z)}e^{-E_j(z)/T_b}\r
 \column{.48\textwidth}
 \head{Attachment to the graph}
 \[
-b_j(z)=\frac{e^{-E_j(z)/T_b}}{\sum_{k\in\Cand(z)}e^{-E_k(z)/T_b}}.
+p_j(z)=\frac{e^{-E_j(z)/T_b}}{\sum_{k\in\Cand(z)}e^{-E_k(z)/T_b}}.
 \]
 \end{columns}
 \end{frame}
@@ -518,15 +518,15 @@ D_{t,L}^2(i,j)=\norm{\Phi_t(B_i)-\Phi_t(B_j)}^2.
 \par\textbf{Distant bubbles: higher dispersion}
 \end{columns}
 \[
-\boxed{S_D(z)=\frac1{2|\TT|}\sum_{t\in\TT}\sum_{i,j}b_i(z)b_j(z)D_{t,L}^2(i,j).}
+\boxed{S_D(z)=\frac1{2|\TT|}\sum_{t\in\TT}\sum_{i,j}p_i(z)p_j(z)D_{t,L}^2(i,j).}
 \]
 \begin{columns}[T,onlytextwidth]
 \column{.50\textwidth}
 \head{Equivalent variance at time $t$}
 \[
 \begin{aligned}
-\bar\Phi_t(z)&=\sum_jb_j(z)\Phi_t(B_j),\\[0.2em]
-S_{D,t}(z)&=\sum_jb_j(z)\norm{\Phi_t(B_j)-\bar\Phi_t(z)}^2.
+\bar\Phi_t(z)&=\sum_jp_j(z)\Phi_t(B_j),\\[0.2em]
+S_{D,t}(z)&=\sum_jp_j(z)\norm{\Phi_t(B_j)-\bar\Phi_t(z)}^2.
 \end{aligned}
 \]
 \column{.46\textwidth}
