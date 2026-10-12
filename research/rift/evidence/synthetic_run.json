@@ -1,0 +1,31 @@
+{
+  "scope": "synthetic graph mechanism probe, not image AD",
+  "environment": {
+    "python": "3.13.5",
+    "torch": "2.10.0+cpu",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "sklearn": "1.8.0",
+    "cuda_available": false
+  },
+  "seconds": 6.094852447509766,
+  "config": {
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "noises": [
+      0.0,
+      0.35
+    ],
+    "train": 32,
+    "cal": 64,
+    "test_per_kind": 64
+  },
+  "claims": [
+    "No real images evaluated.",
+    "No hyperparameters selected on test labels.",
+    "Shortest-path and all-role-transfer baselines have the same graph and role evidence."
+  ]
+}

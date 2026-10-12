@@ -1,0 +1,6 @@
+{
+  "backbone": "wide_resnet50_2", "image_size": 320, "grid_size": 16,
+  "feature_dim": 96, "roles": 12, "position_weight": 0.25,
+  "temperature": 0.15, "kmeans_samples": 30000, "batch_size": 4,
+  "times": [0.5, 2.0, 8.0, 32.0], "eta": 0.5, "pca_dim": 0
+}

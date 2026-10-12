@@ -1,0 +1,7 @@
+# Install/keep the appropriate CUDA torch + torchvision pair first.
+# Tested numerical APIs: torch 2.10.0, torchvision 0.25.0 (CPU).
+numpy>=1.26,<3
+scipy>=1.11,<2
+scikit-learn>=1.4,<2
+Pillow>=10,<13
+pytest>=8,<10
