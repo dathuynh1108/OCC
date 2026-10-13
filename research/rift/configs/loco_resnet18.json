@@ -1,0 +1,6 @@
+{
+  "backbone": "resnet18", "image_size": 256, "grid_size": 14,
+  "feature_dim": 64, "roles": 8, "position_weight": 0.25,
+  "temperature": 0.15, "kmeans_samples": 20000, "batch_size": 8,
+  "times": [0.5, 2.0, 8.0, 32.0], "eta": 0.5, "pca_dim": 0
+}
